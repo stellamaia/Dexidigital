@@ -1,7 +1,7 @@
 <template>
     <div class="footer">
         <v-row>
-            <v-col cols="12" sm="3" md="3" lg="3" xl="3">
+            <v-col cols="12" sm="6" md="3" lg="3" xl="3">
                 <h2>Dexidigital</h2>
                 <p>A <span class="text-font">Usemobile</span> é uma empresa de Minas Gerais focada no desenvolvimento de
                     aplicativos mobile e sistemas web. Fornecemos soluções para startups até o
@@ -11,10 +11,9 @@
                 <p class="information">25.153.072/0001-08
                     Usemobile Soluções em Tecnologia Ltda</p>
             </v-col>
-            <v-col cols="12" sm="3" md="3" lg="3" xl="3">
+            <v-col cols="12" sm="6" md="3" lg="3" xl="3">
                 <div>
                     <h4>Outsourcing de TI e Squads</h4>
-
                     <router-link class="links" to="/">O que é outsourcing de TI?</router-link><br>
                     <router-link class="links" to="/">Tipos de contrato de outsourcing</router-link><br>
                     <router-link class="links" to="/">Por que terceirizar seu software?</router-link><br>
@@ -23,13 +22,11 @@
 
                 </div>
             </v-col>
-            <v-col cols="12" sm="3" md="3" lg="3" xl="3">
+            <v-col cols="12" sm="6" md="3" lg="3" xl="3">
                 <div>
                     <h4>Dexidigital</h4>
-
                     <router-link class="links" to="/">Trabalhe conosco</router-link><br>
                     <router-link class="links" to="/">Diretrizes da marca</router-link><br>
-
                     <router-link class="links" to="/">Imprensa</router-link><br>
                     <router-link class="links" to="/">Ouro Preto</router-link>
                 </div>
@@ -62,21 +59,16 @@
                             <i class="fab fa-linkedin icon"></i>
                         </a>
                     </span>
-
                 </div>
             </v-col>
-
-
         </v-row>
     </div>
 </template>
-
 
 <script>
 export default {
     name: 'FooterComponent'
 }
-
 </script>
 <style scoped>
 .text-font {
@@ -91,13 +83,13 @@ export default {
     padding: 60px;
     background-color: #292929;
     color: white;
+
+
 }
 
 .links {
     color: white !important;
     text-decoration: none;
-
-
 }
 
 .links:hover {
@@ -108,7 +100,6 @@ export default {
 
 .social-media {
     padding-top: 60px !important;
-
 }
 
 .icon {
@@ -125,8 +116,6 @@ export default {
 
 @media screen and (max-width: 570px) {
     .footer {
-
         text-align: center;
     }
-}
-</style>
+}</style>

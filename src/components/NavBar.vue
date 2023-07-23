@@ -1,24 +1,27 @@
 <template>
-  <div class="nav-bar-component">
-    <nav class="navbar fixed-top container-nav" style="background-color: rgb(225, 201, 201);">
+  <nav class="navbar navbar-expand-sm bg-body-tertiary">
+    <div class="container-fluid">
 
+      <router-link class="navbar-brand" to="/">Dexidigital</router-link>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
 
-      <b-navbar-toggle  target="nav-text-collapse">
-        <i class="material-symbols-outlined menu"> Menu </i>
-      </b-navbar-toggle>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <router-link class="nav-link active" to="/">Dexidigital</router-link>
+              <router-link class="nav-link active" to="/blogs">Blogs</router-link>
 
+            </li>
+          </ul>
 
-      <b-collapse id="nav-text-collapse" is-nav>
-        <b-navbar-nav>
-          <b-nav-text> <router-link class="icon" to="/">
-              <a>Home</a>
-            </router-link></b-nav-text>
-        </b-navbar-nav>
-      </b-collapse>
-
-    </nav>
-
-  </div>
+        </div>
+      </div>
+    </div>
+  </nav>
 </template>
 
 <script>
@@ -33,12 +36,11 @@ export default {
 
 <style scoped>
 .offcanvas {
-  background-image: linear-gradient(to right bottom, #030328 60%, #5c0b5b 170%);
   color: white;
 }
 
 .nav-bar-component {
-  background-color: #030328;
+  background-color: #8989e1;
 }
 
 .container-nav {
@@ -69,4 +71,25 @@ export default {
   width: 20%;
 }
 
-@media (max-width: 768px) {}</style>
+.navbar-toggler:focus {
+  text-decoration: none !important;
+  outline: 0 !important;
+  box-shadow: 0 0 0 0 !important;
+}
+
+.navbar-toggler {
+  border: none !important;
+}
+
+@media screen and (min-width: 575px) {
+  .nav-item {
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .container-fluid {
+    padding: 0 50px 0 50px;
+  }
+}
+</style>
