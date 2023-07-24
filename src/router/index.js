@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import BlogsView from '../views/BlogsView.vue'
+import BlogView from '../views/BlogView.vue'
+import FormView from '../views/FormView.vue'
+import PostsView from '../views/PostsView.vue'
 
 Vue.use(VueRouter)
 
@@ -12,9 +14,19 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/blogs',
-    name: 'blogs',
-    component: BlogsView
+    path: '/blog',
+    name: 'blog',
+    component: BlogView
+  },
+  {
+    path: '/formulario',
+    name: 'form',
+    component: FormView
+  },
+  {
+    path: '/posts/:title',
+    name: 'posts',
+    component: PostsView
   }
 ]
 
