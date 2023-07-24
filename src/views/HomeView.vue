@@ -1,6 +1,6 @@
 <template>
   <div class="container-home">
-    <NavBar />
+    <NavBar /> 
     <div class="background-image">
       <p class="title-home">
         <span class="title-home-degrade">Potência em</span><br>
@@ -11,7 +11,8 @@
         Android, iOS, Flutter, Web e UI/UX Design
       </p>
       <div class="content-btn-contact">
-        <button class="btn-contact">Solicitar um orçamento</button>
+        <router-link class="nav-link active btn-contact" to="/formulario"> Solicitar um orçamento
+</router-link>
       </div>
     </div>
 
@@ -68,20 +69,20 @@
 
 
     </div>
-    <FooterComponent />
+   <FooterComponent /> 
   </div>
 </template>
 
-<script>
-import NavBar from '../components/NavBar'
-import FooterComponent from '../components/FooterComponent'
+<script scoped>
+ import NavBar from '../components/NavBar'
+ import FooterComponent from '../components/FooterComponent'
 
 export default {
   name: 'HomeView',
 
   components: {
-    NavBar,
-    FooterComponent
+     NavBar,
+  FooterComponent
   },
 }
 </script> 
@@ -90,6 +91,9 @@ export default {
   background-color: white;
 }
 
+.navbar-brand:hover{
+color:#1976d2;
+}
 .content-home {
   padding: 70px 20px;
 
@@ -142,10 +146,6 @@ export default {
   font-size: 20px;
   font-weight: 300;
   color: black;
-
-
-
-
 }
 
 .btn-contact {
@@ -155,6 +155,7 @@ export default {
   font-size: 14px;
   font-weight: bold;
   width: 70%;
+  text-align: center;
 }
 
 .btn-contact:hover {
@@ -327,4 +328,5 @@ export default {
   .custom-subtitle-services {
     padding: 0 350px 0 350px;
   }
-}</style>
+}
+</style>

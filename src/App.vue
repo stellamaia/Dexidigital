@@ -1,15 +1,26 @@
 <template>
+  <v-app>
   <div id="app">
-    <NavBar/>
-    <!-- <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/blogs">blogs</router-link>
-    </nav> -->
+    <!-- <NavBar/> -->
+
 
     <router-view/>
   </div>
+</v-app>
+
 </template>
 
+<script>
+// import NavBar from './components/NavBar'
+export default {
+  name: 'App',
+
+  // // components: {
+  // //   NavBar, 
+  // // },
+};
+
+</script>
 <style>
 </style>
 
