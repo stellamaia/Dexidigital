@@ -2,7 +2,11 @@
   <nav class="navbar navbar-expand-sm bg-body-tertiary">
     <div class="container-fluid">
 
-      <router-link class="navbar-brand" to="/">Dexidigital</router-link>
+      <router-link class="navbar-brand" to="/">
+     
+        <img class="logo" alt="logo-dexi" src="../assets/dexi.svg" />
+      </router-link>
+     
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
         aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -36,8 +40,15 @@ export default {
 </script>
 
 <style scoped>
+.logo{
+  height: 40px;
+}
 .offcanvas {
   color: white;
+}
+.bg-body-tertiary{
+  -webkit-box-shadow: 0 3px 6px 0 rgb(50 50 50 / 17%)!important;
+    box-shadow: 0 3px 6px 0 rgb(50 50 50 / 16%)!important;
 }
 .navbar-brand:hover{
   color: #1976d2!important;

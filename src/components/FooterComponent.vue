@@ -2,50 +2,32 @@
     <div class="footer">
         <v-row>
 
-            <v-col cols="12" sm="12" md="12" lg="12" xl="3">
+            <v-col class="content-social-media" cols="12" sm="12" md="12" lg="12" xl="4">
                 <div class="content-footer">
 
                     <h2>Dexidigital</h2>
                     <p>A <span class="text-font">Usemobile</span> é uma empresa de Minas Gerais focada no desenvolvimento de
                         aplicativos mobile e sistemas web. Fornecemos soluções para startups até o
                         mais alto nível empresarial.</p>
-                    <p class="information">25.153.072/0001-08 <br>
-                        Usemobile Soluções em Tecnologia Ltda</p>
+                   
                 </div>
             </v-col>
 
-            <v-col cols="12" sm="12" md="12" lg="6" xl="3">
+            <v-col  class="content-social-media" cols="12" sm="12" md="12" lg="12" xl="4">
 
                 <div>
                     <h4>Outsourcing de TI e Squads</h4>
-                    <router-link class="links" to="/">O que é outsourcing de TI?</router-link><br>
-                    <router-link class="links" to="/">Tipos de contrato de outsourcing</router-link><br>
-                    <router-link class="links" to="/">Por que terceirizar seu software?</router-link><br>
-                    <router-link class="links" to="/">Quanto custa um aplicativo?</router-link><br>
-                    <router-link class="links" to="/">O que é Squad Ágil?</router-link>
+                    <router-link class="links" to="/">Serviços</router-link><br>
+                    <router-link class="links" to="/">Squads de desenvolvimento</router-link><br>
+                    <router-link class="links" to="/">Experiência digital</router-link><br>
+                    <router-link class="links" to="/">Outsourcing de TI</router-link><br>
+                    <router-link class="links" to="/">Aplicativos Mobile</router-link>
 
                 </div>
             </v-col>
 
-
-            <v-col cols="12" sm="12" md="12" lg="6" xl="3">
-
-                <div>
-                    <h4>Dexidigital</h4>
-                    <router-link class="links" to="/">Trabalhe conosco</router-link><br>
-                    <router-link class="links" to="/">Diretrizes da marca</router-link><br>
-                    <router-link class="links" to="/">Imprensa</router-link><br>
-                    <router-link class="links" to="/">Ouro Preto</router-link>
-                </div>
-            </v-col>
-
-            <v-col cols="12" sm="12" md="12" lg="6" xl="3">
+            <v-col class="content-social-media" cols="12" sm="12" md="12" lg="12" xl="4">
                 <div class="social-media">
-                    <span class="elementor-screen-only ">
-                        <a href="https://www.facebook.com/usemobile" target="_blank" click="social">
-                            <i class="fab fa-facebook icon"></i>
-                        </a>
-                    </span>
 
                     <span class="elementor-screen-only">
                         <a href="https://www.youtube.com/usemobile" target="_blank" click="social">
@@ -78,10 +60,6 @@ export default {
 <style scoped>
 .text-font {
     font-weight: bold;
-}
-
-.information {
-    padding-top: 10px;
 }
 
 .footer {
@@ -122,4 +100,11 @@ export default {
         text-align: center;
     }
 }
+
+ @media screen and  (min-width: 1200px)  {
+    .content-social-media{
+    justify-content: center;
+    display: flex;
+}
+} 
 </style>
