@@ -12,9 +12,10 @@
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li class="nav-item">
-              <router-link class="nav-link active" to="/">Dexidigital</router-link>
-              <router-link class="nav-link active" to="/blogs">Blogs</router-link>
-
+              <router-link class="nav-link " to="/" :class="{ 'active': $route.path === '/' }">Home</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link " to="/blog"  :class="{ 'active': $route.path === '/blog' }">Blog</router-link>
             </li>
           </ul>
 
@@ -38,9 +39,19 @@ export default {
 .offcanvas {
   color: white;
 }
+.navbar-brand:hover{
+  color: #1976d2!important;
+}
+.navbar-brand:focus{
+  color: #1976d2!important;
+}
 
-.nav-bar-component {
-  background-color: #8989e1;
+.active {
+  border-bottom: 2px solid #000000;
+}
+
+.nav-link{
+  color: #000000;
 }
 
 .container-nav {
@@ -85,11 +96,21 @@ export default {
   .nav-item {
     display: flex;
   }
+  
 }
+@media screen and (max-width: 576px) {
+
+.active{
+  border-bottom: none;
+  color: #1976d2!important;
+}
+}
+ 
 
 @media screen and (min-width: 769px) {
   .container-fluid {
     padding: 0 50px 0 50px;
   }
+ 
 }
 </style>
