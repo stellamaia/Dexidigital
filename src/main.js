@@ -5,8 +5,9 @@ import store from './store'
 import vuetify from './plugins/vuetify'
 
 import 'bootstrap/dist/css/bootstrap.css'
+import VueTheMask from 'vue-the-mask'
 
-
+Vue.use(VueTheMask)
 
 Vue.config.productionTip = false
 
