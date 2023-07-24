@@ -1,17 +1,21 @@
 <template>
     <div class="footer">
         <v-row>
-            <v-col cols="12" sm="6" md="3" lg="3" xl="3">
-                <h2>Dexidigital</h2>
-                <p>A <span class="text-font">Usemobile</span> é uma empresa de Minas Gerais focada no desenvolvimento de
-                    aplicativos mobile e sistemas web. Fornecemos soluções para startups até o
-                    mais alto nível empresarial. Como empresa de desenvolvimento de aplicativos
-                    para dispositivos móveis garantimos que você receba a atenção do seu público-alvo
-                    e aumente o número de clientes em seu app para dispositivos móveis.</p>
-                <p class="information">25.153.072/0001-08
-                    Usemobile Soluções em Tecnologia Ltda</p>
+
+            <v-col cols="12" sm="12" md="12" lg="12" xl="3">
+                <div class="content-footer">
+
+                    <h2>Dexidigital</h2>
+                    <p>A <span class="text-font">Usemobile</span> é uma empresa de Minas Gerais focada no desenvolvimento de
+                        aplicativos mobile e sistemas web. Fornecemos soluções para startups até o
+                        mais alto nível empresarial.</p>
+                    <p class="information">25.153.072/0001-08 <br>
+                        Usemobile Soluções em Tecnologia Ltda</p>
+                </div>
             </v-col>
-            <v-col cols="12" sm="6" md="3" lg="3" xl="3">
+
+            <v-col cols="12" sm="12" md="12" lg="6" xl="3">
+
                 <div>
                     <h4>Outsourcing de TI e Squads</h4>
                     <router-link class="links" to="/">O que é outsourcing de TI?</router-link><br>
@@ -22,7 +26,10 @@
 
                 </div>
             </v-col>
-            <v-col cols="12" sm="6" md="3" lg="3" xl="3">
+
+
+            <v-col cols="12" sm="12" md="12" lg="6" xl="3">
+
                 <div>
                     <h4>Dexidigital</h4>
                     <router-link class="links" to="/">Trabalhe conosco</router-link><br>
@@ -31,11 +38,8 @@
                     <router-link class="links" to="/">Ouro Preto</router-link>
                 </div>
             </v-col>
-            <v-col cols="12" sm="3" md="3" lg="3" xl="3">
-                <div>
-                    <p>Av. Juscelino Kubitscheck, 909, Bauxita Ouro Preto – MG
-                        35400-000 – Brasil</p>
-                </div>
+
+            <v-col cols="12" sm="12" md="12" lg="6" xl="3">
                 <div class="social-media">
                     <span class="elementor-screen-only ">
                         <a href="https://www.facebook.com/usemobile" target="_blank" click="social">
@@ -62,6 +66,7 @@
                 </div>
             </v-col>
         </v-row>
+
     </div>
 </template>
 
@@ -98,9 +103,7 @@ export default {
     cursor: pointer;
 }
 
-.social-media {
-    padding-top: 60px !important;
-}
+
 
 .icon {
     font-size: 30px;
@@ -118,4 +121,5 @@ export default {
     .footer {
         text-align: center;
     }
-}</style>
+}
+</style>
