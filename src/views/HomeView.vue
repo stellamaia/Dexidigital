@@ -201,6 +201,20 @@ color:#1976d2;
   }
 }
 
+@media screen and (max-width: 481px){
+  .title-home{
+    padding-top: 40px!important;
+
+  }
+  .services{
+    margin-top:50px!important;
+    margin-left: 10px!important;
+    margin-right: 10px!important;
+  }
+  .content-btn-contact{
+    padding-top: 30px!important;
+  }
+}
 @media screen and (min-width: 481px) and (max-width: 768px) {
   .content-card-home {
     width: 45%;
@@ -273,6 +287,7 @@ color:#1976d2;
 
   .title-home {
     padding: 0 30px 0px 30px;
+ 
   }
 
   .content-btn-contact {
@@ -284,10 +299,6 @@ color:#1976d2;
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   .content-card-home {
     width: 30%;
-  }
-
-  .custom-subtitle-services {
-    padding: 0 280px 0 280px;
   }
 
 }
