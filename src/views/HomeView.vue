@@ -1,27 +1,35 @@
 <template>
   <div class="container-home">
-    <NavBar /> 
-    <div class="background-image">
-      <p class="title-home">
-        <span class="title-home-degrade">Potência em</span><br>
-        tecnologia mobile
-      </p>
+    <NavBar />
+    <v-row class="content-home-image">
+      <v-col cols="12" md="6">
 
-      <p class="description-home">Alocação de squad de desenvolvimento <br>
-        Android, iOS, Flutter, Web e UI/UX Design
-      </p>
-      <div class="content-btn-contact">
-        <router-link class="nav-link active btn-contact" to="/formulario"> Solicitar um orçamento
-</router-link>
-      </div>
-    </div>
 
+        <p class="title-home">
+          <span class="title-home-degrade">Qualidade e agilidade em</span><br>
+          aplicações seguras
+        </p>
+
+        <p class="description-home">Promova a confiança e a lealdade à marca <br>
+          por meio de experiências personalizadas </p>
+        <div class="content-btn-contact">
+          <router-link class="nav-link active btn-contact" to="/formulario"> Solicitar um orçamento
+          </router-link>
+        </div>
+
+      </v-col>
+      <v-col md="6">
+        <div class="  column-two background-image">
+
+        </div>
+      </v-col>
+    </v-row>
 
     <div class="services">
       <h1 class="custom-title-services">Nossos serviços</h1>
       <p class="custom-subtitle-services">
-        Da contratação de horas de desenvolvimento à uma consultoria completa.
-      </p>
+        Equipes dinâmicas para projeto estratégicos, impulsionando o crecimento consistente da sua empresa no ritmo que
+        você precisa. </p>
     </div>
     <div class="content-home">
 
@@ -31,8 +39,8 @@
         <v-card-text>
           <div class="information-services">
             <h4 class="title-services">Outsourcing de TI</h4>
-            <p class="description-services">Possui o roadmap do produto pronto? Contrate horas de desenvolvimento para
-              coloca-lo no ar.
+            <p class="description-services">
+              Construção de projetos com escopo bem definido. Ideal para demandas específicas e pontuais
             </p>
           </div>
         </v-card-text>
@@ -44,8 +52,7 @@
         <v-card-text>
           <div class="information-services">
             <h4 class="title-services">Aplicativos Mobile</h4>
-            <p class="description-services">De app para fintechs à aplicativos de mobilidade urbana, temos know-how em
-              diversos tipos de aplicativos.
+            <p class="description-services">Design e desenvolvimento de aplicativos mobile
 
 
             </p>
@@ -57,32 +64,40 @@
           height="250px" width="350px" cover></v-img>
         <v-card-text>
           <div class="information-services">
-            <h4 class="title-services">Tecnologias emergentes</h4>
-            <p class="description-services">Somos especialistas em desenvolvimento de aplicações para dispositivos
-              wearables e inteligentes (IoT).
-
-
+            <h4 class="title-services">Squads de desenvolvimento</h4>
+            <p class="description-services">Times com expertise TQI que atuam como parceiros para a evolução do seu
+              produto
+            </p>
+          </div>
+        </v-card-text>
+      </v-card>
+      <v-card class="mx-auto content-card-home">
+        <v-img class="img-services" src="https://usemobile.com.br/wp-content/uploads/2022/03/icone-tec-emergentes.svg"
+          height="250px" width="350px" cover></v-img>
+        <v-card-text>
+          <div class="information-services">
+            <h4 class="title-services">Experiência digital</h4>
+            <p class="description-services">tecnologia para potencializar experiências no meio digital
             </p>
           </div>
         </v-card-text>
       </v-card>
 
-
     </div>
-   <FooterComponent /> 
+    <FooterComponent />
   </div>
 </template>
 
 <script scoped>
- import NavBar from '../components/NavBar'
- import FooterComponent from '../components/FooterComponent'
+import NavBar from '../components/NavBar'
+import FooterComponent from '../components/FooterComponent'
 
 export default {
   name: 'HomeView',
 
   components: {
-     NavBar,
-  FooterComponent
+    NavBar,
+    FooterComponent
   },
 }
 </script> 
@@ -91,9 +106,10 @@ export default {
   background-color: white;
 }
 
-.navbar-brand:hover{
-color:#1976d2;
+.navbar-brand:hover {
+  color: #1976d2;
 }
+
 .content-home {
   padding: 70px 20px;
 
@@ -183,6 +199,9 @@ color:#1976d2;
   font-weight: 400;
 }
 
+.content-home-image {
+  padding: 0 20px 0 20px;
+}
 
 
 @media screen and (min-width:320px) and (max-width: 480px) {
@@ -201,20 +220,20 @@ color:#1976d2;
   }
 }
 
-@media screen and (max-width: 481px){
-  .title-home{
-    padding-top: 40px!important;
+@media screen and (max-width: 481px) {
 
+
+  .services {
+    margin-top: 50px !important;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
   }
-  .services{
-    margin-top:50px!important;
-    margin-left: 10px!important;
-    margin-right: 10px!important;
-  }
-  .content-btn-contact{
-    padding-top: 30px!important;
+
+  .content-btn-contact {
+    padding-top: 30px !important;
   }
 }
+
 @media screen and (min-width: 481px) and (max-width: 768px) {
   .content-card-home {
     width: 45%;
@@ -237,14 +256,16 @@ color:#1976d2;
 }
 
 @media screen and (min-width: 769px) {
-  .background-image {
-    height: 400px;
+  /* .background-image {
+    height: 100%;
+    width: 400px;
     padding: 140px 40px 40px 40px;
-    background-image: url(https://usemobile.com.br/wp-content/uploads/2022/02/Usemobile-empresa-de-aplicativo-hero.jpg);
+    background-image: url("../assets/image-home.png"); 
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-  }
+
+  } */
 
 
   .btn-contact {
@@ -256,13 +277,7 @@ color:#1976d2;
 }
 
 @media screen and (min-width: 767px) {
-  .background-image {
-    height: 520px;
-    background-image: url(https://usemobile.com.br/wp-content/uploads/2022/02/Usemobile-empresa-de-aplicativo-hero.jpg);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+
 
   .title-home {
     padding: 0 20px 0px 20px;
@@ -276,6 +291,10 @@ color:#1976d2;
 
 @media screen and (max-width: 767px) {
 
+  .background-image {
+    display: none;
+  }
+
   .title-home {
     font-size: 2rem;
     text-align: center;
@@ -287,7 +306,7 @@ color:#1976d2;
 
   .title-home {
     padding: 0 30px 0px 30px;
- 
+
   }
 
   .content-btn-contact {
@@ -296,7 +315,30 @@ color:#1976d2;
   }
 }
 
-@media screen and (min-width: 769px) and (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
+
+  .background-image {
+    margin-top: 30px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+  .title-home {
+    padding-top: 40px !important;
+    font-size: 27px;
+
+  }
+
+  .background-image {
+    height: 100%;
+    width: 100%;
+    background-image: url("../assets/image-home.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
   .content-card-home {
     width: 30%;
   }
@@ -304,13 +346,29 @@ color:#1976d2;
 }
 
 @media screen and (min-width: 1025px) and (max-width: 1200px) {
+  .background-image {
+    margin-top: 30px;
+  }
+
+  .title-home {
+    padding-top: 40px !important;
+    font-size: 38px;
+
+  }
+
+  .background-image {
+    height: 100%;
+    width: 100%;
+    background-image: url("../assets/image-home.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
   .content-card-home {
     width: 30%;
   }
 
-  .title-home {
-    font-size: 3rem;
-  }
 
   .description-home {
     font-size: 20px;
@@ -323,13 +381,28 @@ color:#1976d2;
 }
 
 @media screen and (min-width: 1201px) {
-  .content-card-home {
-    width: 340px;
-
+  .background-image {
+    margin-top: 30px;
   }
 
   .title-home {
-    font-size: 3.5rem;
+    padding-top: 40px !important;
+    font-size: 45px;
+
+  }
+
+  .background-image {
+    height: 100%;
+    width: 100%;
+    background-image: url("../assets/image-home.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .content-card-home {
+    width: 340px;
+
   }
 
   .description-home {
@@ -340,4 +413,28 @@ color:#1976d2;
     padding: 0 350px 0 350px;
   }
 }
-</style>
+
+@media screen and (min-width: 1201px) and (max-width: 1440px) {
+  .background-image {
+    height: 100%;
+    width: 600px;
+    background-image: url("../assets/image-home.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .column-one {
+    width: 500px !important;
+  }
+
+  .column-two {
+    width: 500px !important;
+
+  }
+
+  .content-home-image {
+    display: flex !important;
+    justify-content: center !important;
+  }
+}</style>
