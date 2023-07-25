@@ -169,27 +169,33 @@ export default {
 .v-application--wrap {
     min-height: 0;
 }
+
 .content-form {
     padding: 50px 20px 50px 20px;
 }
+
 .content-form-title {
     text-align: center;
 }
+
 .custom-title {
     font-size: 30px;
     font-weight: 100;
     line-height: 1;
 }
+
 .custom-strong {
     font-weight: bold;
     color: #7A7A7A;
     font-size: 30px;
 }
+
 .content-btn-form {
     display: flex;
     justify-content: center;
     padding: 40px 0 0px 0;
 }
+
 .btn-form {
     padding: 10px;
     background-color: #158BBF !important;
@@ -200,106 +206,130 @@ export default {
     width: 70%;
     cursor: pointer;
 }
+
 .btn-form:hover {
     background-color: #005276 !important;
     transition: 0.2s;
 }
+
 .btn-form:active {
     border: 1.5px solid black;
 }
+
 @media screen and (min-width: 481px) and (max-width: 768px) {
 
     .box-form {
         display: flex;
         justify-content: center;
     }
+
     .form {
         padding: 0 30px 0 30px;
         width: 90%;
     }
+
     .v-input__control {
         width: 100% !important;
     }
+
     .btn-form {
         width: 200px;
     }
 }
+
 @media screen and (max-width: 769px) {
     div#offcanvasNavbar {
         width: 70%;
     }
 }
+
 @media screen and (min-width: 769px) and (max-width: 1024px) {
     .content-form-title {
         display: flex;
         justify-content: center;
     }
+
     .custom-title {
         width: 350px;
     }
+
     .box-form {
         display: flex;
         justify-content: center;
     }
+
     .form {
         padding: 0 30px 0 30px;
         width: 90%;
     }
+
     .v-input__control {
         width: 100% !important;
     }
+
     .btn-form {
         width: 220px;
     }
 }
+
 @media screen and (min-width: 1025px) and (max-width: 1200px) {
     .content-form-title {
         display: flex;
         justify-content: center;
     }
+
     .custom-title {
         width: 350px;
 
     }
+
     .box-form {
         display: flex;
         justify-content: center;
     }
+
     .form {
         padding: 0 30px 0 30px;
         width: 70%;
     }
+
     .v-input__control {
         width: 100% !important;
     }
+
     .btn-form {
         width: 250px;
     }
 }
+
 @media screen and (min-width: 1201px) {
     .content-form-title {
         display: flex;
         justify-content: center;
     }
+
     .custom-title {
         width: 350px;
 
     }
+
     .box-form {
         display: flex;
         justify-content: center;
     }
+
     .form {
         padding: 0 30px 0 30px;
         width: 70%;
     }
+
     .v-input__control {
         width: 100% !important;
 
     }
+
     .btn-form {
         width: 250px;
 
     }
-}
-</style>
+}</style>
