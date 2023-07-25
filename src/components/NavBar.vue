@@ -41,7 +41,7 @@ export default {
 
 <style scoped>
 .logo{
-  height: 40px;
+  height: 50px;
 }
 .offcanvas {
   color: white;
