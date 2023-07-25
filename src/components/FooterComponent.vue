@@ -6,14 +6,17 @@
                 <div class="content-footer">
 
                     <h2>Dexidigital</h2>
-                    <p>A <span class="text-font">Usemobile</span> é uma empresa de Minas Gerais focada no desenvolvimento de
-                        aplicativos mobile e sistemas web. Fornecemos soluções para startups até o
-                        mais alto nível empresarial.</p>
-                   
+                    <p>A <span class="text-font">Dexi Digital</span>
+                        é uma empresa de tecnologia dinâmica e inovadora dedicada a fornecer soluções de ponta para o
+                        mundo digital. Nossa equipe de profissionais qualificados é apaixonada por tecnologia e comprometida
+                        em fornecer produtos e serviços de alto nível aos nossos clientes.
+
+                    </p>
+
                 </div>
             </v-col>
 
-            <v-col  class="content-social-media" cols="12" sm="12" md="12" lg="12" xl="4">
+            <v-col class="content-social-media" cols="12" sm="12" md="12" lg="12" xl="4">
 
                 <div>
                     <h4>Outsourcing de TI e Squads</h4>
@@ -29,19 +32,15 @@
             <v-col class="content-social-media" cols="12" sm="12" md="12" lg="12" xl="4">
                 <div class="social-media">
 
+
                     <span class="elementor-screen-only">
-                        <a href="https://www.youtube.com/usemobile" target="_blank" click="social">
-                            <i class="fab fa-youtube icon"></i>
-                        </a>
-                    </span>
-                    <span class="elementor-screen-only">
-                        <a href="https://www.instagram.com/usemobile/" target="_blank" click="social">
+                        <a href="https://www.instagram.com/dexi.digital/" target="_blank" click="social">
                             <i class="fab fa-instagram icon"></i>
                         </a>
                     </span>
 
                     <span class="elementor-screen-only">
-                        <a href="https://www.linkedin.com/company/usemobile/" target="_blank" click="social">
+                        <a href="https://www.linkedin.com/company/dexi-digital/" target="_blank" click="social">
                             <i class="fab fa-linkedin icon"></i>
                         </a>
                     </span>
@@ -101,10 +100,10 @@ export default {
     }
 }
 
- @media screen and  (min-width: 1200px)  {
-    .content-social-media{
-    justify-content: center;
-    display: flex;
+@media screen and (min-width: 1200px) {
+    .content-social-media {
+        justify-content: center;
+        display: flex;
+    }
 }
-} 
 </style>
