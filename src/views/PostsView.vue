@@ -2,13 +2,16 @@
     <div>
         <NavBar />
         <div v-for="post in posts" :key="post.id" class="content-post">
-            <h2 class="title-post">{{ post.title }}</h2>
-            <p class="date-post">{{ post.date }}</p>
-            <img class="img-blog" :src="post.image" alt="Imagem do Post">
-            <p class="description-post">{{ post.description1 }}</p>
-            <div v-for="(detail, index) in post.details" :key="index">
-                <p class="title-details">{{ detail.title }}</p>
-                <p>{{ detail.description }}</p>
+            <div v-if="post.url === localUrl">
+                <h2 class="title-url">{{ post.url }}</h2>
+                <h2 class="title-post">{{ post.title }}</h2>
+                <p class="date-post">{{ post.date }}</p>
+                <img class="img-blog" :src="post.image" alt="Imagem do Post">
+                <p class="description-post">{{ post.description1 }}</p>
+                <div v-for="(detail, index) in post.details" :key="index">
+                    <p class="title-details">{{ detail.title }}</p>
+                    <p>{{ detail.description }}</p>
+                </div>
             </div>
         </div>
         <FooterComponent />
@@ -26,7 +29,9 @@ export default {
 
     },
     data() {
+
         return {
+            localUrl: location.href.split("/posts")[1].split("?")[0].substring(1),
             posts: [
 
                 {
@@ -197,13 +202,6 @@ export default {
 
         }
     },
-    mounted() {
-    // Acessa o título do post da rota
-    const title = this.$route.params.title;
-    // Filtra a lista de posts para encontrar o post correto com base no título
-    this.post = this.posts.find(post => post.url === title);
-  }
-  
 }
 </script>
 <style scoped>
@@ -211,9 +209,15 @@ export default {
     padding: 60px 30px;
     font-family: 'Quicksand', sans-serif;
 }
-.title-details{
+
+.title-details {
     font-weight: bold;
 }
+
+.title-url {
+    display: none;
+}
+
 .img-blog {
     width: 100%;
     padding-bottom: 30px;
@@ -231,5 +235,4 @@ export default {
         padding: 60px 140px;
     }
 
-}
-</style>
+}</style>
