@@ -92,8 +92,6 @@ export default {
                 'Gerente de Marketing',
                 'Analista',
                 'Desenvolvedor',
-                'Treeine/Estágio',
-                'Estudante',
                 'Outros'
             ],
             description: '',
