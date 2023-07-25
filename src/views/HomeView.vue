@@ -2,7 +2,7 @@
   <div class="container-home">
     <NavBar />
     <v-row class="content-home-image">
-      <v-col cols="12" md="6">
+      <v-col cols="12"  md="6">
 
 
         <p class="title-home">
@@ -33,55 +33,70 @@
     </div>
     <div class="content-home">
 
-      <v-card class="mx-auto content-card-home">
-        <v-img class="img-services" src="https://usemobile.com.br/wp-content/uploads/2022/03/icone-outsourcing-ti.svg"
-          height="250px" width="350px" cover></v-img>
-        <v-card-text>
-          <div class="information-services">
-            <h4 class="title-services">Outsourcing de TI</h4>
-            <p class="description-services">
-              Construção de projetos com escopo bem definido. Ideal para demandas específicas e pontuais
-            </p>
-          </div>
-        </v-card-text>
-      </v-card>
-
-      <v-card class="mx-auto content-card-home">
-        <v-img class="img-services" src="https://usemobile.com.br/wp-content/uploads/2022/03/icone-apps-mobile.svg"
-          height="250px" width="350px" cover></v-img>
-        <v-card-text>
-          <div class="information-services">
-            <h4 class="title-services">Aplicativos Mobile</h4>
-            <p class="description-services">Design e desenvolvimento de aplicativos mobile
+    
 
 
-            </p>
-          </div>
-        </v-card-text>
-      </v-card>
-      <v-card class="mx-auto content-card-home">
-        <v-img class="img-services" src="https://usemobile.com.br/wp-content/uploads/2022/03/icone-tec-emergentes.svg"
-          height="250px" width="350px" cover></v-img>
-        <v-card-text>
-          <div class="information-services">
-            <h4 class="title-services">Squads de desenvolvimento</h4>
-            <p class="description-services">Times com expertise TQI que atuam como parceiros para a evolução do seu
-              produto
-            </p>
-          </div>
-        </v-card-text>
-      </v-card>
-      <v-card class="mx-auto content-card-home">
-        <v-img class="img-services" src="https://usemobile.com.br/wp-content/uploads/2022/03/icone-tec-emergentes.svg"
-          height="250px" width="350px" cover></v-img>
-        <v-card-text>
-          <div class="information-services">
-            <h4 class="title-services">Experiência digital</h4>
-            <p class="description-services">tecnologia para potencializar experiências no meio digital
-            </p>
-          </div>
-        </v-card-text>
-      </v-card>
+          <v-card class="mx-auto content-card-home">
+            <div class="container-img">
+
+              <img class="img-services" src="../assets/img-1.png" alt="">
+            </div>
+            <v-card-text>
+              <div class="information-services">
+                <h4 class="title-services">Outsourcing de TI</h4>
+                <p class="description-services">
+                  Construção de projetos com escopo bem definido. Ideal para demandas específicas e pontuais
+                </p>
+              </div>
+            </v-card-text>
+          </v-card>
+
+        
+            <v-card class="mx-auto content-card-home">
+              <div class="container-img">
+                <img class="img-services" src="../assets/img-2.png">
+              </div>
+              <v-card-text>
+                <div class="information-services">
+                  <h4 class="title-services">Aplicativos Mobile</h4>
+                  <p class="description-services">Design e desenvolvimento de aplicativos mobile
+
+
+                  </p>
+                </div>
+              </v-card-text>
+
+            </v-card>
+
+      
+            <v-card class="mx-auto content-card-home">
+              <div class="container-img">
+                <img class="img-services" src="../assets/img-3.png">
+              </div>
+              <v-card-text>
+                <div class="information-services">
+                  <h4 class="title-services">Squads de desenvolvimento</h4>
+                  <p class="description-services">Times com expertise TQI que atuam como parceiros para a evolução do seu
+                    produto
+                  </p>
+                </div>
+              </v-card-text>
+            </v-card>
+        
+            <v-card class="mx-auto content-card-home">
+              <div class="container-img">
+                <img class="img-services" src="../assets/img-4.png">
+              </div>
+              <v-card-text>
+                <div class="information-services">
+                  <h4 class="title-services">Experiência digital</h4>
+                  <p class="description-services">tecnologia para potencializar experiências no meio digital
+                  </p>
+                </div>
+              </v-card-text>
+            </v-card>
+     
+  
 
     </div>
     <FooterComponent />
@@ -113,17 +128,32 @@ export default {
 .content-home {
   padding: 70px 20px;
 
-  display: flex;
+display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: center; 
 }
 
 .content-card-home {
-  background-color: #f1f1f1;
+  background-color: white;
+  border-radius: 10px;
+  border: 1.5px solid rgb(208 208 208);
   box-shadow: none !important;
   width: 100%;
   margin-bottom: 50px;
+  padding: 20px;
   margin: 10px !important;
+
+}
+
+.container-img {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+
+}
+
+.img-services {
+  height: 100px;
 
 }
 
@@ -266,6 +296,7 @@ export default {
     background-size: cover;
 
   } */
+ 
 
 
   .btn-contact {
@@ -366,7 +397,8 @@ export default {
   }
 
   .content-card-home {
-    width: 30%;
+    width: 23%;
+ 
   }
 
 
@@ -401,7 +433,8 @@ export default {
   }
 
   .content-card-home {
-    width: 340px;
+    width: 22%;
+  
 
   }
 
