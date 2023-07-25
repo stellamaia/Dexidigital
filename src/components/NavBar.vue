@@ -19,7 +19,7 @@
               <router-link class="nav-link " to="/" :class="{ 'active': $route.path === '/' }">Home</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link " to="/blog"  :class="{ 'active': $route.path === '/blog' }">Blog</router-link>
+              <router-link class="nav-link " to="/blog"  :class="{ 'active': $route.path === '/blog' }">Conteúdos</router-link>
             </li>
           </ul>
 
