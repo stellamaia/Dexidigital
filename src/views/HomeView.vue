@@ -476,7 +476,7 @@ export default {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position-y: -120px;
+    background-position-y: -70px;
 
 
   }
