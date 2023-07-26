@@ -159,7 +159,7 @@ display: flex;
 
 .title-home {
   color: #000000;
-  font-size: 2.5rem;
+  font-size: 44px;
   font-weight: bold;
   text-transform: none;
   font-style: normal;
@@ -192,6 +192,8 @@ display: flex;
   font-size: 20px;
   font-weight: 300;
   color: black;
+  padding: 0 100px;
+
 }
 
 .btn-contact {
@@ -216,7 +218,7 @@ display: flex;
 }
 
 .title-services {
-  color: #4E4E4E;
+  color:#332e94;
   font-size: 18px;
   font-weight: bold;
   text-align: center;
@@ -224,7 +226,6 @@ display: flex;
 
 .description-services {
   text-align: center;
-  font-family: "Poppins", Poppins;
   font-size: 15px;
   font-weight: 400;
 }
@@ -336,7 +337,7 @@ display: flex;
   }
 
   .title-home {
-    padding: 0 30px 0px 30px;
+    padding: 50px 30px 10px 30px;
 
   }
 
