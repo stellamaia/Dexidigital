@@ -192,7 +192,7 @@ display: flex;
   font-size: 20px;
   font-weight: 300;
   color: black;
-  padding: 0 100px;
+
 
 }
 
@@ -250,7 +250,14 @@ display: flex;
     font-size: 17px;
   }
 }
+@media screen and (max-width:500px){
 
+  .custom-subtitle-services {
+  padding: 0 30px;
+
+}
+
+}
 @media screen and (max-width: 481px) {
 
 
@@ -337,7 +344,8 @@ display: flex;
   }
 
   .title-home {
-    padding: 50px 30px 10px 30px;
+    padding:50px 10px 10px 10px;
+   
 
   }
 
