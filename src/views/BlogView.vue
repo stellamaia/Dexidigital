@@ -7,12 +7,11 @@
           <v-img :src="post.image" height="200px" cover></v-img>
           <v-card-text>
             <div class="infos">
-              <h4>{{ truncateText(post.title, 50) }}</h4>
-              <p>{{ post.date }}</p>
-              <p>{{ truncateText(post.description, 50) }}</p>
+              <p class="title-blog">{{ post.title }}</p>
+              <p class="title-data" >{{ post.date }}</p>
+              <p>{{ truncateText(post.description, 150) }}</p>
               <div class="content-arrow">
-                <div class="links">View The Post</div>
-                <div class="links"><span class="material-symbols-outlined arrow">arrow_right_alt</span></div>
+                <div class="links"> Leia mais » </div>
               </div>
             </div>
           </v-card-text>
@@ -40,8 +39,9 @@ export default {
         {
           "post-1": "Post 1",
           "url": "a-importancia-de-contratar-uma-empresa",
+      
           "title": "A Importância de Contratar uma Empresa de Desenvolvimento de Software para Economizar com Projetos",
-          "date": "Postado em: 24 de Julho, 2023",
+          "date": "Postado em: 24 de Julho de 2023",
           "image": "https://cesu.cps.sp.gov.br/wp-content/uploads/2020/08/work-office-team-company-internet-5382501-800x445.jpg",
           "description": "No mundo cada vez mais digitalizado em que vivemos, a importância de ter um software eficiente e bem estruturado tornou-se indispensável para o sucesso de muitas empresas. No entanto, desenvolver um projeto de software é uma tarefa complexa e desafiadora que requer conhecimento técnico e expertise. Neste contexto, a contratação de uma softhouse pode ser a solução ideal para garantir a eficácia e economia na realização de um projeto de software. Neste artigo, exploraremos a relevância de uma softhouse e como ela pode trazer benefícios econômicos significativos para o contratante.",
           "details": [
@@ -88,7 +88,7 @@ export default {
           "post-2": "Post 2",
           "url": "a-importancia-do-outsourcing-para-projetos",
           "title": "A Importância do Outsourcing para Projetos e a Economia para o Contratante",
-          "date": "2023-07-25",
+          "date": "Postado em: 24 de Julho de 2023",
           "image": "https://tm.ibxk.com.br/2023/04/12/12133826462194.jpg?ims=1120x420",
           "description": "Em um mundo globalizado e altamente competitivo, as empresas buscam constantemente maneiras de otimizar seus processos, reduzir custos e aumentar a eficiência. Uma estratégia cada vez mais adotada é o outsourcing, que consiste em delegar a terceiros atividades que não fazem parte do core business da empresa. Neste artigo, exploraremos a importância do outsourcing para a realização de projetos e como essa prática pode trazer economia significativa para o contratante.",
           "details": [
@@ -134,7 +134,7 @@ export default {
           "post-4": "Post 4",
           "url": "a-importancia-de-processos-com-metodologiaias-ageis",
           "title": "A Importância de Processos com Metodologias Ágeis e Qualidade para o Sucesso do Projeto do Contratante",
-          "date": "2023-07-25",
+          "date": "Postado em: 24 de Julho de 2023",
           "image": "https://campinas.tech/wp-content/uploads/2020/04/1771.jpg",
           "description": "A realização de projetos bem-sucedidos é um dos principais objetivos de qualquer empresa ou organização. No entanto, a complexidade e os desafios envolvidos no gerenciamento de projetos podem ser bastante exigentes. Neste contexto, a adoção de processos com metodologias ágeis e foco na qualidade é fundamental para garantir o sucesso do projeto do contratante. Neste artigo, exploraremos a importância desses elementos-chave e como eles podem agregar valor e eficiência ao desenvolvimento do projeto.",
           "details": [
@@ -192,7 +192,7 @@ export default {
           "post-7": "Post 7",
           "url": "garantindo-a-qualidade",
           "title": "Garantindo a Qualidade: Testes e Revisões em Projetos de Softhouse",
-          "date": "2023-07-25",
+          "date": "Postado em: 24 de Julho de 2023",
           "image": "https://t.ctcdn.com.br/0z1Y06hw4IXdlNxtjIvg9_TMGn4=/1200x675/smart/filters:format(webp)/i570001.jpeg",
           "description": "Em um mercado competitivo e em constante evolução, a qualidade de um produto de software é fundamental para o sucesso de qualquer empresa ou organização. As softhouses, como parceiras estratégicas no desenvolvimento de soluções tecnológicas personalizadas, desempenham um papel crucial na garantia da qualidade dos projetos que entregam. Neste artigo, vamos explorar em detalhes a importância dos testes e revisões em projetos de softhouse, destacando as práticas e processos que asseguram a excelência e confiabilidade dos produtos desenvolvidos.",
           "details": [
@@ -227,30 +227,28 @@ export default {
 
             },
             {
-              "description": "Os testes de integração são fundamentais para garantir que todas as partes do software estejam integradas de forma eficiente, evitando conflitos ou incompatibilidades que possam prejudicar o funcionamento do sistema como um todo. Com essa abordagem, as softhouses garantem que o produto final seja um conjunto coeso e consistente de funcionalidades."
-
-
+              "description": "Os testes de integração são fundamentais para garantir que todas as partes do software estejam integradas de forma eficiente, evitando conflitos ou incompatibilidades que possam prejudicar o funcionamento do sistema como um todo. Com essa abordagem, as softhouses garantem que o produto final seja um conjunto coeso e consistente de funcionalidades.",
             },
             {
-
               "title": "Testes de Desempenho: Avaliando a Eficiência e a Escalabilidade",
               "description": "Os testes de desempenho têm como objetivo avaliar o comportamento do software em diferentes condições de uso e sob diferentes cargas de trabalho. Esses testes medem a capacidade do software de responder rapidamente às solicitações e garantir a sua eficiência e escalabilidade.",
 
-            }, {
+            },
+            {
               "description": "Palavras-chave: testes de desempenho, comportamento do software, eficiência, escalabilidade.",
-
-
-            }, {
+            }, 
+            {
               "description": "As softhouses utilizam os testes de desempenho para identificar gargalos e pontos críticos no software que possam impactar negativamente a sua performance. Com essa avaliação, é possível realizar ajustes e otimizações para garantir que o software opere de forma eficiente, mesmo em condições de uso intensivo.",
-
             },
             {
               "title": "Testes de Segurança: Protegendo o Software contra Ameaças",
               "description": "A segurança do software é uma preocupação crescente na era digital, onde ataques cibernéticos e violações de dados são cada vez mais comuns. Os testes de segurança têm como objetivo avaliar a resistência do software a possíveis ameaças e vulnerabilidades.",
-            }, {
+            },
+            {
               "description": "Palavras-chave: testes de segurança, resistência a ameaças, vulnerabilidades.",
 
-            }, {
+            },
+           {
               "description": "As softhouses aplicam testes de segurança para garantir que o software esteja protegido contra ataques, como invasões, vazamento de informações e exploração de vulnerabilidades. Com a identificação de possíveis falhas de segurança, medidas corretivas são tomadas para garantir a integridade e a confidencialidade dos dados."
 
             },
@@ -314,6 +312,13 @@ export default {
 }
 </script>
 <style scoped>
+.title-blog{
+  font-size: 19px;
+  font-weight: 700;
+}
+.title-data{
+color: #a9a9a9;
+}
 .img-blog {
   width: 100px !important;
 }
@@ -342,14 +347,19 @@ export default {
   cursor: pointer;
   font-size: 12px;
   text-decoration: none;
-  color: #000;
+  text-transform: uppercase;
+ color: black;
   margin-bottom: 20px;
 }
-
+.links:hover {
+  color: #7d7c7c;
+  transition: 1s;
+}
 .arrow {
   color: rgb(133, 133, 133);
   font-weight: 300;
 }
+
 .content-arrow {
 
   display: flex;

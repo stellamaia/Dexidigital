@@ -28,7 +28,7 @@
                                 @input="$v.email.$touch()" @blur="$v.email.$touch()"></v-text-field>
                         </v-col>
                         <v-col cols="12" sm="12" md="6">
-                            <v-text-field v-model="linkedin" :error-messages="linkedinErrors" label="Linkedin" required
+                            <v-text-field v-model="linkedin" :error-messages="linkedinErrors" label="LinkedIn" required
                                 @input="$v.linkedin.$touch()" @blur="$v.linkedin.$touch()"></v-text-field>
                         </v-col>
                         <v-col cols="12" sm="12" md="6">
