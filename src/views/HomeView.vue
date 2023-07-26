@@ -2,7 +2,7 @@
   <div class="container-home">
     <NavBar />
     <v-row class="content-home-image">
-      <v-col cols="12"  md="6">
+      <v-col cols="12" md="6">
 
 
         <p class="title-home">
@@ -18,86 +18,82 @@
         </div>
 
       </v-col>
-      <v-col md="6">
-        <div class="  column-two background-image">
+      <v-col style="padding: 0;" md="6">
+        <div class=" background-image">
 
         </div>
       </v-col>
     </v-row>
-
-    <div class="services">
-      <h1 class="custom-title-services">Nossos serviços</h1>
-      <p class="custom-subtitle-services">
-        Equipes dinâmicas para projeto estratégicos, impulsionando o crecimento consistente da sua empresa no ritmo que
-        você precisa. </p>
-    </div>
-    <div class="content-home">
-
-    
+    <div class="details-services">
+      <div class="services">
+        <h1 class="custom-title-services">Nossos serviços</h1>
+        <p class="custom-subtitle-services">
+          Equipes dinâmicas para projeto estratégicos, impulsionando o crecimento consistente da sua empresa no ritmo que
+          você precisa. </p>
+      </div>
+      <div class="content-home">
 
 
-          <v-card class="mx-auto content-card-home">
-            <div class="container-img">
+        <v-card class="mx-auto content-card-home">
+          <div class="container-img">
 
-              <img class="img-services" src="../assets/img-1.png" alt="">
+            <img class="img-services" src="../assets/img-1.png" alt="">
+          </div>
+          <v-card-text>
+            <div class="information-services">
+              <h4 class="title-services">Outsourcing de TI</h4>
+              <p class="description-services">
+                Construção de projetos com escopo bem definido. Ideal para demandas específicas e pontuais
+              </p>
             </div>
-            <v-card-text>
-              <div class="information-services">
-                <h4 class="title-services">Outsourcing de TI</h4>
-                <p class="description-services">
-                  Construção de projetos com escopo bem definido. Ideal para demandas específicas e pontuais
-                </p>
-              </div>
-            </v-card-text>
-          </v-card>
-
-        
-            <v-card class="mx-auto content-card-home">
-              <div class="container-img">
-                <img class="img-services" src="../assets/img-2.png">
-              </div>
-              <v-card-text>
-                <div class="information-services">
-                  <h4 class="title-services">Aplicativos Mobile</h4>
-                  <p class="description-services">Design e desenvolvimento de aplicativos mobile
+          </v-card-text>
+        </v-card>
 
 
-                  </p>
-                </div>
-              </v-card-text>
+        <v-card class="mx-auto content-card-home">
+          <div class="container-img">
+            <img class="img-services" src="../assets/img-2.png">
+          </div>
+          <v-card-text>
+            <div class="information-services">
+              <h4 class="title-services">Aplicativos Mobile</h4>
+              <p class="description-services">Design e desenvolvimento de aplicativos mobile
 
-            </v-card>
 
-      
-            <v-card class="mx-auto content-card-home">
-              <div class="container-img">
-                <img class="img-services" src="../assets/img-3.png">
-              </div>
-              <v-card-text>
-                <div class="information-services">
-                  <h4 class="title-services">Squads de desenvolvimento</h4>
-                  <p class="description-services">Times com expertise TQI que atuam como parceiros para a evolução do seu
-                    produto
-                  </p>
-                </div>
-              </v-card-text>
-            </v-card>
-        
-            <v-card class="mx-auto content-card-home">
-              <div class="container-img">
-                <img class="img-services" src="../assets/img-4.png">
-              </div>
-              <v-card-text>
-                <div class="information-services">
-                  <h4 class="title-services">Experiência digital</h4>
-                  <p class="description-services">tecnologia para potencializar experiências no meio digital
-                  </p>
-                </div>
-              </v-card-text>
-            </v-card>
-     
-  
+              </p>
+            </div>
+          </v-card-text>
 
+        </v-card>
+
+
+        <v-card class="mx-auto content-card-home">
+          <div class="container-img">
+            <img class="img-services" src="../assets/img-3.png">
+          </div>
+          <v-card-text>
+            <div class="information-services">
+              <h4 class="title-services">Squads de desenvolvimento</h4>
+              <p class="description-services">Times com expertise TQI que atuam como parceiros para a evolução do seu
+                produto
+              </p>
+            </div>
+          </v-card-text>
+        </v-card>
+
+        <v-card class="mx-auto content-card-home">
+          <div class="container-img">
+            <img class="img-services" src="../assets/img-4.png">
+          </div>
+          <v-card-text>
+            <div class="information-services">
+              <h4 class="title-services">Experiência digital</h4>
+              <p class="description-services">tecnologia para potencializar experiências no meio digital
+              </p>
+            </div>
+          </v-card-text>
+        </v-card>
+      </div>
     </div>
     <FooterComponent />
   </div>
@@ -128,9 +124,9 @@ export default {
 .content-home {
   padding: 70px 20px;
 
-display: flex;
+  display: flex;
   flex-wrap: wrap;
-  justify-content: center; 
+  justify-content: center;
 }
 
 .content-card-home {
@@ -218,7 +214,7 @@ display: flex;
 }
 
 .title-services {
-  color:#332e94;
+  color: #332e94;
   font-size: 18px;
   font-weight: bold;
   text-align: center;
@@ -231,7 +227,7 @@ display: flex;
 }
 
 .content-home-image {
-  padding: 0 20px 0 20px;
+  padding: 0 0px 0 20px;
 }
 
 
@@ -250,14 +246,16 @@ display: flex;
     font-size: 17px;
   }
 }
-@media screen and (max-width:500px){
+
+@media screen and (max-width:500px) {
 
   .custom-subtitle-services {
-  padding: 0 30px;
+    padding: 0 30px;
+
+  }
 
 }
 
-}
 @media screen and (max-width: 481px) {
 
 
@@ -304,7 +302,7 @@ display: flex;
     background-size: cover;
 
   } */
- 
+
 
 
   .btn-contact {
@@ -344,8 +342,8 @@ display: flex;
   }
 
   .title-home {
-    padding:50px 10px 10px 10px;
-   
+    padding: 50px 10px 10px 10px;
+
 
   }
 
@@ -357,8 +355,20 @@ display: flex;
 
 @media screen and (max-width: 1024px) {
 
-  .background-image {
+  /* .background-image {
     margin-top: 30px;
+  } */
+}
+
+@media screen and (min-width: 768px) {
+  .details-services {
+    background-image: linear-gradient(to right, #ffffff, #f3f3f3bf);
+
+
+  }
+
+  .services {
+    margin-top: 0;
   }
 }
 
@@ -379,6 +389,7 @@ display: flex;
     background-size: cover;
   }
 
+
   .content-card-home {
     width: 30%;
   }
@@ -386,9 +397,9 @@ display: flex;
 }
 
 @media screen and (min-width: 1025px) and (max-width: 1200px) {
-  .background-image {
-    margin-top: 30px;
-  }
+  /* .background-image {
+      margin-top: 30px;
+    } */
 
   .title-home {
     padding-top: 40px !important;
@@ -405,9 +416,10 @@ display: flex;
     background-size: cover;
   }
 
+
   .content-card-home {
     width: 23%;
- 
+
   }
 
 
@@ -422,9 +434,9 @@ display: flex;
 }
 
 @media screen and (min-width: 1201px) {
-  .background-image {
+  /*.background-image {
     margin-top: 30px;
-  }
+  } */
 
   .title-home {
     padding-top: 40px !important;
@@ -443,7 +455,7 @@ display: flex;
 
   .content-card-home {
     width: 22%;
-  
+
 
   }
 
@@ -459,11 +471,14 @@ display: flex;
 @media screen and (min-width: 1201px) and (max-width: 1440px) {
   .background-image {
     height: 100%;
-    width: 600px;
+
     background-image: url("../assets/image-home.png");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position-y: -120px;
+
+
   }
 
   .column-one {
