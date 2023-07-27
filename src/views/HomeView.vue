@@ -35,7 +35,9 @@
             <div class="information-services">
               <h4 class="title-services">Outsourcing de TI</h4>
               <p class="description-services">
-                Construção de projetos com escopo bem definido. Ideal para demandas específicas e pontuais
+                É necessário um imenso conhecimento relevante para atender a demandas específicas. Ideal para um escopo
+                bem definido e à prova de falhas, é o que deve estar sendo discutido na mesa em um conjunto perfeito!
+
               </p>
             </div>
           </v-card-text>
@@ -47,7 +49,13 @@
           <v-card-text>
             <div class="information-services">
               <h4 class="title-services">Aplicativos Mobile</h4>
-              <p class="description-services">Design e desenvolvimento de aplicativos mobile
+              <p class="description-services">
+
+                Desenvolvimento premium de aplicativos para diversos
+                setores, seja na forma nativa (Android e IOS)
+                ou na forma híbrido (Flutter).<br>
+                Seguimos uma metodologia ágil que nos faz entregar as soluções de aplicativos desejadas dentro do prazo.
+
               </p>
             </div>
           </v-card-text>
@@ -59,8 +67,10 @@
           <v-card-text>
             <div class="information-services">
               <h4 class="title-services">Squads de desenvolvimento</h4>
-              <p class="description-services">Times com expertise TQI que atuam como parceiros para a evolução do seu
-                produto
+              <p class="description-services">
+                Com uma combinação especializada de conhecimento técnico e práticas recomendadas do setor, nosso time
+                ajuda os clientes a transformar sua jornada digital como planejamento adequado e execução competente da
+                estratégia de TI delineada.
               </p>
             </div>
           </v-card-text>
@@ -73,7 +83,10 @@
           <v-card-text>
             <div class="information-services">
               <h4 class="title-services">Experiência digital</h4>
-              <p class="description-services">tecnologia para potencializar experiências no meio digital
+              <p class="description-services">
+                Reunimos negócios, pessoas e tecnologia, ajudando nossos clientes a criar uma estratégia digital
+                abrangente, fornecendo insights sobre o cliente e ajudando-o a criar e aprimorar uma solução digital
+                amigável ao cliente.
               </p>
             </div>
           </v-card-text>
@@ -422,4 +435,5 @@ export default {
     display: flex !important;
     justify-content: center !important;
   }
-}</style>
+}
+</style>
