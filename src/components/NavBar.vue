@@ -43,12 +43,15 @@ export default {
 .logo{
   height: 50px;
 }
+.navbar{
+  z-index: 2;
+}
 .offcanvas {
   color: white;
 }
 .bg-body-tertiary{
   -webkit-box-shadow: 0 3px 6px 0 rgb(50 50 50 / 17%)!important;
-    box-shadow: 0 3px 6px 0 rgb(50 50 50 / 16%)!important;
+    box-shadow: 0 3px 6px 0 rgba(105, 105, 105, 0.16)!important;
 }
 .navbar-brand:hover{
   color: #1976d2!important;
