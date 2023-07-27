@@ -99,7 +99,7 @@ export default {
             description: this.description
           })
           .then(() => {
-            alert("Conta criada com sucesso!");
+            alert("Dados enviados com sucesso!");
            
           })
           .catch((error) => {
