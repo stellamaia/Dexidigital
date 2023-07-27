@@ -93,6 +93,17 @@
         </v-card>
       </div>
     </div>
+    <div class="process-details">
+      <h1 class="process-details-title">Nosso processo de desenvolvimento de software</h1>
+      <p class="process-details-subtitle">Somos especialistas em combinar as necessidades dos clientes, as demandas
+        comerciais e as possibilidades técnicas
+        para romper o status quo. Nossa equipe de estrategistas usa uma metodologia centrada no Design Sprint para
+        identificar oportunidades, estimular a inovação e descobrir novos empreendimentos digitais para impulsionar o
+        crescimento fora do seu negócio principal e garantir a entrega no prazo e a agilidade dos projetos.</p>
+      <div class="process-details-img">
+        <img class="details-img" src="../assets/details.png" alt="">
+      </div>
+    </div>
     <FooterComponent />
   </div>
 </template>
@@ -221,6 +232,32 @@ export default {
   padding: 0 0px 0 20px;
 }
 
+.process-details-title {
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  padding: 20px 0;
+  margin: 0;
+}
+
+.process-details-subtitle {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 300;
+  margin: 0 30px;
+
+}
+
+.process-details-img {
+  display: flex;
+  justify-content: center;
+}
+
+.details-img {
+  width: 80%;
+  padding: 40px 0;
+}
+
 @media screen and (min-width:320px) and (max-width: 480px) {
   .content-card-home {
     width: 100%;
@@ -249,6 +286,9 @@ export default {
     margin-left: 10px !important;
     margin-right: 10px !important;
   }
+  .process-details-subtitle {
+    margin: 40px 30px 0 30px;
+  }
 
   .content-btn-contact {
     padding-top: 30px !important;
@@ -268,6 +308,9 @@ export default {
     margin-top: 60px;
   }
 
+  .process-details {
+    margin-top: 60px;
+  }
   .btn-contact {
 
     width: 250px;
@@ -297,7 +340,6 @@ export default {
   .background-image {
     display: none;
   }
-
   .title-home {
     font-size: 2rem;
     text-align: center;
@@ -316,11 +358,13 @@ export default {
     justify-content: center;
   }
 }
+@media screen and (max-width: 768px) {
+  .details-img {
+    width: 100% !important;
+  }
+}
 
 @media screen and (min-width: 768px) {
-  .details-services {
-    background-image: linear-gradient(to left, #f3f3f3ad, #ffffff 60%);
-  }
 
   .services {
     margin-top: 0;
@@ -332,11 +376,17 @@ export default {
     padding-top: 40px !important;
     font-size: 27px;
   }
+  .custom-title-services {
+    padding-top: 60px;
+  }
+  .custom-subtitle-services {
+    padding: 0 20px;
+  }
 
   .background-image {
     height: 100%;
     width: 100%;
-    background-image: url("../assets/image-home.png");
+        background-image: url("../assets/image-home.png");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -344,10 +394,6 @@ export default {
 
   .content-card-home {
     width: 30%;
-  }
-
-  .custom-title-services {
-    padding-top: 40px;
   }
 }
 
@@ -380,7 +426,7 @@ export default {
   }
 
   .custom-subtitle-services {
-    padding: 0 280px 0 280px;
+    padding: 0 200px 0 200px;
   }
 }
 
@@ -409,7 +455,7 @@ export default {
   }
 
   .custom-subtitle-services {
-    padding: 0 350px 0 350px;
+    padding: 0 200px 0 200px;
   }
 
   .custom-title-services {
@@ -435,5 +481,4 @@ export default {
     display: flex !important;
     justify-content: center !important;
   }
-}
-</style>
+}</style>
