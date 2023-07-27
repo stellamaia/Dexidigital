@@ -3,48 +3,44 @@
         <NavBar />
         <div class="content-form">
             <div class="content-form-title">
-                <p class="custom-title">Possui <span class="custom-strong">interesse</span> em algum dos nossos <span
-                        class="custom-strong">serviços?</span></p>
+                <p class="custom-title">Possui
+                    <span class="custom-strong">interesse</span> em algum dos nossos <span
+                        class="custom-strong">serviços?</span>
+                </p>
             </div>
             <div class="box-form">
                 <form class="form" @submit.prevent="submitForm">
                     <v-row>
                         <v-col cols="12" sm="12" md="6">
-                            <v-text-field v-model="name" :error-messages="nameErrors" :counter="20" label="Nome" required
-                                @input="$v.name.$touch()" @blur="$v.name.$touch()"></v-text-field>
+                            <v-text-field v-model="name" :counter="20" label="Nome" required></v-text-field>
                         </v-col>
 
                         <v-col cols="12" sm="12" md="6">
-                            <v-text-field v-model="company" :error-messages="companyErrors" label="Empresa" required
-                                @input="$v.company.$touch()" @blur="$v.company.$touch()"></v-text-field>
+                            <v-text-field v-model="company" label="Empresa" required></v-text-field>
                         </v-col>
                         <v-col cols="12" sm="12" md="6">
-                            <v-text-field v-model="phone" :error-messages="phoneErrors" label="Telefone" required
-                                @input="$v.phone.$touch()" @blur="$v.phone.$touch()"
+                            <v-text-field v-model="phone" label="Telefone" required
                                 v-mask="'(##) #####-####'"></v-text-field>
                         </v-col>
                         <v-col cols="12" sm="12" md="6">
-                            <v-text-field v-model="email" :error-messages="emailErrors" label="Email" required
-                                @input="$v.email.$touch()" @blur="$v.email.$touch()"></v-text-field>
+                            <v-text-field v-model="email" label="Email" required></v-text-field>
                         </v-col>
                         <v-col cols="12" sm="12" md="6">
-                            <v-text-field v-model="linkedin" :error-messages="linkedinErrors" label="LinkedIn" required
-                                @input="$v.linkedin.$touch()" @blur="$v.linkedin.$touch()"></v-text-field>
+                            <v-text-field v-model="linkedin" label="LinkedIn" required></v-text-field>
                         </v-col>
                         <v-col cols="12" sm="12" md="6">
-                            <v-select v-model="select" :items="items" :error-messages="selectErrors" label="Qual seu cargo"
-                                required @change="$v.select.$touch()" @blur="$v.select.$touch()"></v-select>
+                            <v-select v-model="select" :items="items" label="Qual seu cargo" required></v-select>
                         </v-col>
                         <v-col cols="12" sm="12" md="12">
-                            <v-text-field v-model="description" :error-messages="descriptionErrors"
-                                label="Descreva seu projeto e as funcionalidades que gostaria de ter" required
-                                @input="$v.description.$touch()" @blur="$v.description.$touch()"></v-text-field>
+                            <v-text-field v-model="description"
+                                label="Descreva seu projeto e as funcionalidades que gostaria de ter"
+                                required></v-text-field>
                         </v-col>
                     </v-row>
 
                     <div class="content-btn-form">
-                        <v-btn class="btn-form" @click="submit">
-                            Enviar Mensagem
+                        <v-btn class="btn-form" @click="send">
+                            Enviar 
                         </v-btn>
                     </div>
                 </form>
@@ -53,113 +49,68 @@
         <FooterComponent />
     </div>
 </template>
-<script>
 
+<script>
 import NavBar from '../components/NavBar'
 import FooterComponent from '../components/FooterComponent'
-import { validationMixin } from 'vuelidate'
-import { required, maxLength, email } from 'vuelidate/lib/validators'
+import { firebaseDb } from "../firebaseConfig";
 
 export default {
-    mixins: [validationMixin],
-    components: {
-        NavBar,
-        FooterComponent
-    },
-    validations: {
-        name: { required, maxLength: maxLength(20) },
-        company: { required },
-        phone: { required },
-        email: { required, email },
-        linkedin: { required },
-        select: { required },
-        description: { required }
-
-    },
-
+    name: "SignView",
     data() {
         return {
-            name: '',
-            company: '',
-            phone: '',
-            email: '',
-            linkedin: '',
-            select: null,
+            name: "",
+            company: "",
+            phone: "",
+            email: "",
+            linkedin: "",
+            select: "",
+            description: "",
             items: [
-                'Head de inovação',
+            'Head de inovação',
                 'Coordenador de TI',
                 'Gerente de Projetos',
                 'Gerente de Marketing',
                 'Analista',
                 'Desenvolvedor',
                 'Outros'
+            
+
             ],
-            description: '',
-            // selectErrors: [],
+            
 
         };
     },
-    computed: {
-        nameErrors() {
-            const errors = [];
-            if (!this.$v.name.$dirty) return errors;
-            !this.$v.name.maxLength && errors.push('Name must be at most 10 characters long');
-            !this.$v.name.required && errors.push('Name is required.');
-            return errors;
-        },
-        companyErrors() {
-            const errors = [];
-            if (!this.$v.company.$dirty) return errors;
-            !this.$v.company.required && errors.push('Company is required');
-            return errors;
-        },
-        phoneErrors() {
-            const errors = [];
-            if (!this.$v.phone.$dirty) return errors;
-            !this.$v.phone.required && errors.push('Phone is required');
-            return errors;
-        },
-        emailErrors() {
-            const errors = [];
-            if (!this.$v.email.$dirty) return errors;
-            !this.$v.email.email && errors.push('Must be valid e-mail');
-            !this.$v.email.required && errors.push('E-mail is required');
-            return errors;
-        },
-        linkedinErrors() {
-            const errors = [];
-            if (!this.$v.linkedin.$dirty) return errors;
-            !this.$v.linkedin.required && errors.push('Linkedin is required');
-            return errors;
-        },
-
-
-        selectErrors() {
-            const errors = [];
-            if (!this.$v.select.$dirty) return errors;
-            !this.$v.select.required && errors.push('Item is required');
-            return errors;
-        },
-        descriptionErrors() {
-            const errors = [];
-            if (!this.$v.description.$dirty) return errors;
-            !this.$v.description.required && errors.push('Description is required');
-            return errors;
-        }
+    components: {
+        NavBar,
+        FooterComponent
     },
     methods: {
-        submitForm() {
-            this.$v.$touch()
-            if (!this.$v.$invalid) {
-                alert('Formulário enviado com sucesso!')
-            } else {
-                alert('Formulário não foi enviado!')
-            }
-        },
-        submit() {
-            this.submitForm();
-        }
+        send() {
+      if (this.name && this.email && this.company && this.phone && this.select && this.description) {
+        firebaseDb.collection("users")
+          .add({
+            name: this.name,
+            company: this.company,
+            phone: this.phone,
+            email: this.email,
+            linkedin: this.linkedin,
+            select: this.select,
+            description: this.description
+          })
+          .then(() => {
+            alert("Conta criada com sucesso!");
+           
+          })
+          .catch((error) => {
+            console.error("Erro:", error);
+          });
+      } else {
+        alert("Oops... Preencha todos os campos!");
+      }
     }
+  }
+
 }
 </script>
 
@@ -330,4 +281,5 @@ export default {
         width: 250px;
 
     }
-}</style>
+}
+</style>
