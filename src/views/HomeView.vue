@@ -104,6 +104,99 @@
         <img class="details-img" src="../assets/details.png" alt="">
       </div>
     </div>
+
+
+    <div class="tecnologias">
+
+
+
+
+
+      <div class="moving-logos-wrapper">
+        <p class="title-tecnologias">Front-end</p>
+        <div class="moving-logos-inner">
+          <div class="image-tecnologias front">
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="reverse-wrapper">
+        <p class="title-tecnologias">Back-end</p>
+        <div class="reverse-inner">
+          <div class="image-tecnologias back">
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="moving-logos-wrapper">
+        <p class="title-tecnologias">Project Management</p>
+        <div class="moving-logos-inner">
+          <div class="image-tecnologias project">
+
+
+          </div>
+        </div>
+      </div>
+      <div class="reverse-wrapper">
+        <p class="title-tecnologias">Big Data</p>
+        <div class="reverse-inner">
+          <div class="image-tecnologias big">
+
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="moving-logos-wrapper">
+        <p class="title-tecnologias">Mobile App Development</p>
+        <div class="moving-logos-inner">
+          <div class="image-tecnologias mobile">
+            <img class="server-img" src="../assets/mobile.png" alt="Mobile">
+
+          </div>
+        </div>
+      </div>
+
+      <div class="reverse-wrapper">
+        <p class="title-tecnologias">Database</p>
+        <div class="reverse-inner">
+          <div class="image-tecnologias data">
+            <img class="server-img" src="../assets/data.png" alt="Database">
+
+          </div>
+        </div>
+      </div>
+
+      <div class="moving-logos-wrapper">
+        <p class="title-tecnologias">Servers</p>
+        <div class="moving-logos-inner">
+          <div class="image-tecnologias server">
+<img class="server-img" src="../assets/server.png" alt="Servers">
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class="reverse-wrapper">
+        <p class="title-tecnologias">DevOps</p>
+        <div class="reverse-inner">
+          <div class="image-tecnologias dev">
+            <img class="server-img" src="../assets/dev.png" alt="dev">
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
     <FooterComponent />
   </div>
 </template>
@@ -120,6 +213,128 @@ export default {
 }
 </script> 
 <style scoped>
+  .image-tecnologias {
+    width: 100%;
+    height: 80%;
+    background-size: contain;
+    background-repeat: no-repeat;
+  
+  }
+
+.front {
+    background-image: url('../assets/front.png');
+  }
+  .back {
+    background-image: url('../assets/back.png');
+  }
+  .project {
+    background-image: url('../assets/project.png');
+  }
+  .big {
+    background-image: url('../assets/big.png');
+  }
+  .server-img{
+height: 50px;
+  }
+@media screen and (min-width: 768px) {
+
+.server-img{
+  display: none!important;
+}
+  .moving-logos-wrapper {
+
+    overflow: hidden;
+    margin: auto;
+
+  }
+
+  .moving-logos-inner {
+    height: 100px;
+    -webkit-animation: moving-logos 20s linear infinite;
+    animation: moving-logos 20s linear infinite;
+  }
+
+  @keyframes moving-logos {
+    0% {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+    }
+
+    50% {
+      transform: translateX(-100px);
+      /* Move para a esquerda (ajuste o valor conforme necessário) */
+    }
+
+    100% {
+      transform: translateX(-100);
+      /* Retorna para a posição original */
+    }
+  }
+
+  .reverse-wrapper {
+
+    overflow: hidden;
+    margin: auto;
+  }
+
+  .image-tecnologias {
+    width: 100%;
+    height: 70%;
+    background-repeat: repeat;
+    background-size: contain;
+    background-repeat: repeat;
+  }
+
+  .front {
+    background-image: url('../assets/front.png');
+  }
+  .back {
+    background-image: url('../assets/back.png');
+  }
+  .project {
+    background-image: url('../assets/project.png');
+  }
+  .big {
+    background-image: url('../assets/big.png');
+  }
+  .mobile {
+    background-image: url('../assets/mobile.png');
+  }
+  .data {
+    background-image: url('../assets/data.png');
+  }
+  .server {
+    background-image: url('../assets/server.png');
+    
+  }
+  .dev {
+    background-image: url('../assets/dev.png');
+  }
+
+  .reverse-inner {
+    height: 100px;
+    -webkit-animation: reverse 20s linear infinite;
+    animation: reverse 20s linear infinite;
+  }
+
+  @keyframes reverse {
+    0% {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+    }
+
+    50% {
+      transform: translateX(100px);
+      /* Move para a esquerda (ajuste o valor conforme necessário) */
+    }
+
+    100% {
+      transform: translateX(-100);
+      /* Retorna para a posição original */
+    }
+  }
+}
+
 .container-home {
   background-color: white;
 }
@@ -179,19 +394,19 @@ export default {
 
 .description-home {
   font-weight: 400;
-  color: black;
+  color: #333333;
   padding: 0 20px 0 20px;
 }
 
 .custom-title-services {
   font-weight: 700;
-  color: black;
+  color: #333333;
 }
 
 .custom-subtitle-services {
   font-size: 20px;
   font-weight: 300;
-  color: black;
+  color: #333333;
 }
 
 .btn-contact {
@@ -258,6 +473,19 @@ export default {
   padding: 40px 0;
 }
 
+.title-tecnologias {
+  text-align: center;
+  font-weight: bold;
+  color: #333333;
+  margin: 0;
+}
+
+.image-tecnologias {
+  display: flex;
+  justify-content: center;
+  height: 70px;
+}
+
 @media screen and (min-width:320px) and (max-width: 480px) {
   .content-card-home {
     width: 100%;
@@ -286,6 +514,7 @@ export default {
     margin-left: 10px !important;
     margin-right: 10px !important;
   }
+
   .process-details-subtitle {
     margin: 40px 30px 0 30px;
   }
@@ -311,6 +540,7 @@ export default {
   .process-details {
     margin-top: 60px;
   }
+
   .btn-contact {
 
     width: 250px;
@@ -340,6 +570,7 @@ export default {
   .background-image {
     display: none;
   }
+
   .title-home {
     font-size: 2rem;
     text-align: center;
@@ -358,6 +589,7 @@ export default {
     justify-content: center;
   }
 }
+
 @media screen and (max-width: 768px) {
   .details-img {
     width: 100% !important;
@@ -376,17 +608,20 @@ export default {
     padding-top: 40px !important;
     font-size: 27px;
   }
+
   .custom-title-services {
     padding-top: 60px;
   }
+
   .custom-subtitle-services {
     padding: 0 20px;
   }
 
+  /* wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww */
   .background-image {
-    height: 100%;
-    width: 100%;
-        background-image: url("../assets/image-home.png");
+    height: 400px;
+ 
+    background-image: url("../assets/image-home.png");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -481,4 +716,15 @@ export default {
     display: flex !important;
     justify-content: center !important;
   }
-}</style>
+  .content-card-home {
+    width: 350px !important;
+  }
+
+}
+@media screen and  (min-width: 1441px) {
+  .content-card-home {
+    width: 400px !important;
+
+  }
+}
+</style>
