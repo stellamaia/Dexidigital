@@ -1,30 +1,34 @@
 <template>
   <div class="container-home">
     <NavBar />
-    <v-row class="content-home-image">
-      <v-col cols="12" md="6">
-        <p class="title-home">
-          <span class="title-home-degrade">Qualidade e agilidade em</span><br>
-          aplicações seguras
-        </p>
-        <p class="description-home">Promova a confiança e a lealdade à marca <br>
-          por meio de experiências personalizadas </p>
-        <div class="content-btn-contact">
-          <router-link class="nav-link active btn-contact" to="/formulario"> Solicitar um orçamento
-          </router-link>
+    <div class="content-home-image">
+      <p class="title-home">
+        <span class="title-home-degrade">Qualidade e agilidade em</span><br>
+        aplicações seguras
+      </p>
+      <p class="description-home">Promova a confiança e a lealdade à marca <br>
+        por meio de experiências personalizadas </p>
+      <div class="content-btn-contact">
+        <router-link class="nav-link active btn-contact" to="/formulario"> Solicitar um orçamento
+        </router-link>
+      </div>
+      <div>
+        <div class="background-image-content">
+
+          <img class="background-image" src="../assets/image-home.png" alt="">
         </div>
-      </v-col>
-      <v-col style="padding: 0;" md="6">
-        <div class=" background-image">
-        </div>
-      </v-col>
-    </v-row>
+      </div>
+    
+    </div>
     <div class="details-services">
       <div class="services">
         <h1 class="custom-title-services">Nossos serviços</h1>
-        <p class="custom-subtitle-services">
-          Equipes dinâmicas para projeto estratégicos, impulsionando o crecimento consistente da sua empresa no ritmo que
-          você precisa. </p>
+        <div class="custom-subtitle-services-content">
+          <p class="details-custom-subtitle-services">
+            Equipes dinâmicas para projeto estratégicos, impulsionando o crecimento consistente da sua empresa no ritmo
+            que
+            você precisa. </p>
+        </div>
       </div>
       <div class="content-home">
         <v-card class="mx-auto content-card-home">
@@ -92,13 +96,13 @@
     </div>
     <div class="process-details">
       <h1 class="process-details-title">Nosso processo de desenvolvimento de software</h1>
-    <div class="process-details-subtitle-content">
-      <p class="process-details-subtitle">Somos especialistas em combinar as necessidades dos clientes, as demandas
-        comerciais e as possibilidades técnicas
-        para romper o status quo. Nossa equipe de estrategistas usa uma metodologia centrada no Design Sprint para
-        identificar oportunidades, estimular a inovação e descobrir novos empreendimentos digitais para impulsionar o
-        crescimento fora do seu negócio principal e garantir a entrega no prazo e a agilidade dos projetos.</p>
-    </div>
+      <div class="process-details-subtitle-content">
+        <p class="process-details-subtitle">Somos especialistas em combinar as necessidades dos clientes, as demandas
+          comerciais e as possibilidades técnicas
+          para romper o status quo. Nossa equipe de estrategistas usa uma metodologia centrada no Design Sprint para
+          identificar oportunidades, estimular a inovação e descobrir novos empreendimentos digitais para impulsionar o
+          crescimento fora do seu negócio principal e garantir a entrega no prazo e a agilidade dos projetos.</p>
+      </div>
       <div class="process-details-img">
         <img class="details-img" src="../assets/details.png" alt="">
       </div>
@@ -181,34 +185,55 @@ export default {
 }
 </script> 
 <style scoped>
-  .image-tecnologias {
-    width: 100%;
-    height: 80%;
-    background-size: contain;
-    background-repeat: no-repeat;
+.background-image-content {
+  display: flex;
+  justify-content: end;
 
-  }
+}
+
+.background-image {
+  height: 438px;
+  position: absolute;
+  top: 45px;
+  display: flex;
+  justify-content: end;
+
+}
+
+.image-tecnologias {
+  width: 100%;
+  height: 80%;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
 
 .front {
-    background-image: url('../assets/front.png');
-  }
-  .back {
-    background-image: url('../assets/back.png');
-  }
-  .project {
-    background-image: url('../assets/project.png');
-  }
-  .big {
-    background-image: url('../assets/big.png');
-  }
-  .server-img{
-    height: 50px;
-  }
+  background-image: url('../assets/front.png');
+}
+
+.back {
+  background-image: url('../assets/back.png');
+}
+
+.project {
+  background-image: url('../assets/project.png');
+}
+
+.big {
+  background-image: url('../assets/big.png');
+}
+
+.server-img {
+  height: 50px;
+}
+
 @media screen and (min-width: 768px) {
 
-.server-img{
-  display: none!important;
-}
+  .server-img {
+    display: none !important;
+  }
+
   .moving-logos-wrapper {
     overflow: hidden;
     margin: auto;
@@ -243,6 +268,7 @@ export default {
     overflow: hidden;
     margin: auto;
   }
+
   .image-tecnologias {
     width: 100%;
     height: 70%;
@@ -254,25 +280,32 @@ export default {
   .front {
     background-image: url('../assets/front.png');
   }
+
   .back {
     background-image: url('../assets/back.png');
   }
+
   .project {
     background-image: url('../assets/project.png');
   }
+
   .big {
     background-image: url('../assets/big.png');
   }
+
   .mobile {
     background-image: url('../assets/mobile.png');
   }
+
   .data {
     background-image: url('../assets/data.png');
   }
+
   .server {
     background-image: url('../assets/server.png');
-    
+
   }
+
   .dev {
     background-image: url('../assets/dev.png');
   }
@@ -304,15 +337,18 @@ export default {
 .container-home {
   background-color: white;
 }
+
 .navbar-brand:hover {
   color: #1976d2;
 }
+
 .content-home {
   padding: 70px 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .content-card-home {
   background-color: white;
   border-radius: 10px;
@@ -323,6 +359,7 @@ export default {
   padding: 20px;
   margin: 10px !important;
 }
+
 .container-img {
   display: flex;
   justify-content: center;
@@ -333,6 +370,7 @@ export default {
   height: 100px;
 
 }
+
 .title-home {
   color: #333333;
   font-size: 44px;
@@ -341,6 +379,7 @@ export default {
   font-style: normal;
   line-height: 1.3em;
 }
+
 .title-home-degrade {
   background: #158BBF;
   background: -webkit-linear-gradient(to right, #158BBF 0%, #4A00E0 100%);
@@ -356,6 +395,7 @@ export default {
   color: #333333;
   padding: 0 20px 0 20px;
 }
+
 .custom-title-services {
   font-weight: 700;
   color: #333333;
@@ -366,6 +406,7 @@ export default {
   font-weight: 300;
   color: #333333;
 }
+
 .btn-contact {
   padding: 10px;
   border: 1.5px solid black;
@@ -381,24 +422,23 @@ export default {
   background-color: #000000;
   transition: .2s;
 }
+
 .services {
   text-align: center;
   margin-top: 100px;
 }
+
 .title-services {
   color: #332e94;
   font-size: 18px;
   font-weight: bold;
   text-align: center;
 }
+
 .description-services {
   text-align: center;
   font-size: 15px;
   font-weight: 400;
-}
-
-.content-home-image {
-  padding: 0 0px 0 20px;
 }
 
 .process-details-title {
@@ -409,16 +449,28 @@ export default {
   margin: 0;
   color: #333333;
 }
-.process-details-subtitle-content{
+
+.process-details-subtitle-content {
   display: flex;
   justify-content: center;
 }
+
+.custom-subtitle-services-content {
+  display: flex;
+  justify-content: center;
+}
+
+.details-custom-subtitle-services {
+
+  width: 500px !important;
+}
+
 .process-details-subtitle {
   text-align: center;
   font-size: 20px;
   font-weight: 300;
   margin: 0 30px;
-  width: 90%!important;
+  width: 90% !important;
 }
 
 .process-details-img {
@@ -433,16 +485,20 @@ export default {
 
 .title-tecnologias {
   text-align: center;
-    font-weight: 600;
-    color: #333333;
-    margin: 0;
-    text-transform: uppercase;
+  font-weight: 600;
+  color: #333333;
+  margin: 0;
+  text-transform: uppercase;
 }
 
 .image-tecnologias {
   display: flex;
   justify-content: center;
   height: 70px;
+}
+
+.content-home-image {
+  padding: 0 0px 0 50px;
 }
 
 @media screen and (min-width:320px) and (max-width: 480px) {
@@ -463,7 +519,6 @@ export default {
 @media screen and (max-width:500px) {
   .custom-subtitle-services {
     padding: 0 30px;
-
   }
 }
 
@@ -486,10 +541,6 @@ export default {
 @media screen and (min-width: 481px) and (max-width: 768px) {
   .content-card-home {
     width: 45%;
-  }
-
-  .background-image {
-    padding: 100px 40px 40px 40px;
   }
 
   .services {
@@ -518,28 +569,30 @@ export default {
   .title-home {
     padding: 0 20px 0px 20px;
   }
+
   .content-btn-contact {
     padding-left: 20px;
   }
+
 }
 
 @media screen and (max-width: 767px) {
+  .content-home-image {
+    padding: 0 !important;
+  }
 
-  .background-image {
+  .background-image-content {
     display: none;
   }
 
   .title-home {
     font-size: 2rem;
     text-align: center;
+    padding: 50px 0 10px 0;
   }
 
   .description-home {
     text-align: center;
-  }
-
-  .title-home {
-    padding: 50px 10px 10px 10px;
   }
 
   .content-btn-contact {
@@ -561,6 +614,15 @@ export default {
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
+  .background-image {
+    height: 335px;
+    position: absolute;
+    top: 45px;
+    width: 52%;
+    display: flex;
+    justify-content: end;
+  }
+
   .title-home {
     padding-top: 40px !important;
     font-size: 27px;
@@ -571,15 +633,7 @@ export default {
   }
 
   .custom-subtitle-services {
-    padding: 0 20px;
-  }
-
-  .background-image {
-    height: 400px;
-    background-image: url("../assets/image-home.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    padding: 0 60px;
   }
 
   .content-card-home {
@@ -588,19 +642,18 @@ export default {
 }
 
 @media screen and (min-width: 1025px) and (max-width: 1200px) {
+  .background-image {
+    height: 335px;
+    position: absolute;
+    top: 45px;
+    width: 52%;
+    display: flex;
+    justify-content: end;
+  }
+
   .title-home {
     padding-top: 40px !important;
     font-size: 38px;
-  }
-
-  .background-image {
-    height: 120%;
-    width: 100%;
-    background-image: url("../assets/image-home.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position-y: -60px;
   }
 
   .custom-title-services {
@@ -615,26 +668,18 @@ export default {
     font-size: 20px;
   }
 
-  .custom-subtitle-services {
+  /* .custom-subtitle-services {
     padding: 0 200px 0 200px;
-  }
+  } */
 }
 
 @media screen and (min-width: 1201px) {
-  
+
   .title-home {
     padding-top: 40px !important;
     font-size: 45px;
   }
 
-  .background-image {
-    height: 100%;
-    width: 100%;
-    background-image: url("../assets/image-home.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
 
   .content-card-home {
     width: 22%;
@@ -654,45 +699,117 @@ export default {
 }
 
 @media screen and (min-width: 1201px) and (max-width: 1440px) {
-  .process-details-subtitle {
-  width: 900px!important;
-}
   .background-image {
-    height: 150%;
-    background-image: url("../assets/image-home.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position-y: -70px;
+    height: 417px;
+    position: absolute;
+    top: 30px;
+    width: 58%;
+    display: flex;
+    justify-content: end;
   }
-  .content-home-image {
-    display: flex !important;
-    justify-content: center !important;
+
+  .process-details-subtitle {
+    width: 900px !important;
   }
+
   .content-card-home {
     width: 350px !important;
   }
 
+  .custom-title-services {
+    padding-top: 80px !important;
+  }
+
+  .content-home {
+    padding: 50px 20px;
+  }
 }
-@media screen and  (min-width: 1441px) {
+
+@media screen and (min-width: 1441px) {
+
   .process-details-subtitle {
-  width: 1100px!important;
-}  
-.details-img{
-  width: 1300px;
-}.content-card-home {
+    width: 1100px !important;
+  }
+
+  .details-img {
+    width: 1300px;
+  }
+
+  .content-card-home {
     width: 400px !important;
 
   }
-  
+
+  .custom-title-services {
+    padding-top: 120px;
+  }
+}
+
+@media screen and (min-width: 1441px) and (max-width: 1920px) {
+  .content-home-image {
+    padding: 80px 0px 0 100px;
+  }
+
   .background-image {
-    height: 150%;
-    background-image: url("../assets/image-home.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position-y: -70px;
+    height: 580px;
+    position: absolute;
+    top: 60px;
+    width: 52%;
+    display: flex;
+    justify-content: end;
+  }
+
+  .title-home {
+    padding-top: 40px !important;
+    font-size: 50px;
+  }
+}
+
+@media screen and (min-width: 1921px) and (max-width: 2400px) {
+  .title-home {
+    padding-top: 40px !important;
+    font-size: 60px;
+  }
+
+  .content-home-image {
+    padding: 80px 0px 0 15%;
+  }
+
+  .custom-title-services {
+    padding-top: 287px;
+  }
+
+  .background-image {
+    height: 28%;
+    position: absolute;
+    top: -70px;
+    width: 52%;
+    display: flex;
+    justify-content: end;
   }
 
 }
-</style>
+
+@media screen and (min-width: 2401px) {
+  .custom-title-services {
+    padding-top: 224px !important;
+  }
+
+  .title-home {
+    padding-top: 40px !important;
+    font-size: 60px;
+  }
+
+  .content-home-image {
+    padding: 80px 0px 0 20%;
+  }
+
+  .background-image {
+    height: 28%;
+    position: absolute;
+    top: -70px;
+    width: 52%;
+    display: flex;
+    justify-content: end;
+  }
+}</style>
