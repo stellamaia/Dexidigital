@@ -37,7 +37,6 @@
               <p class="description-services">
                 É necessário um imenso conhecimento relevante para atender a demandas específicas. Ideal para um escopo
                 bem definido e à prova de falhas, é o que deve estar sendo discutido na mesa em um conjunto perfeito!
-
               </p>
             </div>
           </v-card-text>
@@ -50,12 +49,10 @@
             <div class="information-services">
               <h4 class="title-services">Aplicativos Mobile</h4>
               <p class="description-services">
-
                 Desenvolvimento premium de aplicativos para diversos
                 setores, seja na forma nativa (Android e IOS)
                 ou na forma híbrido (Flutter).<br>
                 Seguimos uma metodologia ágil que nos faz entregar as soluções de aplicativos desejadas dentro do prazo.
-
               </p>
             </div>
           </v-card-text>
@@ -95,51 +92,36 @@
     </div>
     <div class="process-details">
       <h1 class="process-details-title">Nosso processo de desenvolvimento de software</h1>
+    <div class="process-details-subtitle-content">
       <p class="process-details-subtitle">Somos especialistas em combinar as necessidades dos clientes, as demandas
         comerciais e as possibilidades técnicas
         para romper o status quo. Nossa equipe de estrategistas usa uma metodologia centrada no Design Sprint para
         identificar oportunidades, estimular a inovação e descobrir novos empreendimentos digitais para impulsionar o
         crescimento fora do seu negócio principal e garantir a entrega no prazo e a agilidade dos projetos.</p>
+    </div>
       <div class="process-details-img">
         <img class="details-img" src="../assets/details.png" alt="">
       </div>
     </div>
-
-
     <div class="tecnologias">
-
-
-
-
-
       <div class="moving-logos-wrapper">
         <p class="title-tecnologias">Front-end</p>
         <div class="moving-logos-inner">
           <div class="image-tecnologias front">
-
           </div>
         </div>
       </div>
-
-
-
-
       <div class="reverse-wrapper">
         <p class="title-tecnologias">Back-end</p>
         <div class="reverse-inner">
           <div class="image-tecnologias back">
-
           </div>
         </div>
       </div>
-
-
       <div class="moving-logos-wrapper">
         <p class="title-tecnologias">Project Management</p>
         <div class="moving-logos-inner">
           <div class="image-tecnologias project">
-
-
           </div>
         </div>
       </div>
@@ -147,55 +129,41 @@
         <p class="title-tecnologias">Big Data</p>
         <div class="reverse-inner">
           <div class="image-tecnologias big">
-
-
           </div>
         </div>
       </div>
-
-
       <div class="moving-logos-wrapper">
         <p class="title-tecnologias">Mobile App Development</p>
         <div class="moving-logos-inner">
           <div class="image-tecnologias mobile">
             <img class="server-img" src="../assets/mobile.png" alt="Mobile">
-
           </div>
         </div>
       </div>
-
       <div class="reverse-wrapper">
         <p class="title-tecnologias">Database</p>
         <div class="reverse-inner">
           <div class="image-tecnologias data">
             <img class="server-img" src="../assets/data.png" alt="Database">
-
           </div>
         </div>
       </div>
-
       <div class="moving-logos-wrapper">
         <p class="title-tecnologias">Servers</p>
         <div class="moving-logos-inner">
           <div class="image-tecnologias server">
-<img class="server-img" src="../assets/server.png" alt="Servers">
-
-
+            <img class="server-img" src="../assets/server.png" alt="Servers">
           </div>
         </div>
       </div>
-
       <div class="reverse-wrapper">
         <p class="title-tecnologias">DevOps</p>
         <div class="reverse-inner">
           <div class="image-tecnologias dev">
             <img class="server-img" src="../assets/dev.png" alt="dev">
-
-
           </div>
         </div>
       </div>
-
     </div>
     <FooterComponent />
   </div>
@@ -218,7 +186,7 @@ export default {
     height: 80%;
     background-size: contain;
     background-repeat: no-repeat;
-  
+
   }
 
 .front {
@@ -234,7 +202,7 @@ export default {
     background-image: url('../assets/big.png');
   }
   .server-img{
-height: 50px;
+    height: 50px;
   }
 @media screen and (min-width: 768px) {
 
@@ -242,7 +210,6 @@ height: 50px;
   display: none!important;
 }
   .moving-logos-wrapper {
-
     overflow: hidden;
     margin: auto;
 
@@ -276,7 +243,6 @@ height: 50px;
     overflow: hidden;
     margin: auto;
   }
-
   .image-tecnologias {
     width: 100%;
     height: 70%;
@@ -338,18 +304,15 @@ height: 50px;
 .container-home {
   background-color: white;
 }
-
 .navbar-brand:hover {
   color: #1976d2;
 }
-
 .content-home {
   padding: 70px 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-
 .content-card-home {
   background-color: white;
   border-radius: 10px;
@@ -360,28 +323,24 @@ height: 50px;
   padding: 20px;
   margin: 10px !important;
 }
-
 .container-img {
   display: flex;
   justify-content: center;
   padding-top: 20px;
-
 }
 
 .img-services {
   height: 100px;
 
 }
-
 .title-home {
-  color: #000000;
+  color: #333333;
   font-size: 44px;
   font-weight: bold;
   text-transform: none;
   font-style: normal;
   line-height: 1.3em;
 }
-
 .title-home-degrade {
   background: #158BBF;
   background: -webkit-linear-gradient(to right, #158BBF 0%, #4A00E0 100%);
@@ -397,7 +356,6 @@ height: 50px;
   color: #333333;
   padding: 0 20px 0 20px;
 }
-
 .custom-title-services {
   font-weight: 700;
   color: #333333;
@@ -408,7 +366,6 @@ height: 50px;
   font-weight: 300;
   color: #333333;
 }
-
 .btn-contact {
   padding: 10px;
   border: 1.5px solid black;
@@ -424,19 +381,16 @@ height: 50px;
   background-color: #000000;
   transition: .2s;
 }
-
 .services {
   text-align: center;
   margin-top: 100px;
 }
-
 .title-services {
   color: #332e94;
   font-size: 18px;
   font-weight: bold;
   text-align: center;
 }
-
 .description-services {
   text-align: center;
   font-size: 15px;
@@ -451,16 +405,20 @@ height: 50px;
   font-weight: bold;
   font-size: 30px;
   text-align: center;
-  padding: 20px 0;
+  padding: 20px 10px;
   margin: 0;
+  color: #333333;
 }
-
+.process-details-subtitle-content{
+  display: flex;
+  justify-content: center;
+}
 .process-details-subtitle {
   text-align: center;
   font-size: 20px;
   font-weight: 300;
   margin: 0 30px;
-
+  width: 90%!important;
 }
 
 .process-details-img {
@@ -475,9 +433,10 @@ height: 50px;
 
 .title-tecnologias {
   text-align: center;
-  font-weight: bold;
-  color: #333333;
-  margin: 0;
+    font-weight: 600;
+    color: #333333;
+    margin: 0;
+    text-transform: uppercase;
 }
 
 .image-tecnologias {
@@ -559,7 +518,6 @@ height: 50px;
   .title-home {
     padding: 0 20px 0px 20px;
   }
-
   .content-btn-contact {
     padding-left: 20px;
   }
@@ -597,7 +555,6 @@ height: 50px;
 }
 
 @media screen and (min-width: 768px) {
-
   .services {
     margin-top: 0;
   }
@@ -617,10 +574,8 @@ height: 50px;
     padding: 0 20px;
   }
 
-  /* wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww */
   .background-image {
     height: 400px;
- 
     background-image: url("../assets/image-home.png");
     background-position: center center;
     background-repeat: no-repeat;
@@ -639,7 +594,7 @@ height: 50px;
   }
 
   .background-image {
-    height: 100%;
+    height: 120%;
     width: 100%;
     background-image: url("../assets/image-home.png");
     background-position: center center;
@@ -666,7 +621,7 @@ height: 50px;
 }
 
 @media screen and (min-width: 1201px) {
-
+  
   .title-home {
     padding-top: 40px !important;
     font-size: 45px;
@@ -699,19 +654,17 @@ height: 50px;
 }
 
 @media screen and (min-width: 1201px) and (max-width: 1440px) {
+  .process-details-subtitle {
+  width: 900px!important;
+}
   .background-image {
-    height: 100%;
+    height: 150%;
     background-image: url("../assets/image-home.png");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     background-position-y: -70px;
   }
-
-  .column-one {
-    width: 500px !important;
-  }
-
   .content-home-image {
     display: flex !important;
     justify-content: center !important;
@@ -722,9 +675,24 @@ height: 50px;
 
 }
 @media screen and  (min-width: 1441px) {
-  .content-card-home {
+  .process-details-subtitle {
+  width: 1100px!important;
+}  
+.details-img{
+  width: 1300px;
+}.content-card-home {
     width: 400px !important;
 
   }
+  
+  .background-image {
+    height: 150%;
+    background-image: url("../assets/image-home.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -70px;
+  }
+
 }
 </style>
