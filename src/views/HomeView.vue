@@ -184,29 +184,29 @@ export default {
     NavBar,
     FooterComponent
   },
-metaInfo() {
-    return {
-      // Defina as Meta Tags específicas para esta página
-      title: 'Desenvolvimento de Aplicações Seguras | Dexi Digital',
-      meta: [
-        { name: 'description', content: 'Promova a confiança e a lealdade à marca por meio de experiências personalizadas. Conheça nossos serviços de Outsourcing de TI, Aplicativos Mobile, Squads de Desenvolvimento e Experiência Digital.' },
-        { name: 'keywords', content: 'desenvolvimento de aplicações, aplicações seguras, outsourcing de TI, aplicativos mobile, squads de desenvolvimento, experiência digital, empresa XYZ' },
-        { property: 'og:title', content: 'Desenvolvimento de Aplicações Seguras | Dexi Digital' },
-        { property: 'og:description', content: 'Promova a confiança e a lealdade à marca por meio de experiências personalizadas. Conheça nossos serviços de Outsourcing de TI, Aplicativos Mobile, Squads de Desenvolvimento e Experiência Digital.' },
-        { property: 'og:image', content: 'https://dexidigital.com.br/assets/dexi.svg' },
-        { property: 'og:image:width', content: '1200' }, // Largura da imagem em pixels
-        { property: 'og:image:height', content: '630' },
-        // Adicione outras Meta Tags conforme necessário
-        { property: 'og:type', content: 'website' }, // Tipo de conteúdo, geralmente 'website' para páginas principais
-        { property: 'og:url', content: 'https://dexidigital.com.br/' }, // URL da página
-        { property: 'og:site_name', content: 'Dexi Digital' }, // Nome do site
-        // Meta tag específica para o Instagram
-        { property: 'instagran:site', content: 'dexi.digital'  }, // Substitua pelo seu usuário no Instagram
-        // Meta tag específica para o LinkedIn      
-        { property: 'company', content: 'Dexi Digital' }, // Substitua pelo nome da empresa no LinkedIn
-      ]
-    };
-  }
+// metaInfo() {
+//     return {
+//       // Defina as Meta Tags específicas para esta página
+//       title: 'Desenvolvimento de Aplicações Seguras | Dexi Digital',
+//       meta: [
+//         { name: 'description', content: 'Promova a confiança e a lealdade à marca por meio de experiências personalizadas. Conheça nossos serviços de Outsourcing de TI, Aplicativos Mobile, Squads de Desenvolvimento e Experiência Digital.' },
+//         { name: 'keywords', content: 'desenvolvimento de aplicações, aplicações seguras, outsourcing de TI, aplicativos mobile, squads de desenvolvimento, experiência digital, empresa XYZ' },
+//         { property: 'og:title', content: 'Desenvolvimento de Aplicações Seguras | Dexi Digital' },
+//         { property: 'og:description', content: 'Promova a confiança e a lealdade à marca por meio de experiências personalizadas. Conheça nossos serviços de Outsourcing de TI, Aplicativos Mobile, Squads de Desenvolvimento e Experiência Digital.' },
+//         { property: 'og:image', content: 'https://dexidigital.com.br/assets/dexi.svg' },
+//         { property: 'og:image:width', content: '1200' }, // Largura da imagem em pixels
+//         { property: 'og:image:height', content: '630' },
+//         // Adicione outras Meta Tags conforme necessário
+//         { property: 'og:type', content: 'website' }, // Tipo de conteúdo, geralmente 'website' para páginas principais
+//         { property: 'og:url', content: 'https://dexidigital.com.br/' }, // URL da página
+//         { property: 'og:site_name', content: 'Dexi Digital' }, // Nome do site
+//         // Meta tag específica para o Instagram
+//         { property: 'instagran:site', content: 'dexi.digital'  }, // Substitua pelo seu usuário no Instagram
+//         // Meta tag específica para o LinkedIn      
+//         { property: 'company', content: 'Dexi Digital' }, // Substitua pelo nome da empresa no LinkedIn
+//       ]
+//     };
+//   }
 }
 </script> 
 <style scoped>

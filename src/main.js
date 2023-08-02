@@ -22,5 +22,15 @@ new Vue({
   router,
   store,
   vuetify,
+  metaInfo: {
+    title: 'DexiDigital - Qualidade e agilidade em aplicações seguras',
+    meta: [
+      { name: 'Equipes dinâmicas para projeto estratégicos, impulsionando o crecimento consistente da sua empresa no ritmo que você precisa.',
+        content: 'Equipes dinâmicas para projeto estratégicos, impulsionando o crecimento consistente da sua empresa no ritmo que você precisa.' 
+      },
+      // Outras Meta Tags globais
+
+    ]
+  },
   render: h => h(App)
 }).$mount('#app')
