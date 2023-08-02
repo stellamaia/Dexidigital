@@ -37,6 +37,15 @@ const router = new VueRouter({
   scrollBehavior() {
     return { x: 0, y: 0 };
   },
+  metaInfo: {
+    // Meta Tags globais para todas as páginas
+    title: 'DexiDigital - Qualidade e agilidade em aplicações seguras',
+    meta: [
+      { name: 'Equipes dinâmicas para projeto estratégicos, impulsionando o crecimento consistente da sua empresa no ritmo que você precisa.', 
+        content: 'Equipes dinâmicas para projeto estratégicos, impulsionando o crecimento consistente da sua empresa no ritmo que você precisa.' },
+      // Outras Meta Tags globais
+    ]
+  }
 })
 
 export default router
