@@ -1,10 +1,10 @@
 <template>
     <div>
         <NavBar />
-        <div v-for="post in posts" :key="post.id">
+        <div v-for="post in posts" :key="post.url">
             <div v-if="post.url === localUrl" class="content-post">
                 <h2 class="title-url">{{ post.url }}</h2>
-                <h2 class="title-post">{{ post.title }}</h2>     
+                <h2 class="title-post">{{ post.title }}</h2>
                 <p class="date-post">{{ post.date }}</p>
                 <img class="img-blog" :src="post.image" alt="Imagem do Post">
                 <p class="description-post">{{ post.description }}</p>
@@ -20,9 +20,15 @@
 <script>
 import NavBar from '../components/NavBar'
 import FooterComponent from '../components/FooterComponent'
+import Vue from 'vue'
+
+import VueMeta from 'vue-meta'
+Vue.use(VueMeta);
+
 export default {
 
     name: 'PostsView',
+
     components: {
         NavBar,
         FooterComponent,
@@ -31,6 +37,39 @@ export default {
 
         return {
             localUrl: location.href.split("/posts")[1].split("?")[0].substring(1),
+            metaInfo() {
+                const post = this.posts.find((post) => post.url === this.localUrl);
+                return {
+                    title: post ? post.title : "Posts",
+                    meta: [
+                        {
+                            vmid: "description",
+                            name: "description",
+                            content: post ? post.description : "Meu blog sobre diversos temas.",
+                        },
+                        {
+                            vmid: "og:title",
+                            property: "og:title",
+                            content: post ? post.title : "Blog - Meu Site",
+                        },
+                        {
+                            vmid: "og:description",
+                            property: "og:description",
+                            content: post ? post.description : "Meu blog sobre diversos temas.",
+                        },
+                        {
+                            vmid: "og:image",
+                            property: "og:image",
+                            content: post ? post.image : "URL_DA_IMAGEM_PADRAO_PARA_O_BLOG",
+                        },
+                        // Outras meta tags...
+                    ],
+                };
+            },
+
+
+
+
             posts: [
                 {
                     "post-1": "Post 1",
@@ -189,7 +228,7 @@ export default {
                     "url": "garantindo-a-qualidade",
                     "title": "Garantindo a Qualidade: Testes e Revisões em Projetos de Softhouse",
                     "date": "Postado em: 24 de Julho de 2023",
-                    "image": "https://t.ctcdn.com.br/0z1Y06hw4IXdlNxtjIvg9_TMGn4=/1200x675/smart/filters:format(webp)/i570001.jpeg",
+                    "image": "https://media.gazetadopovo.com.br/2020/05/22180435/luke-peters-B6JINerWMz0-unsplash-1280x720.jpg",
                     "description": "Em um mercado competitivo e em constante evolução, a qualidade de um produto de software é fundamental para o sucesso de qualquer empresa ou organização. As softhouses, como parceiras estratégicas no desenvolvimento de soluções tecnológicas personalizadas, desempenham um papel crucial na garantia da qualidade dos projetos que entregam. Neste artigo, vamos explorar em detalhes a importância dos testes e revisões em projetos de softhouse, destacando as práticas e processos que asseguram a excelência e confiabilidade dos produtos desenvolvidos.",
                     "details": [
                         {
@@ -318,9 +357,11 @@ export default {
     font-size: 30px;
 
 }
-.date-post{
+
+.date-post {
     color: #8d8d8d;
-} 
+}
+
 @media screen and (max-width: 768px) {
     .content-post {
         padding: 70px 30px 60px 30px !important;
