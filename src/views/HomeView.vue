@@ -434,22 +434,32 @@ export default {
   font-weight: 300;
   color: #333333;
 }
-
 .btn-contact {
   padding: 10px;
-  border: 1.5px solid black;
+  color: white;
+  background-color: #000000;
   border-radius: 30px;
   font-size: 14px;
   font-weight: bold;
-  width: 70%;
+  width: 60%;
+  box-shadow: 0 0 5px rgb(0, 0, 0);
   text-align: center;
+  transition: background-color 2s, box-shadow 2s, transform 2s; /* Adiciona uma transição de 2 segundos para as propriedades alteradas no hover */
 }
 
 .btn-contact:hover {
   color: white;
-  background-color: #000000;
-  transition: .2s;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgb(0, 0, 0);
+  transform: scale(1.06);
 }
+
+.btn-contact:hover-out {
+
+  box-shadow: none; /* Remove a sombra quando o mouse sai do botão */
+  transform: scale(1); /* Retorna ao tamanho original quando o mouse sai do botão */
+}
+
 
 .services {
   text-align: center;
