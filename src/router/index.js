@@ -19,7 +19,7 @@ const routes = [
     component: BlogView
   },
   {
-    path: '/formulario',
+    path: '/fale-conosco',
     name: 'form',
     component: FormView
   },

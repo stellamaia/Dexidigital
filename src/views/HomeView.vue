@@ -9,7 +9,7 @@
       <p class="description-home">Promova a confiança e a lealdade à marca <br>
         por meio de experiências personalizadas </p>
       <div class="content-btn-contact">
-        <router-link class="nav-link active btn-contact" to="/formulario"> Solicitar um orçamento
+        <router-link class="nav-link active btn-contact" to="/fale-conosco"> Solicitar um orçamento
         </router-link>
       </div>
       <div>
