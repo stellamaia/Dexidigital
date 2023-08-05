@@ -1,28 +1,24 @@
 <template>
   <nav class="navbar navbar-expand-sm bg-body-tertiary">
     <div class="container-fluid">
-
       <router-link class="navbar-brand" to="/">
-     
         <img class="logo" alt="logo-dexi" src="../assets/dexi.svg" />
       </router-link>
-     
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
         aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li class="nav-item">
               <router-link class="nav-link " to="/" :class="{ 'active': $route.path === '/' }">Home</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link " to="/blog"  :class="{ 'active': $route.path === '/blog' }">Conteúdos</router-link>
+              <router-link class="nav-link " to="/blog"
+                :class="{ 'active': $route.path === '/blog' }">Conteúdos</router-link>
             </li>
           </ul>
-
         </div>
       </div>
     </div>
@@ -40,31 +36,36 @@ export default {
 </script>
 
 <style scoped>
-.logo{
+.logo {
   height: 50px;
 }
-.navbar{
+
+.navbar {
   z-index: 2;
 }
+
 .offcanvas {
   color: white;
 }
-.bg-body-tertiary{
-  -webkit-box-shadow: 0 3px 6px 0 rgb(50 50 50 / 17%)!important;
-    box-shadow: 0 3px 6px 0 rgba(105, 105, 105, 0.16)!important;
+
+.bg-body-tertiary {
+  -webkit-box-shadow: 0 3px 6px 0 rgb(50 50 50 / 17%) !important;
+  box-shadow: 0 3px 6px 0 rgba(105, 105, 105, 0.16) !important;
 }
-.navbar-brand:hover{
-  color: #1976d2!important;
+
+.navbar-brand:hover {
+  color: #1976d2 !important;
 }
-.navbar-brand:focus{
-  color: #1976d2!important;
+
+.navbar-brand:focus {
+  color: #1976d2 !important;
 }
 
 .active {
   border-bottom: 2px solid #000000;
 }
 
-.nav-link{
+.nav-link {
   color: #000000;
 }
 
@@ -110,21 +111,21 @@ export default {
   .nav-item {
     display: flex;
   }
-  
+
 }
+
 @media screen and (max-width: 576px) {
 
-.active{
-  border-bottom: none;
-  color: #1976d2!important;
+  .active {
+    border-bottom: none;
+    color: #1976d2 !important;
+  }
 }
-}
- 
+
 
 @media screen and (min-width: 769px) {
   .container-fluid {
     padding: 0 50px 0 50px;
   }
- 
-}
-</style>
+
+}</style>

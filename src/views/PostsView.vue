@@ -33,6 +33,11 @@ export default {
         NavBar,
         FooterComponent,
     },
+    mounted() {
+        // Exemplo de rastreamento de uma visualização de página
+        this.$gtag.pageview('/PostsView');
+      },
+      
     data() {
 
         return {
@@ -62,7 +67,6 @@ export default {
                             property: "og:image",
                             content: post ? post.image : "URL_DA_IMAGEM_PADRAO_PARA_O_BLOG",
                         },
-                        // Outras meta tags...
                     ],
                 };
             },

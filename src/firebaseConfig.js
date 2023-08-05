@@ -14,8 +14,3 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 export const firebaseDb = firebase.firestore();
-// import 'firebase/analytics';
-// import { getAnalytics } from "firebase/analytics";
-// const analytics = getAnalytics(app);
-
-// export const firebaseAuth = firebase.auth();

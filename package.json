@@ -13,6 +13,8 @@
     "core-js": "^3.8.3",
     "firebase": "^8.10.0",
     "vue": "^2.7.14",
+    "vue-analytics": "^5.22.1",
+    "vue-gtag": "^1.16.1",
     "vue-meta": "^2.4.0",
     "vue-router": "^3.5.1",
     "vue-the-mask": "^0.11.1",

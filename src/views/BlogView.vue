@@ -3,12 +3,12 @@
     <NavBar />
     <div>
       <div class="content-blog">
-        <v-card v-for="post in posts" :key="post.id" class="mx-auto content-card" @click="navigateTo(post)">
+        <v-card v-for="post in posts" :key="post.id" class="mx-auto content-card" @click="navigateToBlog(post)">
           <v-img :src="post.image" height="200px" cover></v-img>
           <v-card-text>
             <div class="infos">
               <p class="title-blog">{{ post.title }}</p>
-              <p class="title-data" >{{ post.date }}</p>
+              <p class="title-data">{{ post.date }}</p>
               <p>{{ truncateText(post.description, 150) }}</p>
               <div class="content-arrow">
                 <div class="links"> Leia mais » </div>
@@ -32,34 +32,38 @@ export default {
     NavBar,
     FooterComponent
   },
+  mounted() {
+        // Exemplo de rastreamento de uma visualização de página
+        this.$gtag.pageview('/BlogView');
+      },
   metaInfo() {
-  const post = this.posts.find((post) => post.url === this.localUrl);
-  return {
-    title: post ? post.title : "Posts",
-    meta: [
-      {
-        vmid: "description",
-        name: "description",
-        content: post ? post.description : "Meu blog sobre diversos temas.",
-      },
-      {
-        vmid: "og:title",
-        property: "og:title",
-        content: post ? post.title : "Blog - Meu Site",
-      },
-      {
-        vmid: "og:description",
-        property: "og:description",
-        content: post ? post.description : "Meu blog sobre diversos temas.",
-      },
-      {
-        vmid: "og:image",
-        property: "og:image",
-        content: post ? post.image : "URL_DA_IMAGEM_PADRAO_PARA_O_BLOG",
-      },
-    ],
-  };
-},
+    const post = this.posts.find((post) => post.url === this.localUrl);
+    return {
+      title: post ? post.title : "Posts",
+      meta: [
+        {
+          vmid: "description",
+          name: "description",
+          content: post ? post.description : "Meu blog sobre diversos temas.",
+        },
+        {
+          vmid: "og:title",
+          property: "og:title",
+          content: post ? post.title : "Blog - Meu Site",
+        },
+        {
+          vmid: "og:description",
+          property: "og:description",
+          content: post ? post.description : "Meu blog sobre diversos temas.",
+        },
+        {
+          vmid: "og:image",
+          property: "og:image",
+          content: post ? post.image : "URL_DA_IMAGEM_PADRAO_PARA_O_BLOG",
+        },
+      ],
+    };
+  },
 
   data() {
     return {
@@ -68,7 +72,7 @@ export default {
         {
           "post-1": "Post 1",
           "url": "a-importancia-de-contratar-uma-empresa",
-      
+
           "title": "A Importância de Contratar uma Empresa de Desenvolvimento de Software para Economizar com Projetos",
           "date": "Postado em: 24 de Julho de 2023",
           "image": "https://cesu.cps.sp.gov.br/wp-content/uploads/2020/08/work-office-team-company-internet-5382501-800x445.jpg",
@@ -265,7 +269,7 @@ export default {
             },
             {
               "description": "Palavras-chave: testes de desempenho, comportamento do software, eficiência, escalabilidade.",
-            }, 
+            },
             {
               "description": "As softhouses utilizam os testes de desempenho para identificar gargalos e pontos críticos no software que possam impactar negativamente a sua performance. Com essa avaliação, é possível realizar ajustes e otimizações para garantir que o software opere de forma eficiente, mesmo em condições de uso intensivo.",
             },
@@ -277,7 +281,7 @@ export default {
               "description": "Palavras-chave: testes de segurança, resistência a ameaças, vulnerabilidades.",
 
             },
-           {
+            {
               "description": "As softhouses aplicam testes de segurança para garantir que o software esteja protegido contra ataques, como invasões, vazamento de informações e exploração de vulnerabilidades. Com a identificação de possíveis falhas de segurança, medidas corretivas são tomadas para garantir a integridade e a confidencialidade dos dados."
 
             },
@@ -321,12 +325,11 @@ export default {
     }
   },
   methods: {
-    navigateTo(post) {
+    navigateToBlog(post) {
       this.$router.push({
         path: `/posts/${encodeURIComponent(post.url)}`,
         query: {
           data: post
-
         }
       });
     },
@@ -341,13 +344,15 @@ export default {
 }
 </script>
 <style scoped>
-.title-blog{
+.title-blog {
   font-size: 19px;
   font-weight: 700;
 }
-.title-data{
-color: #a9a9a9;
+
+.title-data {
+  color: #a9a9a9;
 }
+
 .img-blog {
   width: 100px !important;
 }
@@ -377,13 +382,15 @@ color: #a9a9a9;
   font-size: 12px;
   text-decoration: none;
   text-transform: uppercase;
- color: black;
+  color: black;
   margin-bottom: 20px;
 }
+
 .links:hover {
   color: #7d7c7c;
   transition: 1s;
 }
+
 .arrow {
   color: rgb(133, 133, 133);
   font-weight: 300;
@@ -463,5 +470,4 @@ color: #a9a9a9;
   transform: rotate(-1deg) scale(1.01);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, .1), 0 2px 4px -1px rgba(0, 0, 0, .06);
 
-}
-</style>
+}</style>

@@ -10,9 +10,7 @@
                         é uma empresa de tecnologia dinâmica e inovadora dedicada a fornecer soluções de ponta para o
                         mundo digital. Nossa equipe de profissionais qualificados é apaixonada por tecnologia e comprometida
                         em fornecer produtos e serviços de alto nível aos nossos clientes.
-
                     </p>
-
                 </div>
             </v-col>
 
@@ -34,13 +32,13 @@
 
 
                     <span class="elementor-screen-only">
-                        <a href="https://www.instagram.com/dexi.digital/" target="_blank" click="social">
+                        <a href="https://www.instagram.com/dexi.digital/" target="_blank" @click="clickInstagram">
                             <i class="fab fa-instagram icon"></i>
                         </a>
                     </span>
 
                     <span class="elementor-screen-only">
-                        <a href="https://www.linkedin.com/company/dexi-digital/" target="_blank" click="social">
+                        <a href="https://www.linkedin.com/company/dexi-digital/" target="_blank" @click="clickLinkedin">
                             <i class="fab fa-linkedin icon"></i>
                         </a>
                     </span>
@@ -50,12 +48,27 @@
 
     </div>
 </template>
-
 <script>
 export default {
-    name: 'FooterComponent'
-}
+    name: 'FooterComponent',
+    methods: {
+        clickInstagram: function () {
+            this.$gtag.event('action', 'label', {
+                event_category: 'category',
+                value: 123,
+            });
+        },
+        clickLinkedin: function () {
+            this.$gtag.event('action', 'label', {
+                event_category: 'category',
+                value: 123,
+            });
+        },
+    },
+};
 </script>
+
+
 <style scoped>
 .text-font {
     font-weight: bold;
@@ -65,8 +78,6 @@ export default {
     padding: 60px;
     background-color: #292929;
     color: white;
-
-
 }
 
 .links {
@@ -79,8 +90,6 @@ export default {
     color: #38B6ED !important;
     cursor: pointer;
 }
-
-
 
 .icon {
     font-size: 30px;
@@ -105,5 +114,4 @@ export default {
         justify-content: center;
         display: flex;
     }
-}
-</style>
+}</style>

@@ -14,7 +14,6 @@
       </div>
       <div>
         <div class="background-image-content">
-
           <img class="background-image" src="../assets/image-home.png" alt="">
         </div>
       </div>
@@ -187,6 +186,10 @@ export default {
     NavBar,
     FooterComponent
   },
+  
+    mounted() {
+    this.$gtag.pageview('/HomeView');
+  },
   metaInfo() {
     return {
 
@@ -202,7 +205,7 @@ export default {
         { property: 'og:type', content: 'website' },
         { property: 'og:url', content: 'https:dexidigital.com.br/' },
         { property: 'og:site_name', content: 'Dexi Digital' },
-        { property: 'instagran:site', content: 'dexi.digital' },
+        { property: 'instagram:site', content: 'dexi.digital' },
         { property: 'company', content: 'Dexi Digital' },
       ]
     };
