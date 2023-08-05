@@ -11,7 +11,7 @@
             <div class="box-form">
                 <form class="form" @submit.prevent="submitForm">
                     <v-row>
-                        <v-col cols="12" sm="12" md="6">
+                        <v-col cols="12" sm="12" md="6  ">
                             <v-text-field v-model="name" :counter="20" label="Nome" required></v-text-field>
                         </v-col>
 
@@ -40,7 +40,7 @@
 
                     <div class="content-btn-form">
                         <v-btn class="btn-form" @click="send">
-                            Enviar 
+                            Enviar
                         </v-btn>
                     </div>
                 </form>
@@ -54,9 +54,11 @@
 import NavBar from '../components/NavBar'
 import FooterComponent from '../components/FooterComponent'
 import { firebaseDb } from "../firebaseConfig";
-
 export default {
-    name: "SignView",
+    name: "FormView",
+    mounted() {
+        this.$gtag.pageview('/BlogView');
+    },
     data() {
         return {
             name: "",
@@ -67,18 +69,14 @@ export default {
             select: "",
             description: "",
             items: [
-            'Head de inovação',
+                'Head de inovação',
                 'Coordenador de TI',
                 'Gerente de Projetos',
                 'Gerente de Marketing',
                 'Analista',
                 'Desenvolvedor',
                 'Outros'
-            
-
             ],
-            
-
         };
     },
     components: {
@@ -87,30 +85,34 @@ export default {
     },
     methods: {
         send() {
-      if (this.name && this.email && this.company && this.phone && this.select && this.description) {
-        firebaseDb.collection("users")
-          .add({
-            name: this.name,
-            company: this.company,
-            phone: this.phone,
-            email: this.email,
-            linkedin: this.linkedin,
-            select: this.select,
-            description: this.description
-          })
-          .then(() => {
-            alert("Dados enviados com sucesso!");
-           
-          })
-          .catch((error) => {
-            console.error("Erro:", error);
-          });
-      } else {
-        alert("Oops... Preencha todos os campos!");
-      }
-    }
-  }
+            if (this.name && this.email && this.company && this.phone && this.select && this.description) {
+                this.$gtag.event('form_submit', {
+                    event_category: 'form_submission',
+                    event_label: 'form_submitted',
+                    value: 1,
+                });
+                firebaseDb.collection("users")
+                    .add({
+                        name: this.name,
+                        company: this.company,
+                        phone: this.phone,
+                        email: this.email,
+                        linkedin: this.linkedin,
+                        select: this.select,
+                        description: this.description
+                    })
+                    .then(() => {
+                        alert("Dados enviados com sucesso!");
 
+                    })
+                    .catch((error) => {
+                        console.error("Erro:", error);
+                    });
+            } else {
+                alert("Oops... Preencha todos os campos!");
+            }
+        }
+    }
 }
 </script>
 

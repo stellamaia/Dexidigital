@@ -3,16 +3,15 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
-
+import VueGtag from 'vue-gtag'
+Vue.use(VueGtag, {
+  config: {
+    id: 'G-4R29PPN3G6'
+  },
+});
 
 import 'bootstrap/dist/css/bootstrap.css'
 import VueTheMask from 'vue-the-mask'
-// import * as firebase from "firebase/app";
-// import "firebase/firestore";
-// import "firebase/analytics";
-// firebase.initializeApp(firebaseConfig);
-// firebase.analytics();
-// Vue.prototype.$analytics = firebase.analytics();
 Vue.use(VueTheMask)
 
 import VueMeta from 'vue-meta';
