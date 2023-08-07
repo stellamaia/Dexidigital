@@ -184,10 +184,10 @@ export default {
   name: 'HomeView',
   components: {
     NavBar,
-    FooterComponent
+    FooterComponent,
   },
-  
-    mounted() {
+
+  mounted() {
     this.$gtag.pageview('/HomeView');
   },
   metaInfo() {
@@ -434,6 +434,7 @@ export default {
   font-weight: 300;
   color: #333333;
 }
+
 .btn-contact {
   padding: 10px;
   color: white;
@@ -444,7 +445,8 @@ export default {
   width: 60%;
   box-shadow: 0 0 5px rgb(0, 0, 0);
   text-align: center;
-  transition: background-color 2s, box-shadow 2s, transform 2s; /* Adiciona uma transição de 2 segundos para as propriedades alteradas no hover */
+  transition: background-color 2s, box-shadow 2s, transform 2s;
+  /* Adiciona uma transição de 2 segundos para as propriedades alteradas no hover */
 }
 
 .btn-contact:hover {
@@ -456,8 +458,10 @@ export default {
 
 .btn-contact:hover-out {
 
-  box-shadow: none; /* Remove a sombra quando o mouse sai do botão */
-  transform: scale(1); /* Retorna ao tamanho original quando o mouse sai do botão */
+  box-shadow: none;
+  /* Remove a sombra quando o mouse sai do botão */
+  transform: scale(1);
+  /* Retorna ao tamanho original quando o mouse sai do botão */
 }
 
 
@@ -850,5 +854,4 @@ export default {
     display: flex;
     justify-content: end;
   }
-}
-</style>
+}</style>
