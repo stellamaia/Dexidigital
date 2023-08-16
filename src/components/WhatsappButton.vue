@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="content-whatsapp">
         <v-btn class="whatsapp-button" @click="redirectToWhatsApp" ></v-btn>
     </div>
 </template>
@@ -18,7 +18,7 @@ export default {
 };
 </script>
 
-<style>
+<style >
 .whatsapp-button{
     position: fixed;
     top: auto !important;
