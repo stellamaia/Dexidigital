@@ -11,10 +11,11 @@
       <div class="content-btn-contact">
         <router-link class="nav-link active btn-contact" to="/fale-conosco"> Solicitar um orçamento
         </router-link>
+       
       </div>
       <div>
         <div class="background-image-content">
-          <img class="background-image" src="../assets/image-home.png" alt="">
+          <img class="background-image" src="../assets/image-home.png" alt="imagem Home">
         </div>
       </div>
 
@@ -167,6 +168,7 @@
           </div>
         </div>
       </div>
+      <WhatsappButton />
     </div>
     <FooterComponent />
   </div>
@@ -176,6 +178,8 @@
 import NavBar from '../components/NavBar'
 import FooterComponent from '../components/FooterComponent'
 import Vue from 'vue'
+import WhatsappButton from '../components/WhatsappButton.vue';
+
 
 import VueMeta from 'vue-meta'
 Vue.use(VueMeta);
@@ -185,6 +189,7 @@ export default {
   components: {
     NavBar,
     FooterComponent,
+    WhatsappButton
   },
 
   mounted() {
@@ -213,6 +218,9 @@ export default {
 }
 </script> 
 <style scoped>
+.tecnologias{
+  height: calc(100vh -10px);
+}
 .background-image-content {
   display: flex;
   justify-content: end;
@@ -233,7 +241,6 @@ export default {
   height: 80%;
   background-size: contain;
   background-repeat: no-repeat;
-
 }
 
 .front {
@@ -443,7 +450,6 @@ export default {
   font-size: 14px;
   font-weight: bold;
   width: 60%;
-  box-shadow: 0 0 5px rgb(0, 0, 0);
   text-align: center;
   transition: background-color 2s, box-shadow 2s, transform 2s;
   /* Adiciona uma transição de 2 segundos para as propriedades alteradas no hover */
