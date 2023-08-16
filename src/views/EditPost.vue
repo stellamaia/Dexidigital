@@ -380,8 +380,8 @@ button.icon.v-btn.v-btn--is-elevated.v-btn--has-bg.theme--light.v-size--default 
   perspective: 1000px;
   transition: transform 0.3s ease;
   border-radius: 8px !important;
-  box-shadow: none !important;
 
+  box-shadow: 0 0 10px 0 rgba(53, 53, 53, 0.15)!important;
   margin-bottom: 50px;
   cursor: pointer;
   margin: 30px !important;
