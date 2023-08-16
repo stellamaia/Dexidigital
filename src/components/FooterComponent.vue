@@ -1,7 +1,6 @@
 <template>
     <div class="footer">
         <v-row>
-
             <v-col class="content-social-media" cols="12" sm="12" md="12" lg="12" xl="4">
                 <div class="content-footer">
 
@@ -45,7 +44,6 @@
                 </div>
             </v-col>
         </v-row>
-
     </div>
 </template>
 <script>
@@ -114,4 +112,5 @@ export default {
         justify-content: center;
         display: flex;
     }
-}</style>
+}
+</style>

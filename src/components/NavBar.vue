@@ -18,6 +18,7 @@
               <router-link class="nav-link " to="/blog"
                 :class="{ 'active': $route.path === '/blog' }">Conteúdos</router-link>
             </li>
+            
           </ul>
         </div>
       </div>
@@ -128,4 +129,5 @@ export default {
     padding: 0 50px 0 50px;
   }
 
-}</style>
+}
+</style>
