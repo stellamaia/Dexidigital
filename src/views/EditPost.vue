@@ -1,0 +1,446 @@
+<template>
+  <div class="">
+    <div v-if="token">
+      <NavBarPost />
+      <div>
+        <div class="content-no-card container-edit-post" v-if="arrayComValoresDoFirebase.length === 0">
+          <p class="text-no-card">Não há nenhum card para exibir.</p>
+          <router-link to="/criar-post">
+            <v-btn class="add-card-button">Adicionar Card</v-btn></router-link>
+
+        </div>
+        
+     
+   
+        <div v-else>
+          <div class="icon-abs">
+          <router-link class="link content-button-plus" to="/criar-post">
+            <v-btn class="add-card-button-plus  icon-plus">
+              <i class="fa-solid fa-plus"></i>
+            </v-btn>
+        </router-link>
+        </div>
+          <div class="content-blog flex-row-reverse">
+            <v-card v-for="(item, index) in arrayComValoresDoFirebase" :key="index" class="mx-auto content-card">
+              <div class="icons">
+                <v-btn @click="editPost(item)" class="icon">
+
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </v-btn>
+                <v-btn @click="deletePost(item)" class="icon">
+                  <i class="fa-solid fa-trash"></i>
+                </v-btn>
+              </div>
+              <v-img class="img-blog" :src="getCardImage(item.pathImgOnFirebase)"></v-img>
+              <v-card-text>
+                <div class="infos">
+                  <p class="title-blog" v-html="item.title"></p>
+                  <p class="title-data" v-html="item.date"></p>
+                  <p v-html="truncateText(item.content, 150)"></p>
+                  <div class="content-arrow">
+                    <div class="links"> Leia mais » </div>
+                  </div>
+                </div>
+              </v-card-text>
+              <!-- Mostrar os ícones apenas para usuários logados -->
+            </v-card>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-no-access" v-else>
+      <h1 class="no-access">Sem permissão!</h1>
+      <router-link class="return-login" to="/entrar">
+        <p class="title-login">Retornar para <span class="login">Entrar</span></p>
+      </router-link>
+    </div>
+  </div>
+</template>
+<script>
+import { firebaseDb } from "../firebaseConfig";
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import NavBarPost from "@/components/NavBarPost.vue";
+import { doc, deleteDoc } from "firebase/firestore";
+
+// // import { mapGetters } from 'vuex';
+
+export default {
+  name: 'EditPost',
+
+  components: {
+    NavBarPost
+
+  },
+
+  // computed: {
+  //   ...mapGetters(['isLoggedIn']), // Certifique-se de ter o getter 'isLoggedIn' no seu store
+
+  // },
+
+  created() {
+    this.getPostsFromFirebase();
+  },
+  mounted() {
+    // Exemplo de rastreamento de uma visualização de página
+    this.$gtag.pageview('/BlogView');
+  },
+
+
+  // metaInfo() {
+  //   const post = this.posts.find((post) => post.url === this.localUrl);
+  //   return {
+  //     title: post ? post.title : "Posts",
+  //     // meta: [
+  //     //   {
+  //     //     vmid: "description",
+  //     //     name: "description",
+  //     //     content: post ? post.description : "Meu blog sobre diversos temas.",
+  //     //   },
+  //     //   {
+  //     //     vmid: "og:title",
+  //     //     property: "og:title",
+  //     //     content: post ? post.title : "Blog - Meu Site",
+  //     //   },
+  //     //   {
+  //     //     vmid: "og:description",
+  //     //     property: "og:description",
+  //     //     content: post ? post.description : "Meu blog sobre diversos temas.",
+  //     //   },
+  //     //   {
+  //     //     vmid: "og:image",
+  //     //     property: "og:image",
+  //     //     content: post ? post.image : "URL_DA_IMAGEM_PADRAO_PARA_O_BLOG",
+  //     //   },
+  //     // ],
+  //   };
+  // },
+
+  data() {
+
+    return {
+      localImages: [],
+      arrayComValoresDoFirebase: [],
+      // item: []
+      posts: {},
+      token: localStorage.getItem("token"),
+
+    }
+  },
+  methods: {
+    goBack() {
+
+      this.$router.push("/criar-post");
+    },
+
+    async getDonwloadUrlAndSetblogImgUrl() {
+      const storage = getStorage();
+      await Promise.all(this.arrayComValoresDoFirebase.map(async (item) => {
+        const fullPath = ref(storage, item.pathImgOnFirebase);
+        const url = await getDownloadURL(fullPath);
+        this.localImages.push({ path: item.pathImgOnFirebase, url });
+      }));
+    },
+    getCardImage(path) {
+      const image = this.localImages.find(img => img.path === path);
+      return image ? image.url : '';
+    },
+
+    truncateText(text, maxLength) {
+      if (text?.length > maxLength) {
+        return text.substring(0, maxLength) + '...';
+      } else {
+        return text;
+      }
+    },
+    getPostsFromFirebase() {
+      this.arrayComValoresDoFirebase = []; // Limpa a array antes de adicionar novos posts
+
+      firebaseDb.collection('posts').get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          const post = doc.data();
+          this.arrayComValoresDoFirebase.push(post);
+        });
+        return this.getDonwloadUrlAndSetblogImgUrl();
+      });
+    },
+    formatDate(date) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return 'Postado em: ' + new Date(date).toLocaleDateString('pt-BR', options);
+    },
+    editPost(post) {
+
+      this.$router.push({ name: 'post-edit-page', params: { postId: post.id } });
+    },
+
+    deletePost(post) {
+      // Excluir o post do Firebase
+      deleteDoc(doc(firebaseDb, 'posts', post.id))
+
+        .then(() => {
+          console.log('Post excluído com sucesso');
+          const index = this.arrayComValoresDoFirebase.findIndex(item => item.id === post.id);
+          if (index !== -1) {
+            this.arrayComValoresDoFirebase.splice(index, 1);
+          }
+        })
+        .catch(error => {
+          console.error('Erro ao excluir o post:', error);
+        });
+    }
+  }
+}
+</script>
+<style scoped>
+.icon-abs{
+display: flex;
+justify-content: end;
+padding: 20px 20px 0 0;
+}
+.icon-plus{
+ 
+}
+.fa-plus{
+  color: white!important;
+}
+.content-no-card {
+  height: calc(100vh - 120px);
+text-align: center;
+padding-top:10%;
+
+}
+
+
+.text-no-card {
+
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+  color: #7e7e7e;
+}
+
+
+
+.add-card-button {
+  background-color: #158BBF !important;
+  color: white;
+}
+.add-card-button-plus {
+  background-color: #158BBF !important;
+  color: white!important;
+}
+div p img {
+  height: 100px;
+  /* outras propriedades de estilo, se necessário */
+}
+
+.header {
+  background: linear-gradient(to right, #158BBF 0%, #021e78 100%);
+  height: 120px;
+}
+
+.create-post {
+  color: #ffffff;
+  font-size: 30px;
+  padding: 20px 70px;
+  font-weight: bold;
+}
+
+.icon-arrow {
+  color: white;
+  font-size: 20px;
+  padding: 20px 0 0 30px;
+
+}
+
+.img-blog {
+  border-radius: 8px 8px 0 0;
+  height: 200px;
+  width: 100%;
+  background-size: cover;
+}
+
+.icon {
+  color: white;
+  background-color: rgba(0, 0, 0, 0) !important;
+  box-shadow: none;
+  border-radius: 50%;
+  width: 41px;
+}
+
+.icon-plus {
+  color: white;
+  background-color: #158BBF; 
+  box-shadow: none;
+  border-radius: 50%;
+
+}
+.icon-plus:hover {
+  color: white;
+  background-color: #51b1da!important; 
+  box-shadow: none;
+  border-radius: 50%;
+
+}
+.v-btn:not(.v-btn--round).v-size--default{
+  min-width: 10px!important;
+  height: 45px;
+}
+.icon:hover {
+
+  background-color: rgba(255, 255, 255, 0.187) !important;
+
+}
+
+button.icon.v-btn.v-btn--is-elevated.v-btn--has-bg.theme--light.v-size--default {
+  height: 40px;
+  min-width: 30px;
+}
+
+.icons {
+  position: fixed;
+  background-color: #158BBF;
+  height: 45px;
+  padding: 3px;
+  border-radius: 8px 8px 0 0;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+}
+
+
+
+.v-image.v-responsive.theme--light {
+  display: inherit !important;
+}
+
+.title-blog {
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.title-data {
+  color: #a9a9a9;
+}
+
+.content-img-blog {
+  display: flex;
+  justify-content: center;
+}
+
+.content-blog {
+
+  flex-direction: row-reverse;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.no-posts {
+  text-align: center;
+}
+
+.mx-auto.content-card.v-card.v-card--link.v-sheet.theme--light {
+  /* display: flex; */
+  flex-wrap: wrap;
+  justify-content: start !important;
+  ;
+}
+.link{
+  text-decoration: none;
+}
+.links {
+  cursor: pointer;
+  font-size: 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.links:hover {
+  color: #7d7c7c;
+  transition: 1s;
+}
+
+.arrow {
+  color: rgb(133, 133, 133);
+  font-weight: 300;
+}
+
+.content-arrow {
+
+  display: flex;
+}
+
+.content-card {
+  perspective: 1000px;
+  transition: transform 0.3s ease;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+
+  margin-bottom: 50px;
+  cursor: pointer;
+  margin: 30px !important;
+
+}
+
+.title-details {
+  font-weight: bold;
+}
+
+.details {
+  font-size: 12px;
+}
+
+@media screen and (min-width:320px) and (max-width: 480px) {
+
+  
+  .content-card {
+    width: 80%;
+  }
+  /* .content-blog {
+    padding: 20px !important;
+  } */
+}
+
+@media screen and (max-width: 481px) {
+  /* .content-blog {
+    padding-top: 50px !important;
+  } */
+  .content-card {
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .content-card {
+    width: 45%;
+  }
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+  .content-card {
+    width: 30%;
+  }
+
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+  .content-card {
+    width: 30%;
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  .content-card {
+    width: 280px;
+
+  }
+}
+</style>
