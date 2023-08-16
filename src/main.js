@@ -4,6 +4,11 @@ import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
 import VueGtag from 'vue-gtag'
+
+import Vue2Editor from "vue2-editor";
+
+Vue.use(Vue2Editor);
+
 Vue.use(VueGtag, {
   config: {
     id: 'G-4R29PPN3G6'
