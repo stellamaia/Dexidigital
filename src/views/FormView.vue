@@ -45,6 +45,7 @@
                     </div>
                 </form>
             </div>
+            <WhatsappButton />
         </div>
         <FooterComponent />
     </div>
@@ -54,6 +55,8 @@
 import NavBar from '../components/NavBar'
 import FooterComponent from '../components/FooterComponent'
 import { firebaseDb } from "../firebaseConfig";
+import WhatsappButton from '../components/WhatsappButton.vue';
+
 export default {
     name: "FormView",
     mounted() {
@@ -81,7 +84,8 @@ export default {
     },
     components: {
         NavBar,
-        FooterComponent
+        FooterComponent,
+        WhatsappButton
     },
     methods: {
         send() {
@@ -91,7 +95,7 @@ export default {
                     event_label: 'form_submitted',
                     value: 1,
                 });
-                firebaseDb.collection("users")
+                firebaseDb.collection("form")
                     .add({
                         name: this.name,
                         company: this.company,
