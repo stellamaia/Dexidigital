@@ -21,9 +21,11 @@
             </button>
         </div>
         <p class="create-post" v-if="$route.path === '/editar-post'">Editar/Apagar </p>
-        <p class="create-post" v-else-if="$route.path === '/pagina-de-edicao'">Editar Post</p>
+        <p class="create-post" v-else-if="$route.path === '/criar-post'">Criar Post</p>
 
-        <p class="create-post" v-else>Criar Post</p>
+        <p class="create-post" v-else>Editar</p>
+
+
     </div>
 </template>
 <script>
