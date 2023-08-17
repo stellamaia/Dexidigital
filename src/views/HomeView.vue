@@ -219,7 +219,7 @@ export default {
 </script> 
 <style scoped>
 .tecnologias{
-  height: calc(100vh -10px);
+  /* height: calc(100vh -10px); */
 }
 .background-image-content {
   display: flex;
