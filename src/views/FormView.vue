@@ -9,41 +9,66 @@
                 </p>
             </div>
             <div class="box-form">
-                <form class="form" @submit.prevent="submitForm">
+                <v-form class="form" ref="form" v-model="valid" lazy-validation @submit.prevent="submitForm">
                     <v-row>
                         <v-col cols="12" sm="12" md="6  ">
-                            <v-text-field v-model="name" :counter="20" label="Nome" required></v-text-field>
+
+                            <v-text-field v-model="name" :counter="10" :rules="nameRules" label="Name"
+                                required></v-text-field>
+
                         </v-col>
 
                         <v-col cols="12" sm="12" md="6">
-                            <v-text-field v-model="company" label="Empresa" required></v-text-field>
+                            <v-text-field v-model="company" :rules="companyRules" label="Empresa" required></v-text-field>
+
+
                         </v-col>
                         <v-col cols="12" sm="12" md="6">
-                            <v-text-field v-model="phone" label="Telefone" required
-                                v-mask="'(##) #####-####'"></v-text-field>
-                        </v-col>
-                        <v-col cols="12" sm="12" md="6">
-                            <v-text-field v-model="email" label="Email" required></v-text-field>
-                        </v-col>
-                        <v-col cols="12" sm="12" md="6">
-                            <v-text-field v-model="linkedin" label="LinkedIn" required></v-text-field>
-                        </v-col>
-                        <v-col cols="12" sm="12" md="6">
-                            <v-select v-model="select" :items="items" label="Qual seu cargo" required></v-select>
-                        </v-col>
-                        <v-col cols="12" sm="12" md="12">
-                            <v-text-field v-model="description"
-                                label="Descreva seu projeto e as funcionalidades que gostaria de ter"
+                            <v-text-field v-model="phone" :rules="phoneRules" label="Telefone" v-mask="'(##) #####-####'"
                                 required></v-text-field>
                         </v-col>
-                    </v-row>
+                        <v-col cols="12" sm="12" md="6">
 
+                            <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
+                        </v-col>
+                        <v-col cols="12" sm="12" md="6">
+
+                            <v-text-field v-model="linkedin" :rules="linkedinRules" label="LinkedIn"
+                                required></v-text-field>
+
+                        </v-col>
+                        <v-col cols="12" sm="12" md="6">
+
+                            <v-select v-model="select" :items="items" :rules="[v => !!v || 'Item is required']"
+                                label="Qual seu cargo" required></v-select>
+
+
+                        </v-col>
+                        <v-col cols="12" sm="12" md="12">
+
+                            <v-text-field v-model="description" :rules="descriptionRules"
+                                label="Descreva seu projeto e as funcionalidades que gostaria de ter"
+                                required></v-text-field>
+
+                        </v-col>
+                    </v-row>
+                    <div>
+
+                        <v-checkbox v-model="checkbox" :rules="[v => !!v || 'You must agree to continue!']"
+                            label="  Eu concordo com a política de privacidade da Dexi Digital*" required></v-checkbox>
+                        <div class="links">
+                            <router-link to="/politica-de-privacidade">* Politica de privacidade</router-link><br>
+
+                        </div>
+                    </div>
                     <div class="content-btn-form">
                         <v-btn class="btn-form" @click="send">
                             Enviar
                         </v-btn>
                     </div>
-                </form>
+
+                    <v-alert v-if="successAlert" dense text type="success">{{ 'Formulário enviado com sucesso!' }}</v-alert>
+                </v-form>
             </div>
             <WhatsappButton />
         </div>
@@ -64,6 +89,7 @@ export default {
     },
     data() {
         return {
+            valid: true,
             name: "",
             company: "",
             phone: "",
@@ -71,6 +97,7 @@ export default {
             linkedin: "",
             select: "",
             description: "",
+            err: null,
             items: [
                 'Head de inovação',
                 'Coordenador de TI',
@@ -80,7 +107,37 @@ export default {
                 'Desenvolvedor',
                 'Outros'
             ],
-        };
+            checkbox: false,
+            successAlert: false,
+
+
+            nameRules: [
+                v => !!v || 'Name is required',
+                v => (v && v.length <= 10) || 'Name must be less than 10 characters',
+            ],
+            emailRules: [
+                v => !!v || 'E-mail is required',
+                v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+            ],
+            companyRules: [
+                v => !!v || 'Company is required',
+            ],
+            phoneRules: [
+                v => !!v || 'Phone is required',
+                v => /^\(\d{2}\) \d{5}-\d{4}$/.test(v) || 'Phone must be in the format (XX) XXXXX-XXXX',
+            ],
+            linkedinRules: [
+                v => !!v || 'LinkedIn is required',
+                v => !!v || 'LinkedIn is required',
+            ],
+            selectRules: [
+                v => !!v || 'Please select a job title',
+            ],
+            descriptionRules: [
+                v => !!v || 'Description is required',
+                v => v.length >= 10 || 'Description must have at least 10 characters',
+            ],
+        }
     },
     components: {
         NavBar,
@@ -89,11 +146,12 @@ export default {
     },
     methods: {
         send() {
-            if (this.name && this.email && this.company && this.phone && this.select && this.description) {
+            if (this.name && this.email && this.company && this.phone && this.select && this.description && this.linkedin && this.checkbox) {
                 this.$gtag.event('form_submit', {
                     event_category: 'form_submission',
                     event_label: 'form_submitted',
                     value: 1,
+                    
                 });
                 firebaseDb.collection("form")
                     .add({
@@ -103,24 +161,47 @@ export default {
                         email: this.email,
                         linkedin: this.linkedin,
                         select: this.select,
-                        description: this.description
+                        description: this.description,
+                        checkbox: this.checkbox
                     })
                     .then(() => {
-                        alert("Dados enviados com sucesso!");
+                        // Reset form fields
+                        this.name = "";
+                        this.company = "";
+                        this.phone = "";
+                        this.email = "";
+                        this.linkedin = "";
+                        this.select = "";
+                        this.description = "";
+                        this.checkbox = false;
 
+                        // Reset form validation status
+                        this.valid = false;
+
+                        // Clear validation errors for each field
+                        this.$refs.form.resetValidation();
+                        this.successAlert = true;
                     })
                     .catch((error) => {
-                        console.error("Erro:", error);
+                        console.log(error);
                     });
             } else {
-                alert("Oops... Preencha todos os campos!");
+                this.err = 'Preencha todos os campos!';
+                this.Alert = false;
+
             }
-        }
+        },
+
+
     }
 }
 </script>
 
 <style>
+.links {
+    margin-top: 10px;
+}
+
 .v-application--wrap {
     min-height: 0;
 }
@@ -148,17 +229,24 @@ export default {
 .content-btn-form {
     display: flex;
     justify-content: center;
-    padding: 40px 0 0px 0;
+    padding: 40px 0 20px 0;
+}
+.v-btn:not(.v-btn--round).v-size--default {
+    height: 33px;
+    min-width: 27px;
+   
+    padding: 0 16px;
 }
 
 .btn-form {
     padding: 10px;
-    background-color: #158BBF !important;
+    background-color: #21aae7 !important;
+
     color: white !important;
     border-radius: 30px;
     font-size: 14px;
     font-weight: bold;
-    width: 70%;
+    width: 25%!important;
     cursor: pointer;
 }
 
