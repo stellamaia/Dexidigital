@@ -5,15 +5,12 @@
                 <i class="fa fa-long-arrow-left icon-arrow" aria-hidden="true"></i>
             </button>
 
-       <div>
-        <!-- <button  v-else-if="$route.path === '/editar-post'" @click="goToCreatePost" type="button" class="btn-icon add-edit-post">
+            <div>
+                <!-- <button  v-else-if="$route.path === '/editar-post'" @click="goToCreatePost" type="button" class="btn-icon add-edit-post">
                 <i class="fa fa-long-arrow-left icon-arrow" aria-hidden="true"></i>
               Adicionar
             </button> -->
-       </div>
-         
-
-
+            </div>
             <button @click="logout()" class="btn-icon">
                 <span class="material-symbols-outlined icon-logout">
                     logout
@@ -53,14 +50,15 @@ export default {
 </script>
 <style>
 .header {
-    background: linear-gradient(to right, #158BBF 0%, #021e78 100%);
+    background: linear-gradient(to right, #21B6F8 0%, #5526d1f2 100%)!important;
 }
 
 .buttons-container {
     display: flex;
     justify-content: space-between;
 }
-.add-edit-post{
+
+.add-edit-post {
     color: white;
 }
 
