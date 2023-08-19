@@ -9,6 +9,7 @@ import LoginView from '../views/LoginView.vue'
 // import SignView from '../views/SignView.vue'
 import EditPost from '../views/EditPost.vue'
 import PostEditPage from '../views/PostEditPage.vue'
+import PrivacyPolicy from '../views/PrivacyPolicy.vue'
 
 Vue.use(VueRouter)
 
@@ -57,6 +58,11 @@ const routes = [
     path: '/pagina-de-edicao/:postId',
     name: 'post-edit-page',
     component: PostEditPage
+  },
+  {
+    path: '/politica-de-privacidade',
+    name: 'PrivacyPolicy',
+    component: PrivacyPolicy
   }
 ]
 

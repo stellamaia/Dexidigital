@@ -5,8 +5,7 @@ import store from './store'
 import vuetify from './plugins/vuetify'
 import VueGtag from 'vue-gtag'
 
-import Vue2Editor from "vue2-editor";
-
+import Vue2Editor from "vue2-editor"; 
 Vue.use(Vue2Editor);
 
 Vue.use(VueGtag, {
