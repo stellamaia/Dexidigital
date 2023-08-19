@@ -197,9 +197,7 @@ display: flex;
 justify-content: end;
 padding: 20px 20px 0 0;
 }
-.icon-plus{
- 
-}
+
 .fa-plus{
   color: white!important;
 }
@@ -269,14 +267,14 @@ div p img {
 
 .icon-plus {
   color: white;
-  background-color: #158BBF; 
+  background-color: #21B6F8!important; 
   box-shadow: none;
   border-radius: 50%;
 
 }
 .icon-plus:hover {
   color: white;
-  background-color: #51b1da!important; 
+  background-color: #ace6ff!important; 
   box-shadow: none;
   border-radius: 50%;
 
@@ -298,7 +296,7 @@ button.icon.v-btn.v-btn--is-elevated.v-btn--has-bg.theme--light.v-size--default 
 
 .icons {
   position: fixed;
-  background-color: #158BBF;
+  background-color: #21B6F8;
   height: 45px;
   padding: 3px;
   border-radius: 8px 8px 0 0;

@@ -143,7 +143,7 @@ export default {
 }
 
 .input {
-    background-color: #158BBF;
+    background-color: #21B6F8!important;
     margin: 5px;
     color: white !important;
     border-radius: 20px;
@@ -197,7 +197,7 @@ export default {
 }
 
 .btn-publish {
-    background-color: #158BBF;
+    background-color: #21B6F8!important;
     width: 90px;
     height: 30px;
     border-radius: 30px;
