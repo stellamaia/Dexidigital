@@ -13,7 +13,7 @@
                     <v-row>
                         <v-col cols="12" sm="12" md="6  ">
 
-                            <v-text-field v-model="name" :counter="10" :rules="nameRules" label="Name"
+                            <v-text-field style="color: black!important;" v-model="name" :counter="10" :rules="nameRules" label="Name"
                                 required></v-text-field>
 
                         </v-col>
@@ -198,6 +198,9 @@ export default {
 </script>
 
 <style>
+.theme--light.v-text-field > .v-input__control > .v-input__slot:before{
+    color: #ff0000;
+}
 .links {
     margin-top: 10px;
 }
