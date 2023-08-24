@@ -1,14 +1,13 @@
 <template>
   <div>
     <NavBar />
-
-
     <div class="content-blog" :class="{ 'no-card-height': arrayComValoresDoFirebase.length === 0 }">
-      <!-- <div class="content-no-card" v-if="arrayComValoresDoFirebase.length === 0">
+      
+      <v-progress-circular v-if="loadingFirebaseValue" class="loading" indeterminate
+          color="primary"></v-progress-circular>
+     <div class="content-no-card" v-else-if="arrayComValoresDoFirebase.length === 0">
         <p class="text-no-card">Não há nenhum card para exibir.</p>
-
-
-      </div> -->
+      </div> 
 
       <v-card v-for="(item, index) in arrayComValoresDoFirebase" :key="index" class="mx-auto content-card"
         @click="navigateToBlog(item)">
@@ -96,6 +95,7 @@ export default {
     return {
       localImages: [],
       arrayComValoresDoFirebase: [],
+      loadingFirebaseValue: false
       // item: []
     }
   },
@@ -129,9 +129,13 @@ export default {
       }
     },
     getPostsFromFirebase() {
+      this.loadingFirebaseValue = true;
+
       this.arrayComValoresDoFirebase = []; // Limpa a array antes de adicionar novos posts
 
-      firebaseDb.collection('posts').get().then((querySnapshot) => {
+      firebaseDb.collection('posts').get()
+      .then((querySnapshot) => {
+       this.loadingFirebaseValue = false;
         querySnapshot.forEach((doc) => {
           const post = doc.data();
           this.arrayComValoresDoFirebase.push(post);
@@ -144,7 +148,6 @@ export default {
       return 'Postado em: ' + new Date(date).toLocaleDateString('pt-BR', options);
     },
 
-    methods: {
       editPost(post) {
         // Aqui você pode abrir um diálogo/modal de edição do post com os campos preenchidos
         // E depois atualizar o post no Firebase
@@ -171,11 +174,27 @@ export default {
             console.error('Erro ao excluir o post:', error);
           });
       }
-    }
+    
   }
 }
 </script>
 <style scoped>
+
+::v-deep.v-progress-circular>svg {
+  width: auto !important;
+  position: relative;
+  top: 230px !important;
+}
+
+.v-progress-circular.loading.v-progress-circular--visible.v-progress-circular--indeterminate.primary--text {
+  width: auto !important;
+}
+
+.loading {
+  justify-content: center;
+  display: flex;
+}
+
 .text-no-card {
 
   font-family: 'Quicksand', sans-serif;

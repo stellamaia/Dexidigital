@@ -3,23 +3,29 @@
     <div v-if="token">
       <NavBarPost />
       <div>
-        <div class="content-no-card container-edit-post" v-if="arrayComValoresDoFirebase.length === 0">
+
+        <v-progress-circular v-if="loadingFirebaseValue" class="loading" indeterminate
+          color="primary"></v-progress-circular>
+
+
+        <div class="content-no-card container-edit-post" v-else-if="arrayComValoresDoFirebase.length === 0">
+
           <p class="text-no-card">Não há nenhum card para exibir.</p>
           <router-link to="/criar-post">
             <v-btn class="add-card-button">Adicionar Card</v-btn></router-link>
 
         </div>
-        
-     
-   
+
+
+
         <div v-else>
           <div class="icon-abs">
-          <router-link class="link content-button-plus" to="/criar-post">
-            <v-btn class="add-card-button-plus  icon-plus">
-              <i class="fa-solid fa-plus"></i>
-            </v-btn>
-        </router-link>
-        </div>
+            <router-link class="link content-button-plus" to="/criar-post">
+              <v-btn class="add-card-button-plus  icon-plus">
+                <i class="fa-solid fa-plus"></i>
+              </v-btn>
+            </router-link>
+          </div>
           <div class="content-blog flex-row-reverse">
             <v-card v-for="(item, index) in arrayComValoresDoFirebase" :key="index" class="mx-auto content-card">
               <div class="icons">
@@ -124,6 +130,7 @@ export default {
       // item: []
       posts: {},
       token: localStorage.getItem("token"),
+      loadingFirebaseValue: false
 
     }
   },
@@ -154,15 +161,18 @@ export default {
       }
     },
     getPostsFromFirebase() {
+      this.loadingFirebaseValue = true;
       this.arrayComValoresDoFirebase = []; // Limpa a array antes de adicionar novos posts
 
-      firebaseDb.collection('posts').get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          const post = doc.data();
-          this.arrayComValoresDoFirebase.push(post);
+      firebaseDb.collection('posts').get()
+        .then((querySnapshot) => {
+           this.loadingFirebaseValue = false;
+          querySnapshot.forEach((doc) => {
+            const post = doc.data();
+            this.arrayComValoresDoFirebase.push(post);
+          });
+          return this.getDonwloadUrlAndSetblogImgUrl();
         });
-        return this.getDonwloadUrlAndSetblogImgUrl();
-      });
     },
     formatDate(date) {
       const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -192,19 +202,35 @@ export default {
 }
 </script>
 <style scoped>
-.icon-abs{
-display: flex;
-justify-content: end;
-padding: 20px 20px 0 0;
+::v-deep.v-progress-circular>svg {
+  width: auto !important;
+  position: relative;
+  top: 300px !important;
 }
 
-.fa-plus{
-  color: white!important;
+.v-progress-circular.loading.v-progress-circular--visible.v-progress-circular--indeterminate.primary--text {
+  width: auto !important;
 }
+
+.loading {
+  justify-content: center;
+  display: flex;
+}
+
+.icon-abs {
+  display: flex;
+  justify-content: end;
+  padding: 20px 20px 0 0;
+}
+
+.fa-plus {
+  color: white !important;
+}
+
 .content-no-card {
   height: calc(100vh - 120px);
-text-align: center;
-padding-top:10%;
+  text-align: center;
+  padding-top: 10%;
 
 }
 
@@ -222,10 +248,12 @@ padding-top:10%;
   background-color: #158BBF !important;
   color: white;
 }
+
 .add-card-button-plus {
   background-color: #158BBF !important;
-  color: white!important;
+  color: white !important;
 }
+
 div p img {
   height: 100px;
   /* outras propriedades de estilo, se necessário */
@@ -267,22 +295,25 @@ div p img {
 
 .icon-plus {
   color: white;
-  background-color: #21B6F8!important; 
+  background-color: #21B6F8 !important;
   box-shadow: none;
   border-radius: 50%;
 
 }
+
 .icon-plus:hover {
   color: white;
-  background-color: #ace6ff!important; 
+  background-color: #ace6ff !important;
   box-shadow: none;
   border-radius: 50%;
 
 }
-.v-btn:not(.v-btn--round).v-size--default{
-  min-width: 10px!important;
+
+.v-btn:not(.v-btn--round).v-size--default {
+  min-width: 10px !important;
   height: 45px;
 }
+
 .icon:hover {
 
   background-color: rgba(255, 255, 255, 0.187) !important;
@@ -347,9 +378,11 @@ button.icon.v-btn.v-btn--is-elevated.v-btn--has-bg.theme--light.v-size--default 
   justify-content: start !important;
   ;
 }
-.link{
+
+.link {
   text-decoration: none;
 }
+
 .links {
   cursor: pointer;
   font-size: 12px;
@@ -379,7 +412,7 @@ button.icon.v-btn.v-btn--is-elevated.v-btn--has-bg.theme--light.v-size--default 
   transition: transform 0.3s ease;
   border-radius: 8px !important;
 
-  box-shadow: 0 0 10px 0 rgba(53, 53, 53, 0.15)!important;
+  box-shadow: 0 0 10px 0 rgba(53, 53, 53, 0.15) !important;
   margin-bottom: 50px;
   cursor: pointer;
   margin: 30px !important;
@@ -396,16 +429,18 @@ button.icon.v-btn.v-btn--is-elevated.v-btn--has-bg.theme--light.v-size--default 
 
 @media screen and (min-width:320px) and (max-width: 480px) {
 
-  
+
   .content-card {
     width: 80%;
   }
+
   /* .content-blog {
     padding: 20px !important;
   } */
 }
 
 @media screen and (max-width: 481px) {
+
   /* .content-blog {
     padding-top: 50px !important;
   } */
@@ -440,5 +475,4 @@ button.icon.v-btn.v-btn--is-elevated.v-btn--has-bg.theme--light.v-size--default 
     width: 280px;
 
   }
-}
-</style>
+}</style>

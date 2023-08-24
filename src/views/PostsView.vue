@@ -1,15 +1,26 @@
 <template>
     <div>
         <NavBar />
+        <div class="content-blog" :class="{ 'no-card-height': posts.length === 0 }">
+ 
+        <v-progress-circular v-if="loadingFirebaseValue" class="loading" indeterminate
+                color="primary"></v-progress-circular> 
 
-        <div v-for="(post, index) in posts" :key="index">
-            <div v-if="post.title === localUrl" class="content-post">
-                <!-- <h2 class="title-url">{{ post.title }}</h2> -->
-                <h2 class="title-post" v-html="post.title"></h2>
-                <p class="date-post" v-html="post.date"></p>
-                <v-img class="img-blog" :src="getPostImage(post.pathImgOnFirebase)" alt="Imagem do Post"></v-img>
-                <p class="description-post" v-html="post.content"></p>
+            <div class="content-no-card" v-else-if="posts.length === 0">
+                <p class="text-no-card">Não há nenhum post para exibir.</p>
             </div>
+<div v-else>
+           <div v-for="(post, index) in posts" :key="index">
+
+                    <div v-if="post.title === localUrl" class="content-post">
+
+                        <h2 class="title-post" v-html="post.title"></h2>
+                        <p class="date-post" v-html="post.date"></p>
+                        <v-img class="img-blog" :src="getPostImage(post.pathImgOnFirebase)" alt="Imagem do Post"></v-img>
+                        <p class="description-post" v-html="post.content"></p>
+                    </div>
+                </div> 
+            </div> 
         </div>
         <WhatsappButton />
         <FooterComponent />
@@ -48,7 +59,8 @@ export default {
             localUrl: this.$route.params.title,
             localImages: [],
             posts: [],
-            imagesMap: []
+            imagesMap: [],
+            loadingFirebaseValue: false
         };
     },
 
@@ -75,16 +87,19 @@ export default {
             }
         },
         getPostsFromFirebase() {
+            this.loadingFirebaseValue = true;
             this.posts = [];
-            firebaseDb.collection('posts').get().then((querySnapshot) => {
-                querySnapshot.forEach((doc) => {
-                    const post = doc.data();
-                    this.posts.push(post);
+            firebaseDb.collection('posts').get()
+                .then((querySnapshot) => {
+                    this.loadingFirebaseValue = false;
+                    querySnapshot.forEach((doc) => {
+                        const post = doc.data();
+                        this.posts.push(post);
+
+                    })
+                    return this.getDonwloadUrlAndSetblogImgUrl();
 
                 })
-                return this.getDonwloadUrlAndSetblogImgUrl();
-
-            })
         },
 
         formatDate(date) {
@@ -96,6 +111,35 @@ export default {
 }
 </script>
 <style scoped>
+.no-card-height {
+  height: calc(100vh - 300px);
+}
+::v-deep.v-progress-circular>svg {
+    width: auto !important;
+    position: relative;
+    top: 120px !important;
+}
+
+.v-progress-circular.loading.v-progress-circular--visible.v-progress-circular--indeterminate.primary--text {
+    width: auto !important;
+}
+
+.loading {
+    justify-content: center;
+    display: flex;
+}.content-no-card {
+
+text-align: center;
+padding-top: 10%;
+
+}
+.text-no-card {
+text-align: center;
+
+font-family: 'Quicksand', sans-serif;
+font-size: 20px;
+color: #7e7e7e;
+}
 .v-image.v-responsive.theme--light {
     display: inherit;
 }
