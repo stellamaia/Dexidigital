@@ -1,8 +1,8 @@
 <template>
     <div>
-        <NavBar />
-        <div v-if="token" class="content-blog" :class="{ 'no-card-height': posts.length === 0 }">
-
+      
+        <div v-if="posts" class="content-blog" :class="{ 'no-card-height': posts.length === 0 }">
+            <NavBar />
             <v-progress-circular v-if="loadingFirebaseValue" class="loading" indeterminate
                 color="primary"></v-progress-circular>
 
@@ -10,10 +10,9 @@
                 <p class="text-no-card">Não há nenhum post para exibir.</p>
             </div>
             <div v-else>
-                <div v-for="(post, index) in posts" :key="index">
+                <div v-for="(post, index) in posts" :key="index">  
 
                     <div v-if="post.title === localUrl" class="content-post">
-
                         <h2 class="title-post" v-html="post.title"></h2>
                         <p class="date-post" v-html="post.date"></p>
                         <v-img class="img-blog" :src="getPostImage(post.pathImgOnFirebase)" alt="Imagem do Post"></v-img>
@@ -21,6 +20,9 @@
                     </div>
                 </div>
             </div>
+            <WhatsappButton />
+        <FooterComponent />
+  
         </div>
         <div v-else class="page-no-access" >
             <h1 class="no-access">Sem permissão!</h1>
@@ -28,9 +30,7 @@
                 <p class="title-login">Retornar para <span class="login">Entrar</span></p>
             </router-link>
         </div>
-        <WhatsappButton />
-        <FooterComponent />
-  
+
     </div>
 </template>
 <script>
@@ -118,6 +118,16 @@ export default {
 }
 </script>
 <style scoped>
+.page-no-access {
+    text-align: center;
+    padding-top: 20%;
+
+}
+
+.title-login {
+    color: #73bf15;
+}
+
 .no-card-height {
     height: calc(100vh - 300px);
 }

@@ -202,6 +202,14 @@ export default {
 }
 </script>
 <style scoped>
+.page-no-access {
+    text-align: center;
+    padding-top: 20%;
+}
+
+.title-login {
+    color: #158BBF;
+}
 ::v-deep.v-progress-circular>svg {
   width: auto !important;
   position: relative;
