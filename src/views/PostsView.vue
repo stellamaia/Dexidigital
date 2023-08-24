@@ -1,16 +1,16 @@
 <template>
     <div>
         <NavBar />
-        <div class="content-blog" :class="{ 'no-card-height': posts.length === 0 }">
- 
-        <v-progress-circular v-if="loadingFirebaseValue" class="loading" indeterminate
-                color="primary"></v-progress-circular> 
+        <div v-if="token" class="content-blog" :class="{ 'no-card-height': posts.length === 0 }">
+
+            <v-progress-circular v-if="loadingFirebaseValue" class="loading" indeterminate
+                color="primary"></v-progress-circular>
 
             <div class="content-no-card" v-else-if="posts.length === 0">
                 <p class="text-no-card">Não há nenhum post para exibir.</p>
             </div>
-<div v-else>
-           <div v-for="(post, index) in posts" :key="index">
+            <div v-else>
+                <div v-for="(post, index) in posts" :key="index">
 
                     <div v-if="post.title === localUrl" class="content-post">
 
@@ -19,11 +19,18 @@
                         <v-img class="img-blog" :src="getPostImage(post.pathImgOnFirebase)" alt="Imagem do Post"></v-img>
                         <p class="description-post" v-html="post.content"></p>
                     </div>
-                </div> 
-            </div> 
+                </div>
+            </div>
+        </div>
+        <div v-else class="page-no-access" >
+            <h1 class="no-access">Sem permissão!</h1>
+            <router-link class="return-login" to="/entrar">
+                <p class="title-login">Retornar para <span class="login">Entrar</span></p>
+            </router-link>
         </div>
         <WhatsappButton />
         <FooterComponent />
+  
     </div>
 </template>
 <script>
@@ -60,7 +67,7 @@ export default {
             localImages: [],
             posts: [],
             imagesMap: [],
-            loadingFirebaseValue: false
+            loadingFirebaseValue: false,
         };
     },
 
@@ -112,8 +119,9 @@ export default {
 </script>
 <style scoped>
 .no-card-height {
-  height: calc(100vh - 300px);
+    height: calc(100vh - 300px);
 }
+
 ::v-deep.v-progress-circular>svg {
     width: auto !important;
     position: relative;
@@ -127,19 +135,23 @@ export default {
 .loading {
     justify-content: center;
     display: flex;
-}.content-no-card {
+}
 
-text-align: center;
-padding-top: 10%;
+.content-no-card {
+
+    text-align: center;
+    padding-top: 10%;
 
 }
+
 .text-no-card {
-text-align: center;
+    text-align: center;
 
-font-family: 'Quicksand', sans-serif;
-font-size: 20px;
-color: #7e7e7e;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+    color: #7e7e7e;
 }
+
 .v-image.v-responsive.theme--light {
     display: inherit;
 }
@@ -195,4 +207,5 @@ color: #7e7e7e;
         padding: 70px 140px 60px 140px;
     }
 
-}</style>
+}
+</style>
