@@ -13,8 +13,8 @@
                     <v-row>
                         <v-col cols="12" sm="12" md="6  ">
 
-                            <v-text-field style="color: black!important;" v-model="name" :counter="10" :rules="nameRules" label="Name"
-                                required></v-text-field>
+                            <v-text-field style="color: black!important;" v-model="name" :counter="10" :rules="nameRules"
+                                label="Name" required></v-text-field>
 
                         </v-col>
 
@@ -67,7 +67,9 @@
                         </v-btn>
                     </div>
 
-                    <v-alert v-if="successAlert" dense text type="success">{{ 'Formulário enviado com sucesso!' }}</v-alert>
+                    <v-alert v-if="successAlert && !isError" dense text type="success">{{ 'Formulário enviado com sucesso!'
+                    }}</v-alert>
+                    <v-alert v-if="isError" dense text type="error">{{ errorMessage }}</v-alert>
                 </v-form>
             </div>
             <WhatsappButton />
@@ -81,6 +83,9 @@ import NavBar from '../components/NavBar'
 import FooterComponent from '../components/FooterComponent'
 import { firebaseDb } from "../firebaseConfig";
 import WhatsappButton from '../components/WhatsappButton.vue';
+
+// import * as admin from "firebase-admin";
+// import * as functions from "firebase-functions";
 
 export default {
     name: "FormView",
@@ -110,6 +115,8 @@ export default {
             checkbox: false,
             successAlert: false,
 
+            isError: false,
+            errorMessage: "",
 
             nameRules: [
                 v => !!v || 'Name is required',
@@ -145,62 +152,82 @@ export default {
         WhatsappButton
     },
     methods: {
-        send() {
-            if (this.name && this.email && this.company && this.phone && this.select && this.description && this.linkedin && this.checkbox) {
-                this.$gtag.event('form_submit', {
-                    event_category: 'form_submission',
-                    event_label: 'form_submitted',
-                    value: 1,
-                    
-                });
-                firebaseDb.collection("form")
-                    .add({
-                        name: this.name,
-                        company: this.company,
-                        phone: this.phone,
-                        email: this.email,
-                        linkedin: this.linkedin,
-                        select: this.select,
-                        description: this.description,
-                        checkbox: this.checkbox
-                    })
-                    .then(() => {
-                        // Reset form fields
-                        this.name = "";
-                        this.company = "";
-                        this.phone = "";
-                        this.email = "";
-                        this.linkedin = "";
-                        this.select = "";
-                        this.description = "";
-                        this.checkbox = false;
 
-                        // Reset form validation status
-                        this.valid = false;
+        async send() {
 
-                        // Clear validation errors for each field
-                        this.$refs.form.resetValidation();
-                        this.successAlert = true;
-                    })
-                    .catch((error) => {
-                        console.log(error);
+            try {
+                this.isError = false;
+                if (this.name && this.email && this.company && this.phone && this.select && this.description && this.linkedin && this.checkbox) {
+                    this.$gtag.event('form_submit', {
+                        event_category: 'form_submission',
+                        event_label: 'form_submitted',
+                        value: 1,
                     });
-            } else {
-                this.err = 'Preencha todos os campos!';
-                this.Alert = false;
 
+                    await firebaseDb.collection("mail").add({
+                        to: ['dexidigitalcompany@gmail.com'],
+                        message: {
+                            subject: 'Formulário de Contato',
+                            text: 'This is the plaintext section of the email body.',
+                            html: `<p><strong>Nome:</strong> ${this.name}</p>
+                                <p><strong>Empresa:</strong> ${this.company}</p>
+                                <p><strong>Telefone:</strong> ${this.phone}</p>
+                                <p><strong>E-mail:</strong> ${this.email}</p>
+                                <p><strong>LinkedIn:</strong> ${this.linkedin}</p>
+                                <p><strong>Cargo:</strong> ${this.select}</p>
+                                <p><strong>Descrição:</strong> ${this.description}</p>
+                             `
+                        },
+                        // name: this.name,
+                        // company: this.company,
+                        // phone: this.phone,
+                        // email: this.email,
+                        // linkedin: this.linkedin,
+                        // select: this.select,
+                        // description: this.description,
+                        // checkbox: this.checkbox
+                    });
+
+                    // Reset form fields
+                    this.name = "";
+                    this.company = "";
+                    this.phone = "";
+                    this.email = "";
+                    this.linkedin = "";
+                    this.select = "";
+                    this.description = "";
+                    this.checkbox = false;
+
+                    // Reset form validation status
+                    this.valid = false;
+
+                    // Clear validation errors for each field
+                    this.$refs.form.resetValidation();
+
+                    this.successAlert = true;
+                    this.errorMessage = ""; // Limpar a mensagem de erro, se houver
+                } else {
+                    this.isError = true;
+                    this.errorMessage = "Por favor, preencha todos os campos obrigatórios.";
+                }
+            } catch (error) {
+                this.isError = true;
+                this.errorMessage = "Ocorreu um erro ao enviar o formulário. Por favor, tente novamente mais tarde.";
+
+                console.error("Erro no envio do formulário:", error);
             }
-        },
-
-
+        }
     }
+
+
 }
 </script>
 
 <style>
-.theme--light.v-text-field > .v-input__control > .v-input__slot:before{
+.theme--light.v-text-field>.v-input__control>.v-input__slot:before {
     color: #ff0000;
 }
+
 .links {
     margin-top: 10px;
 }
@@ -234,10 +261,11 @@ export default {
     justify-content: center;
     padding: 40px 0 20px 0;
 }
+
 .v-btn:not(.v-btn--round).v-size--default {
     height: 33px;
     min-width: 27px;
-   
+
     padding: 0 16px;
 }
 
@@ -249,7 +277,7 @@ export default {
     border-radius: 30px;
     font-size: 14px;
     font-weight: bold;
-    width: 25%!important;
+    width: 25% !important;
     cursor: pointer;
 }
 

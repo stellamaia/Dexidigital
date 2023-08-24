@@ -12,6 +12,7 @@
     "bootstrap": "^5.3.0",
     "core-js": "^3.8.3",
     "firebase": "^10.1.0",
+    "firebase-admin": "^11.10.1",
     "install": "^0.13.0",
     "vue": "^2.7.14",
     "vue-analytics": "^5.22.1",
