@@ -2,7 +2,10 @@
     <div class="container-privacy">
         <v-app-bar class="app-bar" dark>
             <v-toolbar-title>
-                <img class="logo" alt="logo-dexi" src="../assets/dexi-1.svg" />
+                <router-link class="navbar-brand" to="/">
+                    <img class="logo" alt="logo-dexi" src="../assets/dexi-1.svg" />
+
+      </router-link>
             </v-toolbar-title>
         </v-app-bar>
         <div class="content-policy">
