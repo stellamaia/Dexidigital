@@ -31,14 +31,14 @@
             <label for="en">
 
               <button @click="switchLanguage('en')" class="me-2">
-                <img src="../assets/en-icon.svg" alt="USA">
+                <img src="../assets/en-icon.svg" alt="English">
               </button>
             </label>
           
             <input type="radio" id="pt-BR" v-model="$i18n.locale" value="pt-BR" style="display: none">
             <label for="pt-BR">
               <button @click="switchLanguage('pt-BR')" class="me-2">
-                <img src="../assets/br-icon.svg" alt="Brazil">
+                <img src="../assets/br-icon.svg" alt="Português">
               </button>
             </label>
           </div>
