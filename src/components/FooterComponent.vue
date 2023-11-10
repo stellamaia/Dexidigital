@@ -5,10 +5,8 @@
                 <div class="content-footer">
 
                     <h2>Dexidigital</h2>
-                    <p>A <span class="text-font">Dexi Digital</span>
-                        é uma empresa de tecnologia dinâmica e inovadora dedicada a fornecer soluções de ponta para o
-                        mundo digital. Nossa equipe de profissionais qualificados é apaixonada por tecnologia e comprometida
-                        em fornecer produtos e serviços de alto nível aos nossos clientes.
+                    <p>
+                        {{ $t("footer.description") }}
                     </p>
                 </div>
             </v-col>
@@ -16,12 +14,12 @@
             <v-col class="content-social-media" cols="12" sm="12" md="12" lg="12" xl="4">
 
                 <div>
-                    <h4>Outsourcing de TI e Squads</h4>
-                    <router-link class="links" to="/">Serviços</router-link><br>
-                    <router-link class="links" to="/">Squads de desenvolvimento</router-link><br>
-                    <router-link class="links" to="/">Experiência digital</router-link><br>
-                    <router-link class="links" to="/">Outsourcing de TI</router-link><br>
-                    <router-link class="links" to="/">Aplicativos Mobile</router-link>
+                    <h4> {{ $t("footer.service-titles") }}</h4>
+                    <router-link class="links" to="/"> {{ $t("footer.services") }}</router-link><br>
+                    <router-link class="links" to="/">{{ $t("footer.development-squads") }}</router-link><br>
+                    <router-link class="links" to="/"> {{ $t("footer.digital-experience") }}</router-link><br>
+                    <router-link class="links" to="/">{{ $t("footer.it-outsourcing") }}</router-link><br>
+                    <router-link class="links" to="/">{{ $t("footer.mobile-applications") }}</router-link>
 
                 </div>
             </v-col>
