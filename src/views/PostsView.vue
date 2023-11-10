@@ -1,37 +1,42 @@
 <template>
     <div>
-      
-        <div v-if="posts" class="content-blog" :class="{ 'no-card-height': posts.length === 0 }">
-            <NavBar />
-            <v-progress-circular v-if="loadingFirebaseValue" class="loading" indeterminate
-                color="primary"></v-progress-circular>
 
-            <div class="content-no-card" v-else-if="posts.length === 0">
-                <p class="text-no-card">Não há nenhum post para exibir.</p>
-            </div>
-            <div v-else>
-                <div v-for="(post, index) in posts" :key="index">  
+        <div v-if="posts ">
+            <NavBar :openedArticle="false" />
+            <div>
+                <v-progress-circular v-if="loadingFirebaseValue" class="loading" indeterminate
+                    color="primary"></v-progress-circular>
+                <div class="content-no-card" v-else-if="posts.length === 0">
 
-                    <div v-if="post.title === localUrl" class="content-post">
-                        <h2 class="title-post" v-html="post.title"></h2>
-                        <p class="date-post" v-html="post.date"></p>
-                        <v-img class="img-blog" :src="getPostImage(post.pathImgOnFirebase)" alt="Imagem do Post"></v-img>
-                        <p class="description-post" v-html="post.content"></p>
+                    <div class="content-no-card">
+                        <p class="text-no-card">Não há nenhum post para exibir.</p>
                     </div>
                 </div>
-            </div>
-            <WhatsappButton />
-        <FooterComponent />
-  
-        </div>
-        <div v-else class="page-no-access" >
-            <h1 class="no-access">Sem permissão!</h1>
-            <router-link class="return-login" to="/entrar">
-                <p class="title-login">Retornar para <span class="login">Entrar</span></p>
-            </router-link>
-        </div>
+                 <div v-else>
+                    <div v-for="(post, index) in posts" :key="index">
 
-    </div>
+                        <div v-if="post.title === localUrl" class="content-post">
+                            <h2 class="title-post" v-html="post.title"></h2>
+                            <p class="date-post" v-html="post.date"></p>
+                            <v-img class="img-blog" :src="getPostImage(post.pathImgOnFirebase)"
+                                alt="Imagem do Post"></v-img>
+                            <p class="description-post" v-html="post.content"></p>
+                        </div>
+                    </div>
+                </div> 
+          
+                <WhatsappButton />
+                <FooterComponent />
+            </div>
+        </div>
+            <div v-else class="page-no-access">
+                <h1 class="no-access">Sem permissão!</h1>
+                <router-link class="return-login" to="/entrar">
+                    <p class="title-login">Retornar para <span class="login">Entrar</span></p>
+                </router-link>
+            </div>
+
+        </div>
 </template>
 <script>
 import NavBar from '../components/NavBar'
@@ -96,7 +101,7 @@ export default {
         getPostsFromFirebase() {
             this.loadingFirebaseValue = true;
             this.posts = [];
-            firebaseDb.collection('posts').get()
+            firebaseDb.collection(this.$store.state.language === 'en' ? 'posts-en' : 'posts').get()
                 .then((querySnapshot) => {
                     this.loadingFirebaseValue = false;
                     querySnapshot.forEach((doc) => {
@@ -118,6 +123,15 @@ export default {
 }
 </script>
 <style scoped>
+.content-blog {
+    padding: 90px 0 90px 0;
+    background-color: #f1f1f1;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .page-no-access {
     text-align: center;
     padding-top: 20%;
@@ -135,7 +149,7 @@ export default {
 ::v-deep.v-progress-circular>svg {
     width: auto !important;
     position: relative;
-    top: 120px !important;
+    top: 300px !important;
 }
 
 .v-progress-circular.loading.v-progress-circular--visible.v-progress-circular--indeterminate.primary--text {
@@ -150,13 +164,13 @@ export default {
 .content-no-card {
 
     text-align: center;
-    padding-top: 10%;
+    height: calc(100vh - 200px);
 
 }
 
 .text-no-card {
     text-align: center;
-
+    padding-top: 130px;
     font-family: 'Quicksand', sans-serif;
     font-size: 20px;
     color: #7e7e7e;
@@ -210,6 +224,16 @@ export default {
     .content-post {
         padding: 70px 30px 60px 30px !important;
     }
+
+    .content-no-card {
+        height: calc(100vh - 450px);
+    }
+
+    .text-no-card {
+
+        padding: 120px 0 120px 0;
+
+    }
 }
 
 @media screen and (min-width: 769px) {
@@ -217,5 +241,13 @@ export default {
         padding: 70px 140px 60px 140px;
     }
 
-}
-</style>
+    .content-no-card {
+        height: auto;
+    }
+
+    .text-no-card {
+
+        padding: 6% 0 6% 0;
+
+    }
+}</style>
