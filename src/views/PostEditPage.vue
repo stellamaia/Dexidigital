@@ -4,6 +4,7 @@
         <div class="quillEditorContainer">
             <div class="quillEditor ">
                 <div class="blog-info">
+                    
                     <div class="blog-row">
                         <v-row>
                             <v-col cols="12" sm="12" md="12" lg="12" xl="8">
@@ -137,7 +138,7 @@ export default {
             
             try {
                 const postId = this.$route.params.postId;
-                const docRef = firebaseDb.collection("posts").doc(postId);
+                const docRef = firebaseDb.collection(this.$store.state.language === 'en' ? 'posts-en' : 'posts').doc(postId);
                 const doc = await docRef.get();
                 if (doc.exists) {
                     const post = doc.data();
@@ -154,7 +155,7 @@ export default {
         async updatePost() {
             try {
                 const postId = this.$route.params.postId;
-                const docRef = firebaseDb.collection("posts").doc(postId);
+                const docRef = firebaseDb.collection(this.$store.state.language === 'en' ? 'posts-en' : 'posts').doc(postId);
                 await docRef.update({
                     title: this.blogTitle,
                     content: this.content,
