@@ -19,7 +19,7 @@
             <p class="title-data" v-html="item.date"></p>
             <p v-html="truncateText(item.content, 150)"></p>
             <div class="content-arrow">
-              <div class="links"> Leia mais » </div>
+              <div class="links"> {{ $t("POSTS.read-more") }}» </div>
             </div>
           </div>
         </v-card-text>
@@ -133,7 +133,7 @@ export default {
 
       this.arrayComValoresDoFirebase = []; // Limpa a array antes de adicionar novos posts
 
-      firebaseDb.collection('posts').get()
+      firebaseDb.collection(this.$store.state.language === 'en' ? 'posts-en' : 'posts').get()
       .then((querySnapshot) => {
        this.loadingFirebaseValue = false;
         querySnapshot.forEach((doc) => {
@@ -155,7 +155,7 @@ export default {
         const updatedPost = { ...post, title: "Novo Título", content: "Novo conteúdo" };
 
         // Atualizar o post no Firebase
-        firebaseDb.collection('posts').doc(post.id).update(updatedPost)
+        firebaseDb.collection(this.$store.state.language === 'en' ? 'posts-en' : 'posts').doc(post.id).update(updatedPost)
           .then(() => {
             console.log('Post atualizado com sucesso');
           })
@@ -166,7 +166,7 @@ export default {
 
       deletePost(post) {
         // Excluir o post do Firebase
-        firebaseDb.collection('posts').doc(post.id).delete()
+        firebaseDb.collection(this.$store.state.language === 'en' ? 'posts-en' : 'posts').doc(post.id).delete()
           .then(() => {
             console.log('Post excluído com sucesso');
           })
@@ -183,7 +183,7 @@ export default {
 ::v-deep.v-progress-circular>svg {
   width: auto !important;
   position: relative;
-  top: 230px !important;
+  top: 120px !important;
 }
 
 .v-progress-circular.loading.v-progress-circular--visible.v-progress-circular--indeterminate.primary--text {
