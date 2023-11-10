@@ -1,40 +1,48 @@
 <template>
     <div>
-        <NavBarPost />
-        <div class="quillEditorContainer">
-            <div class="quillEditor ">
-                <div class="blog-info">
-                    
-                    <div class="blog-row">
-                        <v-row>
-                            <v-col cols="12" sm="12" md="12" lg="12" xl="8">
-                                <v-text-field v-model="blogTitle" label="Titulo do Post"></v-text-field>
-                            </v-col>
-                            <v-col cols="12" sm="12" md="12" lg="8" xl="4">
-                                <v-file-input v-model="imageControl" :disabled="!blogTitle" 
-                                    :style="{ opacity: blogTitle ? 1 : 0.5, width: '199' }"
-                                    :label="blogImgUrl || loadingImage ? null : 'Selecione uma Imagem'" type="file"
-                                    accept="image/*" id="files" name="files[]" multiple @change="uploadFile()" class="input"
-                                    outlined dense></v-file-input>
+        <div v-if="token">
+            <NavBarPost />
+            <div class="quillEditorContainer">
+                <div class="quillEditor ">
+                    <div class="blog-info">
 
-                            
-                            </v-col>
-                        </v-row>
+                        <div class="blog-row">
+                            <v-row>
+                                <v-col cols="12" sm="12" md="12" lg="12" xl="8">
+                                    <v-text-field v-model="blogTitle" label="Titulo do Post"></v-text-field>
+                                </v-col>
+                                <v-col cols="12" sm="12" md="12" lg="8" xl="4">
+                                    <v-file-input v-model="imageControl" :disabled="!blogTitle"
+                                        :style="{ opacity: blogTitle ? 1 : 0.5, width: '199' }"
+                                        :label="blogImgUrl || loadingImage ? null : 'Selecione uma Imagem'" type="file"
+                                        accept="image/*" id="files" name="files[]" multiple @change="uploadFile()"
+                                        class="input" outlined dense></v-file-input>
+
+
+                                </v-col>
+                            </v-row>
+                        </div>
                     </div>
-                </div>
-                <v-img v-if="imageControl !== 0" :src="blogImgUrl" :height="200" alt=" Imagem do
+                    <v-img v-if="imageControl !== 0" :src="blogImgUrl" :height="200" alt=" Imagem do
                 Blog"></v-img>
-                <v-progress-linear v-if="loadingImage && imageControl !== 0" indeterminate
-                    color="primary"></v-progress-linear>
-                <vue-editor v-model="content"></vue-editor>
-                <div class="blog-actions">
-                    <button class="btn-publish " @click="updatePost">Salvar Edições</button>
+                    <v-progress-linear v-if="loadingImage && imageControl !== 0" indeterminate
+                        color="primary"></v-progress-linear>
+                    <vue-editor v-model="content"></vue-editor>
+                    <div class="blog-actions">
+                        <button class="btn-publish " @click="updatePost">Salvar Edições</button>
+                    </div>
+                    <v-alert v-if="err" dense outlined type="error">
+                        {{ err | 'Editor está vazio.' }}
+                    </v-alert>
                 </div>
-                <v-alert v-if="err" dense outlined type="error">
-                    {{ err | 'Editor está vazio.' }}
-                </v-alert>
-            </div>
 
+            </div>
+        </div>
+        <div class="page-no-access" v-else>
+            <h1 class="no-access">{{ $t("LOGIN.without-permission") }}</h1>
+            <router-link class="return-login" to="/entrar">
+                <p class="title-login">{{ $t("LOGIN.return-to") }} <span class="login">{{ $t("LOGIN.sign-in") }}</span></p>
+            </router-link>
         </div>
     </div>
 </template>
@@ -60,6 +68,7 @@ export default {
             content: '',
             blogTitle: '',
             blogImgUrl: '',
+            token: localStorage.getItem("token"),
 
             err: null // O conteúdo do editor será armazenado aqui
 
@@ -69,7 +78,7 @@ export default {
     created() {
         this.loadPostData();
     },
-    
+
     methods: {
         async sendToFirebase() {
             this.err = null; // Limpa o erro anterior antes de tentar novamente
@@ -135,7 +144,7 @@ export default {
 
         },
         async loadPostData() {
-            
+
             try {
                 const postId = this.$route.params.postId;
                 const docRef = firebaseDb.collection(this.$store.state.language === 'en' ? 'posts-en' : 'posts').doc(postId);
@@ -146,7 +155,7 @@ export default {
                     this.content = post.content;
                     this.pathImgOnFirebase = post.pathImgOnFirebase;
                 }
-             
+
 
             } catch (error) {
                 console.error("Erro ao carregar dados do post:", error);
@@ -173,10 +182,19 @@ export default {
 </script> 
 
 <style >
-/* .blog-info {
-        display: flex;
+.page-no-access {
+    text-align: center;
+    padding-top: 20%;
+}
 
-    } */
+.title-login {
+    color: #158BBF;
+}
+
+.login {
+    font-weight: 800;
+}
+
 .v-image.v-responsive.theme--light {
     display: none;
 }
@@ -244,7 +262,7 @@ export default {
 .btn-publish {
     background-color: #158BBF;
     width: 130px;
-    height: 40px!important;
+    height: 40px !important;
     border-radius: 30px;
     font-weight: 300;
     border: none;
