@@ -1,0 +1,136 @@
+{
+    "nav": {
+        "home": "Home",
+        "content": "Conteúdos"
+    },
+    "header": {
+        "title": "Qualidade e agilidade em ",
+        "title-br": "aplicações seguras",
+        "description": "Promova a confiança e a lealdade à marca",
+        "description-br": "por meio de experiências personalizadas",
+        "contact-button": "Solicitar um orçamento"
+    },
+    "services-section": {
+        "our-services": "Nossos Serviços",
+        "dynamic-teams": "Equipes dinâmicas para projeto estratégicos, impulsionando o crecimento consistente da sua empresa no ritmo que você precisa.",
+        "it-outsourcing": "Outsourcing de TI",
+        "it-outsourcing-description": "É necessário um imenso conhecimento relevante para atender a demandas específicas. Ideal para um escopo bem definido e à prova de falhas, é o que deve estar sendo discutido na mesa em um conjunto perfeito!",
+        "mobile-applications": "Aplicativos Mobile",
+        "mobile-applications-description": "Desenvolvimento premium de aplicativos para diversos setores, seja na forma nativa (Android e IOS) ou na forma híbrido (Flutter). Seguimos uma metodologia ágil que nos faz entregar as soluções de aplicativos desejadas dentro do prazo.",
+        "development-squads": "Squads de Desenvolvimento",
+        "development-squads-description": "Com uma combinação especializada de conhecimento técnico e práticas recomendadas do setor, nosso time ajuda os clientes a transformar sua jornada digital como planejamento adequado e execução competente da estratégia de TI delineada.",
+        "digital-experience": "Experiência Digital",
+        "digital-experience-description": "Reunimos negócios, pessoas e tecnologia, ajudando nossos clientes a criar uma estratégia digital abrangente, fornecendo insights sobre o cliente e ajudando-o a criar e aprimorar uma solução digital amigável ao cliente."
+    },
+    "development-process-section": {
+        "development-process": "Nosso processo de desenvolvimento de software",
+        "development-process-description": "Somos especialistas em combinar as necessidades dos clientes, as demandas comerciais e as possibilidades técnicas para romper o status quo. Nossa equipe de estrategistas usa uma metodologia centrada no Design Sprint para identificar oportunidades, estimular a inovação e descobrir novos empreendimentos digitais para impulsionar o crescimento fora do seu negócio principal e garantir a entrega no prazo e a agilidade dos projetos."
+    },
+    "footer": {
+        "description": "A DEXI DIGITAL é uma empresa de tecnologia dinâmica e inovadora dedicada a fornecer soluções de ponta para o mundo digital. Nossa equipe de profissionais qualificados é apaixonada por tecnologia e comprometida em fornecer produtos e serviços de alto nível aos nossos clientes.",
+        "service-titles": "Outsourcing de TI e Squads",
+        "services": "Serviços",
+        "development-squads": "Squads de Desenvolvimento",
+        "digital-experience": "Experiência Digital",
+        "it-outsourcing": "Outsourcing de TI",
+        "mobile-applications": "Aplicativos Mobile"
+    },
+    "FORM": {
+        "title":"Possui interesse em algum dos nossos serviços?",
+        "name": "Nome",
+        "company": "Empresa",
+        "phone": "Telefone",
+        "email": "E-mail",
+        "linkedIn": "linkedIn",
+        "job": "Qual seu cargo",
+        "describe-the-project": "Descreva seu projeto e as funcionalidades que gostaria de ter",
+        "policy-input": "Eu concordo com a política de privacidade da Dexi Digital*",
+        "privacy-policy": "* Política de Privacidade",
+        "send": "Enviar"
+    },
+    "OPTIONS": {
+        "JOB-OPTIONS": {
+            "headInnovation": "Head de Inovação",
+            "itCoordinator": "Coordenador de TI",
+            "projectManager": "Gerente de Projetos",
+            "marketingManager": "Gerente de Marketing",
+            "analyst": "Analista",
+            "developer": "Desenvolvedor",
+            "other": "Outros"
+        }
+    },
+    "VALIDATION": {
+        "required": "Item obrigatório",
+        "please-fill-in-all-required-fields": "Por favor, preencha todos os campos obrigatórios."
+    },
+    "PRIVACY-POLICY": {
+        "privacy-policy-title": "Termo de uso e política de privacidade",
+        "privacy-policy-subtitle": "Política de Privacidade da Dexi Digital para LinkedIn Lead Generation**",
+        "introduction-and-data-collection": "1. Introdução e Coleta de Dados**",
+        "introduction-and-data-collection-description": "Bem-vindo à Política de Privacidade da Dexi Digital. Aqui, explicamos detalhadamente como coletamos, usamos e protegemos suas informações quando você interage com nosso formulário de geração de leads no LinkedIn. É fundamental compreender que, ao utilizar nosso formulário, você está automaticamente concordando com os termos e diretrizes descritos a seguir.",
+        "second-description-of-introduction-and-data-collection": "Ao acessar o formulário de geração de leads da Dexi Digital no LinkedIn, coletamos uma variedade de informações, tais como seu nome completo, endereço de e-mail, número de telefone, cargo, empresa e outras informações relevantes que você possa optar por compartilhar conosco voluntariamente. Esses dados desempenham um papel essencial em nosso entendimento de suas necessidades e nos permitem fornecer um serviço mais personalizado.",
+        "use-and-purpose-of-information": "2. Uso e Finalidade das Informações",
+        "use-and-purpose-of-information-subtitle": "As informações que coletamos têm diversas finalidades, todas elas fundamentais:",
+        "first-topic-use-and-purpose-of-information": "Entrar em contato com você em resposta ao seu interesse por nossos serviços e produtos.",
+        "second-topic-use-and-purpose-of-information": "Fornecer informações adicionais sobre nossos produtos e serviços, caso você manifeste interesse.",
+        "third-topic-use-and-purpose-of-information": "Personalizar sua experiência enquanto interage com a Dexi Digital, o que resulta em um serviço de qualidade superior.",
+        "fourth-topic-use-and-purpose-of-information": "Aprimorar nossos produtos, serviços e comunicações com base nas informações e feedback que você compartilha conosco.",
+        "data-sharing-and-protection": "3. Compartilhamento e Proteção de Dados",
+        "data-sharing-and-protection-subtitle": "A Dexi Digital tem um compromisso inabalável com a privacidade e a segurança de suas informações. Como parte desse compromisso, garantimos que suas informações pessoais não serão compartilhadas com terceiros, a menos que situações específicas se apliquem:",
+        "first-topic-data-sharing-and-protection": "Seu consentimento expresso é obtido para compartilhar informações específicas.",
+        "second-topic-data-sharing-and-protection": "Quando a legislação ou regulamentação aplicável exige a divulgação.",
+        "third-topic-data-sharing-and-protection": "Para proteger nossos direitos, propriedade ou segurança, bem como a de nossos usuários e parceiros. Implementamos rigorosas medidas de segurança, incluindo abordagens técnicas, organizacionais e administrativas, a fim de proteger suas informações pessoais contra acesso não autorizado, uso indevido ou divulgação.",
+        "data-sharing-and-protection-description": "Implementamos rigorosas medidas de segurança, incluindo abordagens técnicas, organizacionais e administrativas, a fim de proteger suas informações pessoais contra acesso não autorizado, uso indevido ou divulgação.",
+        "your-rights-and-consent": "4. Seus Direitos e Consentimento",
+        "your-rights-and-consent-subtitle": "Reconhecemos a importância de seus direitos em relação a seus dados pessoais. É seu direito acessar, corrigir, atualizar ou solicitar a exclusão de suas informações pessoais que mantemos. Caso você tenha qualquer dúvida sobre o exercício desses direitos ou deseje entender melhor nossas práticas de privacidade, por favor, entre em contato conosco usando as informações fornecidas na seção de Contato abaixo.",
+        "changes-to-the-privacy-policy": "5. Mudanças na Política de Privacidade ",
+        "changes-to-the-privacy-policy-subtitle": "Nossa Política de Privacidade pode ser atualizada periodicamente para refletir mudanças em nossas práticas ou para estar em conformidade com regulamentações em constante evolução. Sugerimos que você reveja nossa política regularmente para se manter informado sobre como estamos protegendo suas informações.",
+        "contact": "6. Contato e Informações de Contato",
+        "contact-information": "Se tiver dúvidas, preocupações ou solicitações relacionadas à privacidade ou à nossa Política de Privacidade, sinta-se à vontade para entrar em contato conosco pelas seguintes vias:",
+        "dexi": "Dexi Digital",
+        "email": "E-mail: comunicacao@dexidigital.com.br",
+        "phone": "Telefone: (34) 99128-4358",
+        "data-usage-consent": "7. Consentimento para Uso de Dados",
+        "first-paragraph-of-the-data-usage-consent": "Ao utilizar o formulário de geração de leads da Dexi Digital no LinkedIn, você está dando consentimento explícito para a coleta, uso e processamento de suas informações pessoais de acordo com os termos estabelecidos nesta Política de Privacidade.",
+        "second-paragraph-of-the-data-usage-consent": "Esta Política de Privacidade foi revisada pela última vez em [Inserir data da última revisão].",
+        "third-paragraph-of-the-data-usage-consent": "Agradecemos por confiar na Dexi Digital para proteger suas informações e respeitar sua privacidade.",
+        "cookies-data-security-and-information-usage": "8. Cookies, Segurança dos Dados e Uso das Informações",
+        "first-paragraph-cookies-data-security-and-information-usage": "Além dos aspectos já abordados, é importante também mencionar outras áreas de foco em nossa política de privacidade, como os Cookies e Web Beacons, a segurança dos dados que coletamos e como utilizamos suas informações pessoais.",
+        "cookies-and-web-beacons": "9. Cookies e Web Beacons",
+        "first-paragraph-cookies-and-web-beacons": "Queremos garantir que sua experiência em nosso website seja a melhor possível. Por isso, utilizamos cookies, que são pequenos arquivos de texto armazenados em seu dispositivo quando você visita nosso site. Esses cookies podem conter informações como suas preferências pessoais, permitindo que, por exemplo, lembremos suas configurações ao navegar em nosso site. Além disso, eles podem ser utilizados para oferecer serviços como fóruns ou para direcionar anúncios relevantes a você.",
+        "data-security": "10. A segurança dos Dados",
+        "first-paragraph-data-security": "Temos um compromisso sólido com a segurança de seus dados. Quando coletamos informações, tratamos todas elas com extrema confidencialidade. Garantimos que qualquer funcionário ou prestador de serviços que entre em contato com suas informações esteja plenamente ciente de nossas políticas de segurança e se comprometa a não desvirtuar o uso dessas informações. Nosso compromisso com a segurança se estende à proteção de nossos sistemas, utilizando medidas razoáveis para evitar o acesso não autorizado ou uso indevido de suas informações. Embora tomemos todas as precauções necessárias, é importante ressaltar que, devido à natureza da internet, não podemos garantir que terceiros mal intencionados não consigam acessar suas informações indevidamente.",
+        "advertisements": "11. Os Anúncios",
+        "first-paragraph-advertisements": "Nosso site, como muitos outros, exibe anúncios que podem coletar informações sobre sua visita ao nosso site. Essas informações incluem seu endereço IP (Internet Protocol), o provedor de serviços de Internet que você utiliza, o navegador que você usou para acessar nosso site, o tempo de sua visita e quais páginas você visitou dentro do nosso site. Essas informações são utilizadas para personalizar a experiência de navegação, além de auxiliar na exibição de anúncios relevantes para você.",
+        "use-of-user-information": "12. Uso das Informações do Usuário",
+        "first-paragraph-use-of-user-information": "Além das finalidades já mencionadas, também utilizamos seus dados pessoais de maneira cuidadosa e responsável. Aqui estão algumas maneiras pelas quais utilizamos esses dados:",
+        "identity-verification": "Verificação de Identidade:",
+        "first-topic-use-of-user-information": "Utilizamos suas informações para verificar sua identidade conforme o cadastro realizado em nosso site.",
+        "support-and-feedback": "Suporte e Feedback:",
+        "second-topic-use-of-user-information": "Quando você entra em contato conosco, suas informações podem ser usadas para fornecer suporte ou receber feedback sobre nossos produtos e serviços.",
+        "explicit-consent": "Consentimento Expresso:",
+        "third-topic-use-of-user-information": "Com sua permissão, podemos compartilhar suas informações de maneira específica.",
+        "data-retention-period": "13. Prazo de Guarda",
+        "first-paragraph-data-retention-period": "Entendemos a importância de respeitar o tempo pelo qual mantemos suas informações. Caso você pare de utilizar nosso site ou aplicativo ou realize visitas esporádicas, seus dados pessoais podem ser mantidos para fins de auditoria e preservação de direitos. No entanto, respeitamos a Lei 12.965/2014, que estabelece que, após decorrido o prazo legal prescricional, suas informações podem ser excluídas mediante solicitação.",
+        "second-paragraph-data-retention-period": "Agradecemos por confiar na Dexi Digital para proteger suas informações pessoais. Estamos comprometidos em garantir a segurança e o uso responsável de suas informações, sempre de acordo com nossa Política de Privacidade.",
+        "date-of-last-review": "Data da última revisão: 18 de agosto de 2023.",
+        "share-this-article": "Compartilhar este artigo:"
+    },
+    "ROUTES": {
+        "privacy-policy": "Política-de-privacidade"
+    },
+    "POSTS": {
+        "the-importance-of-hiring": "A Importância de Contratar uma Empresa de Desenvolvimento de Software para Economizar com Projetos",
+        "posted": "Postado em:",
+        "read-more":"Leia mais",
+        "edit-delete":"Editar/Apagar",
+        "create-post":"Criar post"
+
+    },
+    "LOGIN": {
+        "email": "E-mail",
+        "password": "Senha",
+        "enter": "Entrar",
+        "alert": "E-mail ou senha incorreta."
+    }
+}
