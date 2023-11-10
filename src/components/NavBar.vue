@@ -10,33 +10,95 @@
       </button>
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-body">
+
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+
+
+
             <li class="nav-item">
-              <router-link class="nav-link " to="/" :class="{ 'active': $route.path === '/' }">Home</router-link>
+              <router-link class="nav-link " to="/" :class="{ 'active': $route.path === '/' }">{{ $t("nav.home")
+              }}</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link " to="/blog"
-                :class="{ 'active': $route.path === '/blog' }">Conteúdos</router-link>
+              <router-link class="nav-link " to="/blog" :class="{ 'active': $route.path === '/blog' }">{{
+                $t("nav.content") }}
+              </router-link>
             </li>
-            
+
           </ul>
+          <div class="d-flex align-items-center" v-if="openedArticle">
+            <input type="radio" id="en" v-model="$i18n.locale" value="en" style="display: none">
+            <label for="en">
+
+              <button @click="switchLanguage('en')" class="me-2">
+                <img src="../assets/en-icon.svg" alt="USA">
+              </button>
+            </label>
+          
+            <input type="radio" id="pt-BR" v-model="$i18n.locale" value="pt-BR" style="display: none">
+            <label for="pt-BR">
+              <button @click="switchLanguage('pt-BR')" class="me-2">
+                <img src="../assets/br-icon.svg" alt="Brazil">
+              </button>
+            </label>
+          </div>
+          <div v-else>
+
+          </div>
         </div>
       </div>
+
+
     </div>
   </nav>
 </template>
 
 <script>
+
 export default {
   name: 'NavBar',
 
-  data: () => ({
+  data() {
+    return {
+      // showLocaleSwitcher: true,
+    }
+  },
+  props: {
+    openedArticle: {
+      type: Boolean,
+      default: true
+    }
+ },
+  methods: {
+    switchLanguage(language) {
+      this.$i18n.locale = language;
+      this.$store.commit('setLanguage', language);
+      setTimeout(() => {
+        location.reload();
+      }, 300);
 
-  }),
+    },
+    // setLanguageToPortuguese() {
+    //   this.switchLanguage('pt-BR');
+    // },
+    // setLanguageToEnglish() {
+    //   this.switchLanguage('en');
+    // },
+
+  }
 }
 </script>
 
 <style scoped>
+.form-select {
+  width: 130px;
+  cursor: pointer;
+}
+
+.form-select:hover {
+  height: 120px;
+}
+
 .logo {
   height: 50px;
 }
@@ -106,6 +168,13 @@ export default {
 
 .navbar-toggler {
   border: none !important;
+}
+
+
+.locale-switcher {
+
+  justify-content: end;
+  display: flex;
 }
 
 @media screen and (min-width: 575px) {
