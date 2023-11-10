@@ -4,17 +4,17 @@
       <NavBarPost />
       <div>
 
- <v-progress-circular v-if="loadingFirebaseValue" class="loading" indeterminate
+        <v-progress-circular v-if="loadingFirebaseValue" class="loading" indeterminate
           color="primary"></v-progress-circular>
 
 
-     <div class="content-no-card container-edit-post" v-else-if="arrayComValoresDoFirebase.length === 0">
+        <div class="content-no-card container-edit-post" v-else-if="arrayComValoresDoFirebase.length === 0">
 
           <p class="text-no-card">Não há nenhum card para exibir.</p>
           <router-link to="/criar-post">
             <v-btn class="add-card-button">Adicionar Card</v-btn></router-link>
 
-        </div> 
+        </div>
 
 
 
@@ -24,11 +24,11 @@
               <v-btn class="add-card-button-plus  icon-plus">
                 <i class="fa-solid fa-plus"></i>
               </v-btn>
-              
+
             </router-link>
-           
+
           </div>
-       
+
           <div class="content-blog flex-row-reverse">
             <v-card v-for="(item, index) in arrayComValoresDoFirebase" :key="index" class="mx-auto content-card">
               <div class="icons">
@@ -53,32 +53,33 @@
               </v-card-text>
             </v-card>
           </div>
-        </div> 
+        </div>
+      </div>
+
+      <div class="d-flex icon-language align-items-center" v-if="showLocaleSwitcher">
+        <input type="radio" id="en" v-model="$i18n.locale" value="en" style="display: none">
+        <label for="en">
+
+          <button @click="switchLanguage('en')" class="me-2">
+            <img src="../assets/en-icon.svg" alt="USA">
+          </button>
+        </label>
+
+        <input type="radio" id="pt-BR" v-model="$i18n.locale" value="pt-BR" style="display: none">
+        <label for="pt-BR">
+          <button @click="switchLanguage('pt-BR')" class="me-2">
+            <img src="../assets/br-icon.svg" alt="Brazil">
+          </button>
+        </label>
       </div>
     </div>
-    <div class="d-flex icon-language align-items-center" v-if="showLocaleSwitcher">
-            <input type="radio" id="en" v-model="$i18n.locale" value="en" style="display: none">
-            <label for="en">
-
-              <button @click="switchLanguage('en')" class="me-2">
-                <img src="../assets/en-icon.svg" alt="USA">
-              </button>
-            </label>
-          
-            <input type="radio" id="pt-BR" v-model="$i18n.locale" value="pt-BR" style="display: none">
-            <label for="pt-BR">
-              <button @click="switchLanguage('pt-BR')" class="me-2">
-                <img src="../assets/br-icon.svg" alt="Brazil">
-              </button>
-            </label>
-          </div>
     <div class="page-no-access" v-else>
-      <h1 class="no-access">Sem permissão!</h1>
+      <h1 class="no-access">{{ $t("LOGIN.without-permission") }}</h1>
       <router-link class="return-login" to="/entrar">
-        <p class="title-login">Retornar para <span class="login">Entrar</span></p>
+        <p class="title-login">{{ $t("LOGIN.return-to") }} <span class="login">{{ $t("LOGIN.sign-in") }}</span></p>
       </router-link>
-    </div> 
-       
+    </div>
+
   </div>
 </template>
 <script>
@@ -149,9 +150,9 @@ export default {
       posts: {},
       token: localStorage.getItem("token"),
       loadingFirebaseValue: false,
-   
+
       showLocaleSwitcher: true,
-    
+
     }
   },
   methods: {
@@ -196,7 +197,7 @@ export default {
     },
     formatDate(date) {
       const options = { year: 'numeric', month: 'long', day: 'numeric' };
-      return  'Postado em: ' + new Date(date).toLocaleDateString('pt-BR', options);
+      return 'Postado em: ' + new Date(date).toLocaleDateString('pt-BR', options);
     },
     editPost(post) {
 
@@ -230,19 +231,20 @@ export default {
 }
 </script>
 <style scoped>
-.icon-language{
+.icon-language {
   position: fixed;
-    top: auto!important;
-    right: 20px!important;
-    bottom: 20px!important;
-    left: auto!important;
-    box-shadow: none;
-    background-repeat: no-repeat;
-    background-size: 55px;
-    padding: 0;
-    height: 58px!important;
-    min-width: 56px!important;
+  top: auto !important;
+  right: 20px !important;
+  bottom: 20px !important;
+  left: auto !important;
+  box-shadow: none;
+  background-repeat: no-repeat;
+  background-size: 55px;
+  padding: 0;
+  height: 58px !important;
+  min-width: 56px !important;
 }
+
 .page-no-access {
   text-align: center;
   padding-top: 20%;
@@ -250,6 +252,10 @@ export default {
 
 .title-login {
   color: #158BBF;
+}
+
+.login {
+  font-weight: 800;
 }
 
 ::v-deep.v-progress-circular>svg {
