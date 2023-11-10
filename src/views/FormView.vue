@@ -3,9 +3,8 @@
         <NavBar />
         <div class="content-form">
             <div class="content-form-title">
-                <p class="custom-title">Possui
-                    <span class="custom-strong">interesse</span> em algum dos nossos <span
-                        class="custom-strong">serviços?</span>
+                <p class="custom-title">
+                    <span class="custom-strong">{{ $t("FORM.title") }}</span> 
                 </p>
             </div>
             <div class="box-form">
@@ -14,56 +13,58 @@
                         <v-col cols="12" sm="12" md="6  ">
 
                             <v-text-field style="color: black!important;" v-model="name" :counter="10" :rules="nameRules"
-                                label="Name" required></v-text-field>
+                                :label="$t('FORM.name')" required></v-text-field>
 
                         </v-col>
 
                         <v-col cols="12" sm="12" md="6">
-                            <v-text-field v-model="company" :rules="companyRules" label="Empresa" required></v-text-field>
+                            <v-text-field v-model="company" :rules="companyRules" :label="$t('FORM.company')"
+                                required></v-text-field>
 
 
                         </v-col>
                         <v-col cols="12" sm="12" md="6">
-                            <v-text-field v-model="phone" :rules="phoneRules" label="Telefone" v-mask="'(##) #####-####'"
+                            <v-text-field v-model="phone" :rules="phoneRules" :label="$t('FORM.phone')"
+                                v-mask="'(##) #####-####'" required></v-text-field>
+                        </v-col>
+                        <v-col cols="12" sm="12" md="6">
+
+                            <v-text-field v-model="email" :rules="emailRules" :label="$t('FORM.email')"
                                 required></v-text-field>
                         </v-col>
                         <v-col cols="12" sm="12" md="6">
 
-                            <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
-                        </v-col>
-                        <v-col cols="12" sm="12" md="6">
-
-                            <v-text-field v-model="linkedin" :rules="linkedinRules" label="LinkedIn"
+                            <v-text-field v-model="linkedin" :rules="linkedinRules" :label="$t('FORM.linkedIn')"
                                 required></v-text-field>
 
                         </v-col>
                         <v-col cols="12" sm="12" md="6">
 
-                            <v-select v-model="select" :items="items" :rules="[v => !!v || 'Item is required']"
-                                label="Qual seu cargo" required></v-select>
+                            <v-select v-model="select" :items="translatedItems"
+                                :rules="[v => !!v || $t('VALIDATION.required')]" :label="$t('FORM.job')"
+                                required></v-select>
 
 
                         </v-col>
                         <v-col cols="12" sm="12" md="12">
 
                             <v-text-field v-model="description" :rules="descriptionRules"
-                                label="Descreva seu projeto e as funcionalidades que gostaria de ter"
-                                required></v-text-field>
+                                :label="$t('FORM.describe-the-project')" required></v-text-field>
 
                         </v-col>
                     </v-row>
                     <div>
 
                         <v-checkbox v-model="checkbox" :rules="[v => !!v || 'You must agree to continue!']"
-                            label="  Eu concordo com a política de privacidade da Dexi Digital*" required></v-checkbox>
+                            :label="$t('FORM.policy-input')" required></v-checkbox>
                         <div class="links">
-                            <router-link to="/politica-de-privacidade">* Politica de privacidade</router-link><br>
+                            <router-link to="/politica-de-privacidade">{{ $t("FORM.privacy-policy") }} </router-link><br>
 
                         </div>
                     </div>
                     <div class="content-btn-form">
                         <v-btn class="btn-form" @click="send">
-                            Enviar
+                            {{ $t("FORM.send") }} 
                         </v-btn>
                     </div>
 
@@ -104,13 +105,13 @@ export default {
             description: "",
             err: null,
             items: [
-                'Head de inovação',
-                'Coordenador de TI',
-                'Gerente de Projetos',
-                'Gerente de Marketing',
-                'Analista',
-                'Desenvolvedor',
-                'Outros'
+                'headInnovation',
+                'itCoordinator',
+                'projectManager',
+                'marketingManager',
+                'analyst',
+                'developer',
+                'other'
             ],
             checkbox: false,
             successAlert: false,
@@ -150,6 +151,13 @@ export default {
         NavBar,
         FooterComponent,
         WhatsappButton
+    }, computed: {
+        translatedItems() {
+            return this.items.map(item => ({
+                value: item,
+                text: this.$t(`OPTIONS.JOB-OPTIONS.${item}`)
+            }));
+        }
     },
     methods: {
 
@@ -178,14 +186,7 @@ export default {
                                 <p><strong>Descrição:</strong> ${this.description}</p>
                              `
                         },
-                        // name: this.name,
-                        // company: this.company,
-                        // phone: this.phone,
-                        // email: this.email,
-                        // linkedin: this.linkedin,
-                        // select: this.select,
-                        // description: this.description,
-                        // checkbox: this.checkbox
+
                     });
 
                     // Reset form fields
@@ -208,7 +209,7 @@ export default {
                     this.errorMessage = ""; // Limpar a mensagem de erro, se houver
                 } else {
                     this.isError = true;
-                    this.errorMessage = "Por favor, preencha todos os campos obrigatórios.";
+                    this.errorMessage = this.$t('VALIDATION.please-fill-in-all-required-fields');
                 }
             } catch (error) {
                 this.isError = true;
