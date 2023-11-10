@@ -6,9 +6,9 @@
 
         </div>
         <div class="page-no-access" v-else>
-            <h1 class="no-access">Sem permissão!</h1>
+            <h1 class="no-access"> {{$t("LOGIN.without-permission") }}</h1>
             <router-link class="return-login" to="/entrar">
-                <p class="title-login">Retornar para <span class="login">Entrar</span></p>
+                <p class="title-login">{{$t("LOGIN.return-to") }} <span class="login">{{$t("LOGIN.sign-in") }}</span></p>
             </router-link>
         </div>
     </div>
@@ -50,5 +50,9 @@ export default {
 
 .title-login {
     color: #158BBF;
+ 
+}
+.login{
+    font-weight: 800;
 }
 </style>
