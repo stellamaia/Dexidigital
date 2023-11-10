@@ -1,7 +1,7 @@
 <template>
     <div>
 
-        <div v-if="posts ">
+        <div v-if="posts && token">
             <NavBar :openedArticle="false" />
             <div>
                 <v-progress-circular v-if="loadingFirebaseValue" class="loading" indeterminate
@@ -12,7 +12,7 @@
                         <p class="text-no-card">Não há nenhum post para exibir.</p>
                     </div>
                 </div>
-                 <div v-else>
+                <div v-else>
                     <div v-for="(post, index) in posts" :key="index">
 
                         <div v-if="post.title === localUrl" class="content-post">
@@ -23,20 +23,20 @@
                             <p class="description-post" v-html="post.content"></p>
                         </div>
                     </div>
-                </div> 
-          
+                </div>
+
                 <WhatsappButton />
                 <FooterComponent />
             </div>
         </div>
-            <div v-else class="page-no-access">
-                <h1 class="no-access">Sem permissão!</h1>
-                <router-link class="return-login" to="/entrar">
-                    <p class="title-login">Retornar para <span class="login">Entrar</span></p>
-                </router-link>
-            </div>
-
+        <div v-else class="page-no-access">
+            <h1 class="no-access">{{ $t("LOGIN.without-permission") }}</h1>
+            <router-link class="return-login" to="/entrar">
+                <p class="title-login">{{ $t("LOGIN.return-to") }} <span class="login">{{ $t("LOGIN.sign-in") }}</span></p>
+            </router-link>
         </div>
+
+    </div>
 </template>
 <script>
 import NavBar from '../components/NavBar'
@@ -139,9 +139,12 @@ export default {
 }
 
 .title-login {
-    color: #73bf15;
+  color: #158BBF;
 }
 
+.login {
+  font-weight: 800;
+}
 .no-card-height {
     height: calc(100vh - 300px);
 }
@@ -250,4 +253,5 @@ export default {
         padding: 6% 0 6% 0;
 
     }
-}</style>
+}
+</style>
