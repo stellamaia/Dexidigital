@@ -3,15 +3,15 @@
     <NavBar />
     <div class="content-home-image">
       <p class="title-home">
-        <span class="title-home-degrade">Qualidade e agilidade em</span><br>
-        aplicações seguras
+        <span class="title-home-degrade"> {{ $t("header.title") }}</span><br>
+        {{ $t("header.title-br") }}
       </p>
-      <p class="description-home">Promova a confiança e a lealdade à marca <br>
-        por meio de experiências personalizadas </p>
+      <p class="description-home">{{ $t("header.description") }} <br>
+        {{ $t("header.description-br") }} </p>
       <div class="content-btn-contact">
-        <router-link class="nav-link active btn-contact" to="/fale-conosco"> Solicitar um orçamento
+        <router-link class="nav-link active btn-contact" to="/fale-conosco"> {{ $t("header.contact-button") }}
         </router-link>
-       
+
       </div>
       <div>
         <div class="background-image-content">
@@ -22,12 +22,10 @@
     </div>
     <div class="details-services">
       <div class="services">
-        <h1 class="custom-title-services">Nossos serviços</h1>
+        <h1 class="custom-title-services">{{ $t("services-section.our-services") }}</h1>
         <div class="custom-subtitle-services-content">
           <p class="details-custom-subtitle-services">
-            Equipes dinâmicas para projeto estratégicos, impulsionando o crecimento consistente da sua empresa no ritmo
-            que
-            você precisa. </p>
+            {{ $t("services-section.dynamic-teams") }}</p>
         </div>
       </div>
       <div class="content-home">
@@ -37,10 +35,9 @@
           </div>
           <v-card-text>
             <div class="information-services">
-              <h4 class="title-services">Outsourcing de TI</h4>
+              <h4 class="title-services"> {{ $t("services-section.it-outsourcing") }}</h4>
               <p class="description-services">
-                É necessário um imenso conhecimento relevante para atender a demandas específicas. Ideal para um escopo
-                bem definido e à prova de falhas, é o que deve estar sendo discutido na mesa em um conjunto perfeito!
+                {{ $t("services-section.it-outsourcing-description") }}
               </p>
             </div>
           </v-card-text>
@@ -51,12 +48,10 @@
           </div>
           <v-card-text>
             <div class="information-services">
-              <h4 class="title-services">Aplicativos Mobile</h4>
+              <h4 class="title-services"> {{ $t("services-section.mobile-applications") }}</h4>
               <p class="description-services">
-                Desenvolvimento premium de aplicativos para diversos
-                setores, seja na forma nativa (Android e IOS)
-                ou na forma híbrido (Flutter).<br>
-                Seguimos uma metodologia ágil que nos faz entregar as soluções de aplicativos desejadas dentro do prazo.
+                {{ $t("services-section.mobile-applications-description") }}
+
               </p>
             </div>
           </v-card-text>
@@ -67,11 +62,10 @@
           </div>
           <v-card-text>
             <div class="information-services">
-              <h4 class="title-services">Squads de desenvolvimento</h4>
+              <h4 class="title-services"> {{ $t("services-section.development-squads") }}
+              </h4>
               <p class="description-services">
-                Com uma combinação especializada de conhecimento técnico e práticas recomendadas do setor, nosso time
-                ajuda os clientes a transformar sua jornada digital como planejamento adequado e execução competente da
-                estratégia de TI delineada.
+                {{ $t("services-section.development-squads-description") }}
               </p>
             </div>
           </v-card-text>
@@ -83,11 +77,11 @@
           </div>
           <v-card-text>
             <div class="information-services">
-              <h4 class="title-services">Experiência digital</h4>
+              <h4 class="title-services"> {{ $t("services-section.digital-experience") }}
+              </h4>
               <p class="description-services">
-                Reunimos negócios, pessoas e tecnologia, ajudando nossos clientes a criar uma estratégia digital
-                abrangente, fornecendo insights sobre o cliente e ajudando-o a criar e aprimorar uma solução digital
-                amigável ao cliente.
+                {{ $t("services-section.digital-experience-description") }}
+
               </p>
             </div>
           </v-card-text>
@@ -95,13 +89,9 @@
       </div>
     </div>
     <div class="process-details">
-      <h1 class="process-details-title">Nosso processo de desenvolvimento de software</h1>
+      <h1 class="process-details-title"> {{ $t("development-process-section.development-process") }}</h1>
       <div class="process-details-subtitle-content">
-        <p class="process-details-subtitle">Somos especialistas em combinar as necessidades dos clientes, as demandas
-          comerciais e as possibilidades técnicas
-          para romper o status quo. Nossa equipe de estrategistas usa uma metodologia centrada no Design Sprint para
-          identificar oportunidades, estimular a inovação e descobrir novos empreendimentos digitais para impulsionar o
-          crescimento fora do seu negócio principal e garantir a entrega no prazo e a agilidade dos projetos.</p>
+        <p class="process-details-subtitle"> {{ $t("development-process-section.development-process-description") }}</p>
       </div>
       <div class="process-details-img">
         <img class="details-img" src="../assets/details.png" alt="">
@@ -218,9 +208,10 @@ export default {
 }
 </script> 
 <style scoped>
-.tecnologias{
+.tecnologias {
   /* height: calc(100vh -10px); */
 }
+
 .background-image-content {
   display: flex;
   justify-content: end;
@@ -860,4 +851,5 @@ export default {
     display: flex;
     justify-content: end;
   }
-}</style>
+}
+</style>
