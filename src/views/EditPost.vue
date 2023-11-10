@@ -4,17 +4,17 @@
       <NavBarPost />
       <div>
 
-        <v-progress-circular v-if="loadingFirebaseValue" class="loading" indeterminate
+ <v-progress-circular v-if="loadingFirebaseValue" class="loading" indeterminate
           color="primary"></v-progress-circular>
 
 
-        <div class="content-no-card container-edit-post" v-else-if="arrayComValoresDoFirebase.length === 0">
+     <div class="content-no-card container-edit-post" v-else-if="arrayComValoresDoFirebase.length === 0">
 
           <p class="text-no-card">Não há nenhum card para exibir.</p>
           <router-link to="/criar-post">
             <v-btn class="add-card-button">Adicionar Card</v-btn></router-link>
 
-        </div>
+        </div> 
 
 
 
@@ -24,8 +24,11 @@
               <v-btn class="add-card-button-plus  icon-plus">
                 <i class="fa-solid fa-plus"></i>
               </v-btn>
+              
             </router-link>
+           
           </div>
+       
           <div class="content-blog flex-row-reverse">
             <v-card v-for="(item, index) in arrayComValoresDoFirebase" :key="index" class="mx-auto content-card">
               <div class="icons">
@@ -44,23 +47,38 @@
                   <p class="title-data" v-html="item.date"></p>
                   <p v-html="truncateText(item.content, 150)"></p>
                   <div class="content-arrow">
-                    <div class="links"> Leia mais » </div>
+                    <div class="links"> {{ $t("POSTS.read-more") }} » </div>
                   </div>
                 </div>
               </v-card-text>
-              <!-- Mostrar os ícones apenas para usuários logados -->
             </v-card>
           </div>
-        </div>
+        </div> 
       </div>
     </div>
+    <div class="d-flex icon-language align-items-center" v-if="showLocaleSwitcher">
+            <input type="radio" id="en" v-model="$i18n.locale" value="en" style="display: none">
+            <label for="en">
 
+              <button @click="switchLanguage('en')" class="me-2">
+                <img src="../assets/en-icon.svg" alt="USA">
+              </button>
+            </label>
+          
+            <input type="radio" id="pt-BR" v-model="$i18n.locale" value="pt-BR" style="display: none">
+            <label for="pt-BR">
+              <button @click="switchLanguage('pt-BR')" class="me-2">
+                <img src="../assets/br-icon.svg" alt="Brazil">
+              </button>
+            </label>
+          </div>
     <div class="page-no-access" v-else>
       <h1 class="no-access">Sem permissão!</h1>
       <router-link class="return-login" to="/entrar">
         <p class="title-login">Retornar para <span class="login">Entrar</span></p>
       </router-link>
-    </div>
+    </div> 
+       
   </div>
 </template>
 <script>
@@ -130,8 +148,10 @@ export default {
       // item: []
       posts: {},
       token: localStorage.getItem("token"),
-      loadingFirebaseValue: false
-
+      loadingFirebaseValue: false,
+   
+      showLocaleSwitcher: true,
+    
     }
   },
   methods: {
@@ -164,9 +184,9 @@ export default {
       this.loadingFirebaseValue = true;
       this.arrayComValoresDoFirebase = []; // Limpa a array antes de adicionar novos posts
 
-      firebaseDb.collection('posts').get()
+      firebaseDb.collection(this.$store.state.language === 'en' ? 'posts-en' : 'posts').get()
         .then((querySnapshot) => {
-           this.loadingFirebaseValue = false;
+          this.loadingFirebaseValue = false;
           querySnapshot.forEach((doc) => {
             const post = doc.data();
             this.arrayComValoresDoFirebase.push(post);
@@ -176,7 +196,7 @@ export default {
     },
     formatDate(date) {
       const options = { year: 'numeric', month: 'long', day: 'numeric' };
-      return 'Postado em: ' + new Date(date).toLocaleDateString('pt-BR', options);
+      return  'Postado em: ' + new Date(date).toLocaleDateString('pt-BR', options);
     },
     editPost(post) {
 
@@ -185,7 +205,7 @@ export default {
 
     deletePost(post) {
       // Excluir o post do Firebase
-      deleteDoc(doc(firebaseDb, 'posts', post.id))
+      deleteDoc(doc(firebaseDb, this.$store.state.language === 'en' ? 'posts-en' : 'posts', post.id))
 
         .then(() => {
           console.log('Post excluído com sucesso');
@@ -197,23 +217,45 @@ export default {
         .catch(error => {
           console.error('Erro ao excluir o post:', error);
         });
-    }
+    },
+    switchLanguage(language) {
+      this.$i18n.locale = language;
+      this.$store.commit('setLanguage', language);
+      setTimeout(() => {
+        location.reload();
+      }, 300);
+
+    },
   }
 }
 </script>
 <style scoped>
+.icon-language{
+  position: fixed;
+    top: auto!important;
+    right: 20px!important;
+    bottom: 20px!important;
+    left: auto!important;
+    box-shadow: none;
+    background-repeat: no-repeat;
+    background-size: 55px;
+    padding: 0;
+    height: 58px!important;
+    min-width: 56px!important;
+}
 .page-no-access {
-    text-align: center;
-    padding-top: 20%;
+  text-align: center;
+  padding-top: 20%;
 }
 
 .title-login {
-    color: #158BBF;
+  color: #158BBF;
 }
+
 ::v-deep.v-progress-circular>svg {
   width: auto !important;
   position: relative;
-  top: 300px !important;
+  top: 120px !important;
 }
 
 .v-progress-circular.loading.v-progress-circular--visible.v-progress-circular--indeterminate.primary--text {
@@ -483,4 +525,5 @@ button.icon.v-btn.v-btn--is-elevated.v-btn--has-bg.theme--light.v-size--default 
     width: 280px;
 
   }
-}</style>
+}
+</style>
