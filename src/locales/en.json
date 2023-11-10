@@ -1,0 +1,139 @@
+{
+  "nav": {
+    "home": "Home",
+    "content": "Contents"
+  },
+  "header": {
+    "title": "Quality and agility in",
+    "title-br": "secure applications",
+    "description": "Promote trust and brand loyalty",
+    "description-br": "through personalized experiences",
+    "contact-button": "Request a quote"
+  },
+  "services-section": {
+    "our-services": "Our Services",
+    "dynamic-teams": "Dynamic teams for strategic projects, driving consistent growth for your company at the pace you need.",
+    "it-outsourcing": "IT Outsourcing",
+    "it-outsourcing-description": "Immense relevant knowledge is required to meet specific demands. Ideal for a well-defined and fail-safe scope, that's what should be discussed at the table in a perfect set!",
+    "mobile-applications": "Mobile Applications",
+    "mobile-applications-description": "Premium app development for various sectors, be it in native form (Android and iOS) or in a hybrid form (Flutter). We follow an agile methodology that enables us to deliver the desired app solutions on time.",
+    "development-squads": "Development Squads",
+    "development-squads-description": "With a specialized combination of technical knowledge and industry best practices, our team helps clients transform their digital journey through proper planning and competent execution of the outlined IT strategy.",
+    "digital-experience": "Digital Experience",
+    "digital-experience-description": "We bring together business, people, and technology, helping our clients create a comprehensive digital strategy, providing customer insights, and assisting in creating and enhancing a customer-friendly digital solution."
+  },
+  "development-process-section": {
+    "development-process": "Our software development process",
+    "development-process-description": "We specialize in aligning customer needs, business demands, and technical possibilities to disrupt the status quo. Our team of strategists uses a Design Sprint-centered methodology to identify opportunities, foster innovation, and uncover new digital ventures to drive growth beyond your core business, ensuring on-time delivery and project agility."
+  },
+  "footer": {
+    "description": "DEXI DIGITAL is a dynamic and innovative technology company dedicated to providing cutting-edge solutions for the digital world. Our team of qualified professionals is passionate about technology and committed to delivering top-notch products and services to our clients.",
+    "service-titles": "IT Outsourcing and Squads",
+    "services": "Services",
+    "development-squads": "Development Squads",
+    "digital-experience": "Digital Experience",
+    "it-outsourcing": "IT Outsourcing",
+    "mobile-applications": "Mobile Applications"
+  },
+  "FORM": {
+    "title":"Are you interested in any of our services?",
+    "name": "Name",
+    "company": "Company",
+    "phone": "Phone",
+    "email": "E-mail",
+    "linkedIn": "linkedIn",
+    "job": "What is your job",
+    "describe-the-project": "Describe your project and the features you would like to have.",
+    "policy-input": "I agree with Dexi Digital's privacy policy*",
+    "privacy-policy": "* Privacy Policy",
+    "send": "Send"
+  },
+  "OPTIONS": {
+    "JOB-OPTIONS": {
+      "headInnovation": "Head of Innovation",
+      "itCoordinator": "IT Coordinator",
+      "projectManager": "Project Manager",
+      "marketingManager": "Marketing Manager",
+      "analyst": "Analyst",
+      "developer": "Developer",
+      "other": "Other"
+    }
+  },
+  "VALIDATION": {
+    "required": "Item is required",
+    "please-fill-in-all-required-fields": "Please fill in all required fields."
+  },
+  "PRIVACY-POLICY": {
+    "privacy-policy-title": "Terms of Use and Privacy Policy",
+    "privacy-policy-subtitle": "Dexi Digital Privacy Policy for LinkedIn Lead Generation",
+    "introduction-and-data-collection": "1. Introduction and Data Collection",
+    "introduction-and-data-collection-description": "Welcome to Dexi Digital's Privacy Policy. Here, we explain in detail how we collect, use, and protect your information when you interact with our lead generation form on LinkedIn. It is crucial to understand that, by using our form, you are automatically agreeing to the terms and guidelines described below.",
+    "second-description-of-introduction-and-data-collection": "When accessing Dexi Digital's lead generation form on LinkedIn, we collect a variety of information, such as your full name, email address, phone number, job title, company, and other relevant information that you may choose to share with us voluntarily. These data play an essential role in our understanding of your needs and enable us to provide a more personalized service.",
+    "use-and-purpose-of-information": "2. Use and Purpose of Information",
+    "use-and-purpose-of-information-subtitle": "The information we collect serves various essential purposes:",
+    "first-topic-use-and-purpose-of-information": "Contacting you in response to your interest in our services and products.",
+    "second-topic-use-and-purpose-of-information": "Providing additional information about our products and services if you express interest.",
+    "third-topic-use-and-purpose-of-information": "Personalizing your experience while interacting with Dexi Digital, resulting in a superior quality of service.",
+    "fourth-topic-use-and-purpose-of-information": "Improving our products, services, and communications based on the information and feedback you share with us.",
+    "data-sharing-and-protection": "3. Data Sharing and Protection",
+    "data-sharing-and-protection-subtitle": "Dexi Digital is unwaveringly committed to the privacy and security of your information. As part of this commitment, we ensure that your personal information will not be shared with third parties unless specific situations apply:",
+    "first-topic-data-sharing-and-protection": "Your explicit consent is obtained to share specific information.",
+    "second-topic-data-sharing-and-protection": "When applicable legislation or regulation requires disclosure.",
+    "third-topic-data-sharing-and-protection": "To protect our rights, property, or safety, as well as that of our users and partners. We implement rigorous security measures, including technical, organizational, and administrative approaches, to safeguard your personal information against unauthorized access, misuse, or disclosure.",
+    "data-sharing-and-protection-description": "We implement rigorous security measures, including technical, organizational, and administrative approaches, to protect your personal information against unauthorized access, misuse, or disclosure.",
+    "your-rights-and-consent": "4. Your Rights and Consent",
+    "your-rights-and-consent-subtitle": "We acknowledge the importance of your rights regarding your personal data. It is your right to access, correct, update, or request the deletion of your personal information that we hold. If you have any questions about exercising these rights or wish to better understand our privacy practices, please contact us using the information provided in the Contact section below.",
+    "changes-to-the-privacy-policy": "5. Changes to the Privacy Policy",
+    "changes-to-the-privacy-policy-subtitle": "Our Privacy Policy may be updated periodically to reflect changes in our practices or to comply with evolving regulations. We suggest that you review our policy regularly to stay informed about how we are protecting your information.",
+    "contact": "6. Contact and Contact Information",
+    "contact-information": "If you have any questions, concerns, or requests related to privacy or our Privacy Policy, feel free to contact us through the following channels:",
+    "dexi": "Dexi Digital",
+    "email": "E-mail: comunicacao@dexidigital.com.br",
+    "phone": "Phone: (34) 99128-4358",
+    "data-usage-consent": "7. Data Usage Consent",
+    "first-paragraph-of-the-data-usage-consent": "By using Dexi Digital's lead generation form on LinkedIn, you are providing explicit consent for the collection, use, and processing of your personal information in accordance with the terms outlined in this Privacy Policy.",
+    "second-paragraph-of-the-data-usage-consent": "This Privacy Policy was last reviewed on August 18, 2023.",
+    "third-paragraph-of-the-data-usage-consent": "We appreciate your trust in Dexi Digital to protect your information and respect your privacy.",
+    "cookies-data-security-and-information-usage": "8. Cookies, Data Security, and Information Usage",
+    "first-paragraph-cookies-data-security-and-information-usage": "In addition to the aspects already covered, it is also important to address other areas of focus in our privacy policy, such as Cookies and Web Beacons, the security of the data we collect, and how we use your personal information.",
+    "cookies-and-web-beacons": "9. Cookies and Web Beacons",
+    "first-paragraph-cookies-and-web-beacons": "We want to ensure that your experience on our website is the best it can be. Therefore, we use cookies, which are small text files stored on your device when you visit our site. These cookies may contain information such as your personal preferences, allowing us, for example, to remember your settings as you navigate through our site. Additionally, they may be used to provide services such as forums or to deliver relevant advertisements to you.",
+    "data-security": "10. Data Security",
+    "first-paragraph-data-security": "We have a strong commitment to the security of your data. When we collect information, we treat all of it with utmost confidentiality. We ensure that any employee or service provider who comes into contact with your information is fully aware of our security policies and commits to not misuse that information. Our commitment to security extends to the protection of our systems, using reasonable measures to prevent unauthorized access or misuse of your information. While we take all necessary precautions, it is important to note that, due to the nature of the internet, we cannot guarantee that malicious third parties will not be able to access your information improperly.",
+    "advertisements": "11. Advertisements",
+    "first-paragraph-advertisements": "Our website, like many others, displays advertisements that may collect information about your visit to our site. This information includes your IP address (Internet Protocol), the internet service provider you use, the browser you used to access our site, the time of your visit, and which pages you visited within our site. This information is used to personalize the browsing experience and assist in displaying relevant ads to you.",
+    "use-of-user-information": "12. Use of User Information",
+    "first-paragraph-use-of-user-information": "In addition to the purposes already mentioned, we also use your personal data carefully and responsibly. Here are some ways in which we use this data:",
+    "identity-verification": "Identity Verification: ",
+    "first-topic-use-of-user-information": "We use your information to verify your identity as part of the registration process on our website.",
+    "support-and-feedback": "Support and Feedback:",
+    "second-topic-use-of-user-information": "When you contact us, your information may be used to provide support or receive feedback about our products and services.",
+    "explicit-consent": "Explicit Consent:",
+    "third-topic-use-of-user-information": "With your permission, we may share your information in a specific manner.",
+    "data-retention-period": "13. Retention Period",
+    "first-paragraph-data-retention-period": "We understand the importance of respecting the duration for which we retain your information. If you stop using our website or application or make sporadic visits, your personal data may be kept for audit and rights preservation purposes. However, we adhere to Law 12.965/2014, which states that, after the legal prescriptive period has elapsed, your information may be deleted upon request.",
+    "second-paragraph-data-retention-period": "Thank you for trusting Dexi Digital to protect your personal information. We are committed to ensuring the security and responsible use of your information, always in accordance with our Privacy Policy.",
+    "date-of-last-review": "Date of last review: August 18, 2023.",
+    "share-this-article":"Share this article:"
+  },
+  "ROUTES":{
+    "privacy-policy":"Privacy-policy"
+
+},
+"POSTS":{
+  "the-importance-of-hiring":"The Importance of Hiring a Software Development Company to Save on Projects",
+  "posted":"Posted on:",
+  "read-more":"Read More",
+   "edit-delete":"Editar/Apagar",
+  "create-post":"Create post"
+
+
+},
+"LOGIN":{
+  "email":"E-mail",
+  "password":"Password",
+  "enter":"enter",
+"alert":"Email or password incorrect"
+
+}
+}
