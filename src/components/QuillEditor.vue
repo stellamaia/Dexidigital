@@ -5,8 +5,15 @@
                 <div class="blog-info">
                     <div class="blog-row">
                         <v-row>
-                            <v-col cols="12" sm="12" md="12" lg="12" xl="8">
+                            <v-col cols="6" sm="6" md="6" lg="6" xl="6">
                                 <v-text-field v-model="blogTitle" label="Titulo do Post"></v-text-field>
+
+
+                            </v-col>
+                            <v-col cols="6" sm="6" md="6" lg="6" xl="6">
+                                <v-select v-model="blogLanguage" :items="['en','pt-BR']" label="Linguagem"></v-select>
+
+
                             </v-col>
                             <v-col cols="12" sm="12" md="12" lg="8" xl="4">
                                 <v-file-input v-model="imageControl" :disabled="!blogTitle"
@@ -56,6 +63,7 @@ export default {
             content: '',
             blogTitle: '',
             blogImgUrl: '',
+            blogLanguage: 'pt-BR',
             err: null // O conteúdo do editor será armazenado aqui
         };
 
@@ -71,21 +79,24 @@ export default {
             }
             try {
                 const options = { year: "numeric", month: "long", day: "numeric" };
-                const date = "Postado em: " + new Date().toLocaleString("pt-BR", options);
-                const timestampInSeconds = Math.floor(+new Date() / 1000).toString();
-                await firebaseDb.doc("posts/" + timestampInSeconds)
-                    .set({
-                        content: this.content,
-                        title: this.blogTitle,
-                        pathImgOnFirebase: this.pathImgOnFirebase,
-                        date: date,
-                        id: timestampInSeconds,
-                    });
+                const date = "Postado em: " + new Date().toLocaleDateString(this.$store.state.language === 'en' ? 'en-US' : 'pt-BR', options);                const timestampInSeconds = Math.floor(+new Date() / 1000).toString();
+                this.blogLanguage === "en"
+                    ? await firebaseDb.doc("posts-en/" + timestampInSeconds)
+                        .set({
+                            content: this.content,
+                            title: this.blogTitle,
+                            pathImgOnFirebase: this.pathImgOnFirebase,
+                            date: date,
+                            id: timestampInSeconds,
+                            language: this.blogLanguage
+                        })
+                    : await firebaseDb.doc("posts/" + timestampInSeconds)
                 // Limpar o campo de conteúdo após o envio bem-sucedido
                 this.content = "";
                 this.blogTitle = "";
                 this.blogImgUrl = "";
                 this.pathImgOnFirebase = "";
+                this.blogLanguage = ""
 
                 this.$router.push("/editar-post");
             } catch (error) {
@@ -143,7 +154,7 @@ export default {
 }
 
 .input {
-    background-color: #21B6F8!important;
+    background-color: #21B6F8 !important;
     margin: 5px;
     color: white !important;
     border-radius: 20px;
@@ -197,7 +208,7 @@ export default {
 }
 
 .btn-publish {
-    background-color: #21B6F8!important;
+    background-color: #21B6F8 !important;
     width: 90px;
     height: 30px;
     border-radius: 30px;
