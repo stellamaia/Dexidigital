@@ -5,6 +5,7 @@
                 <i class="fa fa-long-arrow-left icon-arrow" aria-hidden="true"></i>
             </button>
 
+            
             <div>
                 <!-- <button  v-else-if="$route.path === '/editar-post'" @click="goToCreatePost" type="button" class="btn-icon add-edit-post">
                 <i class="fa fa-long-arrow-left icon-arrow" aria-hidden="true"></i>
@@ -17,8 +18,8 @@
                 </span>
             </button>
         </div>
-        <p class="create-post" v-if="$route.path === '/editar-post'">Editar/Apagar </p>
-        <p class="create-post" v-else-if="$route.path === '/criar-post'">Criar Post</p>
+        <p class="create-post" v-if="$route.path === '/editar-post'">{{ $t("POSTS.edit-delete") }}</p>
+        <p class="create-post" v-else-if="$route.path === '/criar-post'">{{ $t("POSTS.create-post") }}</p>
 
         <p class="create-post" v-else>Editar</p>
 
