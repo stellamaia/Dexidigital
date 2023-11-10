@@ -4,22 +4,39 @@
         <form class="login">
             <h2 class="title-login">Dexi Digital</h2>
             <div class="inputs">
-                <v-text-field type="email" class="input-email-login" v-model="email" :error-messages="emailErrors" label="E-mail"
+                <v-text-field type="email" class="input-email-login" v-model="email" :error-messages="emailErrors"      :label="$t('LOGIN.email')"
                     required @input="$v.email.$touch()" @blur="$v.email.$touch()" prepend-icon="mdi-email"></v-text-field>
 
                 <v-text-field type="password" class="input-password-login" v-model="password" :error-messages="passwordErrors"
-                    label="Senha" required @input="$v.password.$touch()" @blur="$v.password.$touch()"
+                :label="$t('LOGIN.password')" required @input="$v.password.$touch()" @blur="$v.password.$touch()"
                     prepend-icon="mdi-lock"></v-text-field>
 
                 <v-alert v-if="err" dense outlined type="error">
-                    E-mail ou senha incorreta.
+                    {{ $t("LOGIN.alert") }} 
+                    
                 </v-alert>
             </div>
-            <button @click="login" type="button" class="btn-login">Entrar</button>
+            <button @click="login" type="button" class="btn-login">     {{ $t("LOGIN.enter") }} </button>
             <div class="angle"></div>
 
         </form>
         <div class="background"></div>
+        <!-- <div class="d-flex align-items-center" v-if="showLocaleSwitcher">
+            <input type="radio" id="en" v-model="$i18n.locale" value="en" style="display: none">
+            <label for="en">
+
+              <button @click="switchLanguage('en')" class="me-2">
+                <img src="../assets/en-icon.svg" alt="USA">
+              </button>
+            </label>
+
+            <input type="radio" id="pt-BR" v-model="$i18n.locale" value="pt-BR" style="display: none">
+            <label for="pt-BR">
+              <button @click="switchLanguage('pt-BR')" class="me-2">
+                <img src="../assets/br-icon.svg" alt="Brazil">
+              </button>
+            </label>
+          </div> -->
     </div>
 </template>
   
@@ -52,7 +69,7 @@ export default {
                 v => !!v || "Senha é obrigatória",
                 v => v.length >= 6 || "Senha deve ter pelo menos 6 caracteres",
             ],
-
+            showLocaleSwitcher: true,
         };
     },
     computed: {
