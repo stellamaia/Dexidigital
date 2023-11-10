@@ -122,15 +122,14 @@
     "POSTS": {
         "the-importance-of-hiring": "A Importância de Contratar uma Empresa de Desenvolvimento de Software para Economizar com Projetos",
         "posted": "Postado em:",
-        "read-more":"Leia mais",
-        "edit-delete":"Editar/Apagar",
-        "create-post":"Criar post"
+        "read-more":"Leia mais"
 
     },
     "LOGIN": {
-        "email": "E-mail",
-        "password": "Senha",
-        "enter": "Entrar",
-        "alert": "E-mail ou senha incorreta."
+        "alert": "E-mail ou senha incorreta.",
+        "without-permission":"Sem permissão!",
+        "return-to":"Retornar para",
+        "sign-in":"Entrar"
+       
     }
 }
