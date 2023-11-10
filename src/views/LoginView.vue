@@ -4,19 +4,20 @@
         <form class="login">
             <h2 class="title-login">Dexi Digital</h2>
             <div class="inputs">
-                <v-text-field type="email" class="input-email-login" v-model="email" :error-messages="emailErrors"      :label="$t('LOGIN.email')"
-                    required @input="$v.email.$touch()" @blur="$v.email.$touch()" prepend-icon="mdi-email"></v-text-field>
+                <v-text-field type="email" class="input-email-login" v-model="email" :error-messages="emailErrors"
+                    label="E-mail" required @input="$v.email.$touch()" @blur="$v.email.$touch()"
+                    prepend-icon="mdi-email"></v-text-field>
 
-                <v-text-field type="password" class="input-password-login" v-model="password" :error-messages="passwordErrors"
-                :label="$t('LOGIN.password')" required @input="$v.password.$touch()" @blur="$v.password.$touch()"
-                    prepend-icon="mdi-lock"></v-text-field>
+                <v-text-field type="password" class="input-password-login" v-model="password"
+                    :error-messages="passwordErrors" label="Senha" required @input="$v.password.$touch()"
+                    @blur="$v.password.$touch()" prepend-icon="mdi-lock"></v-text-field>
 
                 <v-alert v-if="err" dense outlined type="error">
-                    {{ $t("LOGIN.alert") }} 
-                    
+                    E-mail ou senha incorreta.
+
                 </v-alert>
             </div>
-            <button @click="login" type="button" class="btn-login">     {{ $t("LOGIN.enter") }} </button>
+            <button @click="login" type="button" class="btn-login">Entrar </button>
             <div class="angle"></div>
 
         </form>
@@ -243,4 +244,5 @@ export default {
             display: initial;
         }
     }
-}</style>
+}
+</style>
