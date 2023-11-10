@@ -11,7 +11,7 @@
 
                             </v-col>
                             <v-col cols="6" sm="6" md="6" lg="6" xl="6">
-                                <v-select v-model="blogLanguage" :items="['en','pt-BR']" label="Linguagem"></v-select>
+                                <v-select v-model="blogLanguage" :items="['English','Português']" label="Linguagem"></v-select>
 
 
                             </v-col>
@@ -79,9 +79,10 @@ export default {
             }
             try {
                 const options = { year: "numeric", month: "long", day: "numeric" };
-                const date = "Postado em: " + new Date().toLocaleDateString(this.$store.state.language === 'en' ? 'en-US' : 'pt-BR', options);                const timestampInSeconds = Math.floor(+new Date() / 1000).toString();
-                this.blogLanguage === "en"
-                    ? await firebaseDb.doc("posts-en/" + timestampInSeconds)
+                const date = this.$t("POSTS.posted") + ' ' + new Date().toLocaleDateString(this.$store.state.language === 'en' ? 'en-US' : 'pt-BR', options);
+                const timestampInSeconds = Math.floor(+new Date() / 1000).toString();
+                if (this.blogLanguage === "en") {
+                    await firebaseDb.doc("posts-en/" + timestampInSeconds)
                         .set({
                             content: this.content,
                             title: this.blogTitle,
@@ -89,8 +90,18 @@ export default {
                             date: date,
                             id: timestampInSeconds,
                             language: this.blogLanguage
-                        })
-                    : await firebaseDb.doc("posts/" + timestampInSeconds)
+                        });
+                } else {
+                    await firebaseDb.doc("posts/" + timestampInSeconds)
+                        .set({
+                            content: this.content,
+                            title: this.blogTitle,
+                            pathImgOnFirebase: this.pathImgOnFirebase,
+                            date: date,
+                            id: timestampInSeconds,
+                            language: this.blogLanguage
+                        });
+                }
                 // Limpar o campo de conteúdo após o envio bem-sucedido
                 this.content = "";
                 this.blogTitle = "";
