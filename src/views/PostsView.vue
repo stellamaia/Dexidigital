@@ -1,7 +1,7 @@
 <template>
     <div>
 
-        <div v-if="posts && token">
+        <div v-if="posts">
             <NavBar :openedArticle="false" />
             <div>
                 <v-progress-circular v-if="loadingFirebaseValue" class="loading" indeterminate
