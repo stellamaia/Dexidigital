@@ -26,7 +26,7 @@
             </li>
 
           </ul>
-          <div class="d-flex align-items-center" v-if="openedArticle">
+          <div class="icon-language" v-if="openedArticle">
             <input type="radio" id="en" v-model="$i18n.locale" value="en" style="display: none">
             <label for="en">
 
@@ -34,7 +34,7 @@
                 <img src="../assets/en-icon.svg" alt="English">
               </button>
             </label>
-          
+
             <input type="radio" id="pt-BR" v-model="$i18n.locale" value="pt-BR" style="display: none">
             <label for="pt-BR">
               <button @click="switchLanguage('pt-BR')" class="me-2">
@@ -68,7 +68,7 @@ export default {
       type: Boolean,
       default: true
     }
- },
+  },
   methods: {
     switchLanguage(language) {
       this.$i18n.locale = language;
@@ -175,6 +175,12 @@ export default {
 
   justify-content: end;
   display: flex;
+}
+
+.icon-language {
+  display: flex;
+  align-items: center;
+  padding: 0 25px;
 }
 
 @media screen and (min-width: 575px) {
