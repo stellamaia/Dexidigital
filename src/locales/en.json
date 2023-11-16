@@ -4,30 +4,34 @@
     "content": "Contents"
   },
   "header": {
-    "title": "Quality and agility in",
-    "title-br": "secure applications",
-    "description": "Promote trust and brand loyalty",
-    "description-br": "through personalized experiences",
-    "contact-button": "Request a quote"
+    "title": "Strengthen Trust and Brand",
+    "title2":"Loyalty with Customized",
+    "title-br": "Digital Experiences ",
+    "description": " Excellence in Secure Applications",
+    "description-br": "with Agile Delivery",
+    "contact-button": "Get Your Customized Quote Now"
   },
   "services-section": {
     "our-services": "Our Services",
-    "dynamic-teams": "Dynamic teams for strategic projects, driving consistent growth for your company at the pace you need.",
+    "dynamic-teams": "Transform your vision into reality with our dynamic teams, dedicated to strategic projects that drive sustainable growth for your business.",
     "it-outsourcing": "IT Outsourcing",
-    "it-outsourcing-description": "Immense relevant knowledge is required to meet specific demands. Ideal for a well-defined and fail-safe scope, that's what should be discussed at the table in a perfect set!",
+    "it-outsourcing-description": "With deep, tailored expertise, we offer bespoke IT solutions, perfect for projects with a well-defined scope and flawless deliveries.",
     "mobile-applications": "Mobile Applications",
-    "mobile-applications-description": "Premium app development for various sectors, be it in native form (Android and iOS) or in a hybrid form (Flutter). We follow an agile methodology that enables us to deliver the desired app solutions on time.",
+    "mobile-applications-description": "Specializing in high-quality development for Android, iOS, and hybrid platforms, our agile methods ensure timely delivery of the app solutions you desire.",
     "development-squads": "Development Squads",
-    "development-squads-description": "With a specialized combination of technical knowledge and industry best practices, our team helps clients transform their digital journey through proper planning and competent execution of the outlined IT strategy.",
+    "development-squads-description": "Our team integrates advanced technical knowledge with industry best practices, supporting clients in digital transformation with strategic planning and efficient execution.",
     "digital-experience": "Digital Experience",
-    "digital-experience-description": "We bring together business, people, and technology, helping our clients create a comprehensive digital strategy, providing customer insights, and assisting in creating and enhancing a customer-friendly digital solution."
+    "digital-experience-description": "Connecting business, people, and technology, we develop comprehensive digital strategies, offering valuable insights and enhancing user-focused digital solutions."
   },
   "development-process-section": {
     "development-process": "Our software development process",
-    "development-process-description": "We specialize in aligning customer needs, business demands, and technical possibilities to disrupt the status quo. Our team of strategists uses a Design Sprint-centered methodology to identify opportunities, foster innovation, and uncover new digital ventures to drive growth beyond your core business, ensuring on-time delivery and project agility."
+    "development-process-description": "We unite client needs, business demands, and technical innovation to break through the conventional. Our Design Sprint-focused approach aims to identify opportunities, stimulate innovation, and explore new digital frontiers, ensuring agile and efficient delivery of your projects."
+
+
   },
+
   "footer": {
-    "description": "DEXI DIGITAL is a dynamic and innovative technology company dedicated to providing cutting-edge solutions for the digital world. Our team of qualified professionals is passionate about technology and committed to delivering top-notch products and services to our clients.",
+    "description": "At DEXI DIGITAL, we blend dynamism and innovation to deliver cutting-edge technology solutions. Our team, driven by a passion for technology and a commitment to excellence, elevates our clients' businesses to the next level.",
     "service-titles": "IT Outsourcing and Squads",
     "services": "Services",
     "development-squads": "Development Squads",

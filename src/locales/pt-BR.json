@@ -4,8 +4,9 @@
         "content": "Conteúdos"
     },
     "header": {
-        "title": "Qualidade e agilidade em ",
-        "title-br": "aplicações seguras",
+        "title": "Qualidade e Agilidade em ",
+        "title-br": "Aplicações Seguras",
+        "title2":"",
         "description": "Promova a confiança e a lealdade à marca",
         "description-br": "por meio de experiências personalizadas",
         "contact-button": "Solicitar um orçamento"
@@ -25,7 +26,7 @@
     "development-process-section": {
         "development-process": "Nosso processo de desenvolvimento de software",
         "development-process-description": "Somos especialistas em combinar as necessidades dos clientes, as demandas comerciais e as possibilidades técnicas para romper o status quo. Nossa equipe de estrategistas usa uma metodologia centrada no Design Sprint para identificar oportunidades, estimular a inovação e descobrir novos empreendimentos digitais para impulsionar o crescimento fora do seu negócio principal e garantir a entrega no prazo e a agilidade dos projetos."
-    },
+    }, 
     "footer": {
         "description": "A DEXI DIGITAL é uma empresa de tecnologia dinâmica e inovadora dedicada a fornecer soluções de ponta para o mundo digital. Nossa equipe de profissionais qualificados é apaixonada por tecnologia e comprometida em fornecer produtos e serviços de alto nível aos nossos clientes.",
         "service-titles": "Outsourcing de TI e Squads",
