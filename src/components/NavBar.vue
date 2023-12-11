@@ -24,6 +24,10 @@
                 $t("nav.content") }}
               </router-link>
             </li>
+             <!-- <li class="nav-item">
+              <router-link class="nav-link " to="/services" :class="{ 'active': $route.path === '/services' }">Services
+              </router-link>
+            </li> -->
 
           </ul>
           <div class="icon-language" v-if="openedArticle">
