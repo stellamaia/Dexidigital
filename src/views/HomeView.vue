@@ -24,6 +24,8 @@
       </div>
 
     </div>
+    <!-- <CarouselComponent /> -->
+
     <div class="details-services">
       <div class="services">
         <h1 class="custom-title-services">{{ $t("services-section.our-services") }}</h1>
@@ -91,7 +93,7 @@
           </v-card-text>
         </v-card>
       </div>
-    </div>
+    </div> 
     <div class="process-details">
       <h1 class="process-details-title"> {{ $t("development-process-section.development-process") }}</h1>
       <div class="process-details-subtitle-content">
@@ -173,7 +175,7 @@ import NavBar from '../components/NavBar'
 import FooterComponent from '../components/FooterComponent'
 import Vue from 'vue'
 import WhatsappButton from '../components/WhatsappButton.vue';
-
+// import CarouselComponent from '../components/CarouselComponent.vue';
 
 import VueMeta from 'vue-meta'
 Vue.use(VueMeta);
@@ -183,7 +185,8 @@ export default {
   components: {
     NavBar,
     FooterComponent,
-    WhatsappButton
+    WhatsappButton,
+    // CarouselComponent
   },
 
   mounted() {
@@ -514,7 +517,7 @@ export default {
 .process-details-subtitle-content {
   display: flex;
   justify-content: center;
-  
+
 }
 
 .custom-subtitle-services-content {
@@ -633,7 +636,7 @@ export default {
     font-size: 17px;
     padding: 10px 11px 10px 11px;
   }
- 
+
 }
 
 @media screen and (min-width: 769px) {
@@ -837,9 +840,10 @@ export default {
   .content-home {
     padding: 50px 20px;
   }
+
   .description-home,
   .description-home-br {
-   font-size: 20px;
+    font-size: 20px;
   }
 }
 
@@ -885,9 +889,10 @@ export default {
   .title {
     font-size: 42px !important;
   }
+
   .description-home,
   .description-home-br {
-   font-size: 28px;
+    font-size: 28px;
   }
 }
 
@@ -903,8 +908,9 @@ export default {
 
   .description-home,
   .description-home-br {
-   font-size: 27px;
+    font-size: 27px;
   }
+
   .content-home-image {
     padding: 80px 0px 0 15%;
   }
@@ -941,10 +947,12 @@ export default {
   .title {
     font-size: 49px !important;
   }
+
   .description-home,
   .description-home-br {
-   font-size: 27px;
+    font-size: 27px;
   }
+
   .content-home-image {
     padding: 80px 0px 0 20%;
   }
