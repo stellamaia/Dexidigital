@@ -181,7 +181,7 @@ export default {
 }
 </script> 
 
-<style >
+<style scoped >
 .page-no-access {
     text-align: center;
     padding-top: 20%;
