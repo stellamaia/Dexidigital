@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import BlogView from '../views/BlogView.vue'
+import ServicesView from '../views/ServicesView.vue'
 import FormView from '../views/FormView.vue'
 import PostsView from '../views/PostsView.vue'
 import CreatePost from '../views/CreatePost.vue'
@@ -10,6 +11,7 @@ import LoginView from '../views/LoginView.vue'
 import EditPost from '../views/EditPost.vue'
 import PostEditPage from '../views/PostEditPage.vue'
 import PrivacyPolicy from '../views/PrivacyPolicy.vue'
+import ItOutsourcing from '../views/ItOutsourcing.vue'
 
 Vue.use(VueRouter)
 
@@ -23,6 +25,11 @@ const routes = [
     path: '/blog',
     name: 'blog',
     component: BlogView
+  },
+  {
+    path: '/services',
+    name: 'services',
+    component: ServicesView
   },
   {
     path: '/fale-conosco',
@@ -63,6 +70,11 @@ const routes = [
     path: '/politica-de-privacidade',
     name: 'PrivacyPolicy',
     component: PrivacyPolicy
+  },
+  {
+    path: '/it-outsourcing',
+    name: 'it-outsourcing',
+    component: ItOutsourcing
   }
 ]
 
