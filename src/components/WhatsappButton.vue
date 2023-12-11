@@ -28,6 +28,7 @@ export default {
     background: #25d366;
     position: fixed;
     bottom: 20px;
+    z-index: 1;
     right: 20px;
     color: white !important;
     font-size: 40px;
