@@ -11,8 +11,7 @@
 
                             </v-col>
                             <v-col cols="6" sm="6" md="6" lg="6" xl="6">
-                                <v-select v-model="blogLanguage" :items="['English','Português']" label="Linguagem"></v-select>
-
+                                <v-select v-model="blogLanguage" :items="itemsLanguage" label="Linguagem"></v-select>
 
                             </v-col>
                             <v-col cols="12" sm="12" md="12" lg="8" xl="4">
@@ -64,7 +63,19 @@ export default {
             blogTitle: '',
             blogImgUrl: '',
             blogLanguage: 'pt-BR',
-            err: null // O conteúdo do editor será armazenado aqui
+            err: null ,
+            itemsLanguage:[
+                {
+                    text: 'Português',
+                    value: 'pt-BR'
+
+                },
+                {
+                    text: 'Inglês',
+                    value: 'en'
+                }
+            ]
+           
         };
 
     },
