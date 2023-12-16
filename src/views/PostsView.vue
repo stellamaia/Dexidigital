@@ -1,7 +1,7 @@
 <template>
     <div>
 
-        <div v-if="posts">
+        <div v-if="posts" class="posts">
             <NavBar :openedArticle="false" />
             <div>
                 <v-progress-circular v-if="loadingFirebaseValue" class="loading" indeterminate
@@ -29,7 +29,7 @@
                 <FooterComponent />
             </div>
         </div>
-        <div v-else class="page-no-access">
+        <div v-else class="page-no-access posts-no-access">
             <h1 class="no-access">{{ $t("LOGIN.without-permission") }}</h1>
             <router-link class="return-login" to="/entrar">
                 <p class="title-login">{{ $t("LOGIN.return-to") }} <span class="login">{{ $t("LOGIN.sign-in") }}</span></p>
@@ -123,6 +123,7 @@ export default {
 }
 </script>
 <style scoped>
+
 .content-blog {
     padding: 90px 0 90px 0;
     background-color: #f1f1f1;
@@ -184,7 +185,7 @@ export default {
 }
 
 .content-post {
-
+padding-top: 120px!important;
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -225,7 +226,7 @@ export default {
 
 @media screen and (max-width: 768px) {
     .content-post {
-        padding: 70px 30px 60px 30px !important;
+        padding: 120px 30px 60px 30px !important;
     }
 
     .content-no-card {
@@ -241,7 +242,7 @@ export default {
 
 @media screen and (min-width: 769px) {
     .content-post {
-        padding: 70px 140px 60px 140px;
+        padding: 120px 140px 60px 140px;
     }
 
     .content-no-card {

@@ -14,18 +14,59 @@
                                 <v-select v-model="blogLanguage" :items="itemsLanguage" label="Linguagem"></v-select>
 
                             </v-col>
-                            <v-col cols="12" sm="12" md="12" lg="8" xl="4">
-                                <v-file-input v-model="imageControl" :disabled="!blogTitle"
-                                    :style="{ opacity: blogTitle ? 1 : 0.5, width: '199' }"
-                                    :label="blogImgUrl || loadingImage ? null : 'Selecione uma Imagem'" type="file"
-                                    accept="image/*" id="files" name="files[]" multiple @change="uploadFile()" class="input"
-                                    outlined dense></v-file-input>
 
-                                <!-- <router-link :to="{ path: '/outra-pagina', query: { blogImgUrl: blogImgUrl } }"
-                                >Ir para Outra Página</router-link>        -->
-                            </v-col>
                         </v-row>
                     </div>
+                    <v-row>
+                        <v-col cols="6" sm="6" md="6" lg="6" xl="6">
+                            <v-menu ref="menu1" v-model="menu1" :close-on-content-click="false" :nudge-right="40" lazy
+                                transition="scale-transition" offset-y full-width max-width="290px" min-width="290px">
+                                <template v-slot:activator="{ on }">
+                                    <v-text-field v-model="dateFormatted" label="Data de Publicação"
+                                        hint="MM/DD/YYYY format" persistent-hint @blur="date = parseDate(dateFormatted)"
+                                        v-on="on"></v-text-field>
+                                </template>
+                                <v-date-picker v-model="date" no-title @input="menu1 = false"></v-date-picker>
+                            </v-menu>
+
+                        </v-col>
+
+                        <v-col cols="6" sm="6" md="6" lg="6" xl="6">
+
+                            <v-menu ref="menu" v-model="menu2" :close-on-content-click="false" :nudge-right="40"
+                                :return-value.sync="time" lazy transition="scale-transition" offset-y full-width
+                                max-width="290px" min-width="290px">
+                                <template v-slot:activator="{ on }">
+                                    <v-text-field v-model="time" label="Hora da Publicação" readonly
+                                        v-on="on"></v-text-field>
+                                </template>
+                                <v-time-picker v-if="menu2" v-model="time" format="24hr" full-width
+                                    @click:minute="$refs.menu.save(time)"></v-time-picker>
+                            </v-menu>
+
+                        </v-col>
+                    </v-row>
+                    <v-row>
+                        <v-col cols="12" sm="12" md="12" lg="8" xl="4">
+                            <v-file-input v-model="imageControl" :disabled="!blogTitle"
+                                :style="{ opacity: blogTitle ? 1 : 0.5, width: '199' }"
+                                :label="blogImgUrl || loadingImage ? null : 'Selecione uma Imagem'" type="file"
+                                accept="image/*" id="files" name="files[]" multiple @change="uploadFile()" class="input"
+                                outlined dense></v-file-input>
+
+                            <!-- <router-link :to="{ path: '/outra-pagina', query: { blogImgUrl: blogImgUrl } }"
+                                >Ir para Outra Página</router-link>        -->
+                        </v-col>
+                    </v-row>
+
+                    <!-- <v-row>
+                        <v-col cols="6" sm="6" md="6" lg="6" xl="6">
+                            <v-date-picker v-model="scheduledDate" label="Data de Agendamento"></v-date-picker>
+                        </v-col>
+                        <v-col cols="6" sm="6" md="6" lg="6" xl="6">
+                            <v-time-picker v-model="scheduledTime" format="24hr" label="Hora de Agendamento"></v-time-picker>
+                        </v-col>
+                    </v-row> -->
                 </div>
                 <v-img v-if="imageControl !== 0" :src="blogImgUrl" :height="200" alt=" Imagem do
                 Blog"></v-img>
@@ -74,7 +115,10 @@ export default {
                     text: 'Inglês',
                     value: 'en'
                 }
-            ]
+            ],
+            menu1: false,
+            time: null,
+            menu2: false,
            
         };
 

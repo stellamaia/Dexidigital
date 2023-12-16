@@ -252,7 +252,7 @@ div p img {
 }
 
 .content-blog {
-  padding: 70px 20px;
+  padding: 120px 20px 70px 20px!important;
   background-color: #f1f1f1;
   display: flex;
   flex-direction: row-reverse;
@@ -322,13 +322,13 @@ div p img {
   }
 
   .content-blog {
-    padding: 20px !important;
+    padding: 120px 20px 20px 20px !important;
   }
 }
 
 @media screen and (max-width: 481px) {
   .content-blog {
-    padding-top: 50px !important;
+    padding-top: 120px  !important;
   }
 }
 
