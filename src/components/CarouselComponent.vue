@@ -126,13 +126,13 @@ export default {
 
 
 
-        // onSwiper(swiper) {
-        //     swiper.on('afterInit', () => {
-        //         this.swiperInstance = swiper;
-        //         // Chame nextSlide após a inicialização completa do Swiper
-        //         this.nextSlide();
-        //     });
-        // },
+    //    onSwiper(swiper) {
+    //        swiper.on('afterInit', () => {
+    //            this.swiperInstance = swiper;
+    //             // Chame nextSlide após a inicialização completa do Swiper
+    //              this.nextSlide();
+    //          });
+    //      },
     },
     mounted() {
         // Obtenha a instância do Swiper usando refs
@@ -152,7 +152,8 @@ export default {
     
 <style scoped>
 .stella {
-
+position: relative;
+z-index: 1;
     justify-content: center !important;
     display: flex;
     height: 50px;
@@ -301,7 +302,7 @@ export default {
 @media screen and (min-width: 1201px) {
     .title-services{
         font-size: 18.5px!important;
-        background-color: rgb(132, 216, 255);
+        /* background-color: rgb(132, 216, 255); */
     
     }
 
@@ -347,7 +348,7 @@ export default {
     width: 100%;
     justify-content: center !important;
     display: flex;
-
+    z-index: 1;
     height: 100%;
     margin-left: 0;
     margin-right: 0;

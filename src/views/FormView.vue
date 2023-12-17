@@ -238,7 +238,7 @@ export default {
 }
 
 .content-form {
-    padding: 50px 20px 50px 20px;
+    padding: 120px 20px 50px 20px;
 }
 
 .content-form-title {

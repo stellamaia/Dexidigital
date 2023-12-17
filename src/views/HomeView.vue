@@ -12,10 +12,15 @@
         <p class="description-home-br"> {{ $t("header.description-br") }} </p>
       </div>
       <div class="content-btn-contact">
-        <router-link class="nav-link active btn-contact" to="/fale-conosco"> {{ $t("header.contact-button") }}
-        </router-link>
 
+        <router-link class="nav-link active btn-contact" to="/fale-conosco">
+          <button>
+            {{ $t("header.contact-button") }}
+          </button>
+        </router-link>
       </div>
+
+
 
       <div>
         <div class="background-image-content">
@@ -24,8 +29,8 @@
       </div>
 
     </div>
-    <!-- <CarouselComponent /> -->
-
+    <CarouselComponent />
+    <!-- 
     <div class="details-services">
       <div class="services">
         <h1 class="custom-title-services">{{ $t("services-section.our-services") }}</h1>
@@ -93,7 +98,7 @@
           </v-card-text>
         </v-card>
       </div>
-    </div> 
+    </div>  -->
     <div class="process-details">
       <h1 class="process-details-title"> {{ $t("development-process-section.development-process") }}</h1>
       <div class="process-details-subtitle-content">
@@ -175,7 +180,7 @@ import NavBar from '../components/NavBar'
 import FooterComponent from '../components/FooterComponent'
 import Vue from 'vue'
 import WhatsappButton from '../components/WhatsappButton.vue';
-// import CarouselComponent from '../components/CarouselComponent.vue';
+import CarouselComponent from '../components/CarouselComponent.vue';
 
 import VueMeta from 'vue-meta'
 Vue.use(VueMeta);
@@ -186,7 +191,7 @@ export default {
     NavBar,
     FooterComponent,
     WhatsappButton,
-    // CarouselComponent
+    CarouselComponent
   },
 
   mounted() {
@@ -412,6 +417,8 @@ export default {
   font-style: normal;
   line-height: 1.3em;
   margin: 0;
+  padding: 120px 0 10px 0;
+
 }
 
 .title {
@@ -565,7 +572,8 @@ export default {
 }
 
 .content-home-image {
-  padding: 0 0px 0 50px;
+
+  padding: 0px 0px 0 50px !important;
 }
 
 @media screen and (min-width:320px) and (max-width: 480px) {
@@ -649,7 +657,7 @@ export default {
 
 @media screen and (min-width: 767px) {
   .title-home {
-    padding: 0 20px 0px 20px;
+    padding: 120px 20px 0px 20px;
   }
 
   .title {
@@ -674,7 +682,7 @@ export default {
   .title-home {
     font-size: 2rem;
     text-align: center;
-    padding: 50px 0 10px 0;
+    padding: 120px 0 10px 0;
   }
 
   .title {
@@ -720,7 +728,7 @@ export default {
   }
 
   .title-home {
-    padding-top: 40px !important;
+    padding-top: 120px !important;
     font-size: 23px;
   }
 
@@ -752,7 +760,7 @@ export default {
   }
 
   .title-home {
-    padding-top: 40px !important;
+    padding-top: 120px !important;
     font-size: 36px;
   }
 
@@ -785,7 +793,7 @@ export default {
 @media screen and (min-width: 1201px) {
 
   .title-home {
-    padding-top: 40px !important;
+    padding-top: 120px !important;
     font-size: 42px;
   }
 
@@ -882,7 +890,7 @@ export default {
   }
 
   .title-home {
-    padding-top: 40px !important;
+    padding-top: 120px !important;
     font-size: 42px;
   }
 
@@ -898,7 +906,7 @@ export default {
 
 @media screen and (min-width: 1921px) and (max-width: 2400px) {
   .title-home {
-    padding-top: 40px !important;
+    padding-top: 120px !important;
     font-size: 50px;
   }
 
@@ -940,7 +948,7 @@ export default {
   }
 
   .title-home {
-    padding-top: 40px !important;
+    padding-top: 120px !important;
     font-size: 65px;
   }
 
@@ -954,7 +962,7 @@ export default {
   }
 
   .content-home-image {
-    padding: 80px 0px 0 20%;
+    padding: 80px 0px 0 20% !important;
   }
 
   .background-image {
@@ -965,4 +973,5 @@ export default {
     display: flex;
     justify-content: end;
   }
-}</style>
+}
+</style>

@@ -24,12 +24,28 @@
                 $t("nav.content") }}
               </router-link>
             </li>
-             <!-- <li class="nav-item">
+            <!-- <li class="nav-item">
               <router-link class="nav-link " to="/services" :class="{ 'active': $route.path === '/services' }">Services
               </router-link>
             </li> -->
 
+
           </ul>
+
+          <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+      data-bs-toggle="dropdown" aria-expanded="false">
+      Serviços
+    </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li><a class="dropdown-item" href="/it-outsourcing">it Outsourcing</a></li>
+              <li><a class="dropdown-item" href="/aplicativos-mobile">Aplicativos Mobile</a></li>
+              <li><a class="dropdown-item" href="/squad-de-desenvolvimento">squad-de-desenvolvimento</a></li>
+              <li><a class="dropdown-item" href="/experiencia-digital">experiencia-digital</a></li>
+            </ul>
+          </div>
+
+
           <div class="icon-language" v-if="openedArticle">
             <input type="radio" id="en" v-model="$i18n.locale" value="en" style="display: none">
             <label for="en">
@@ -82,6 +98,7 @@ export default {
       }, 300);
 
     },
+   
     // setLanguageToPortuguese() {
     //   this.switchLanguage('pt-BR');
     // },
@@ -108,7 +125,10 @@ export default {
 }
 
 .navbar {
-  z-index: 2;
+  z-index: 2 !important;
+  position: fixed;
+  width: 100%;
+
 }
 
 .offcanvas {
@@ -185,6 +205,35 @@ export default {
   display: flex;
   align-items: center;
   padding: 0 25px;
+}
+a#dropdownMenuLink{
+color: #000000;
+background: none;
+    border: none;
+    padding: 0;
+
+}
+.dropdown {
+    padding-top: 8px;
+}
+ul.dropdown-menu.show{
+  background-color: rebeccapurple;
+
+display: none!important;  
+}
+.dropdown-menu {
+  display: none; /* Inicia oculto por padrão */
+  
+}
+
+.dropdown:hover .dropdown-menu {
+  
+  display: block; /* Mostra apenas quando o dropdown está sendo hover */
+  padding-left: 0;
+  border: none;
+  box-shadow:0 1px 5px 0px rgb(0 0 0 / 17%);
+  
+  
 }
 
 @media screen and (min-width: 575px) {

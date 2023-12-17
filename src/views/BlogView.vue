@@ -2,18 +2,18 @@
   <div>
     <NavBar />
     <div class="content-blog" :class="{ 'no-card-height': arrayComValoresDoFirebase.length === 0 }">
-      
+
       <v-progress-circular v-if="loadingFirebaseValue" class="loading" indeterminate
-          color="primary"></v-progress-circular>
-     <div class="content-no-card" v-else-if="arrayComValoresDoFirebase.length === 0">
+        color="primary"></v-progress-circular>
+      <div class="content-no-card" v-else-if="arrayComValoresDoFirebase.length === 0">
         <p class="text-no-card">Não há nenhum card para exibir.</p>
-      </div> 
-
-      <v-card v-for="(item, index) in arrayComValoresDoFirebase" :key="index" class="mx-auto content-card"
+      </div>
+      <v-card v-show="verifyCanPost(item?.dateHourToPost) "  v-for="(item, index) in arrayComValoresDoFirebase" :key="index" class="mx-auto content-card"
         @click="navigateToBlog(item)">
-
-        <v-img class="img-blog" :src="getCardImage(item.pathImgOnFirebase)"></v-img>
-        <v-card-text>
+ 
+        <v-img  class="img-blog"
+          :src="getCardImage(item.pathImgOnFirebase)"></v-img>
+        <v-card-text >
           <div class="infos">
             <p class="title-blog" v-html="item.title"></p>
             <p class="title-data" v-html="item.date"></p>
@@ -100,6 +100,14 @@ export default {
     }
   },
   methods: {
+    verifyCanPost(dateHourToPost) {
+      const today = new Date();
+      const postDate = this.convertTimestampToDate(dateHourToPost);
+  
+
+      const canPost = today >= new Date(postDate);
+      return canPost;
+    },
     navigateToBlog(item) {
       this.$router.push({
         path: `/posts/${encodeURIComponent(item.title)}`,
@@ -134,52 +142,60 @@ export default {
       this.arrayComValoresDoFirebase = []; // Limpa a array antes de adicionar novos posts
 
       firebaseDb.collection(this.$store.state.language === 'en' ? 'posts-en' : 'posts').get()
-      .then((querySnapshot) => {
-       this.loadingFirebaseValue = false;
-        querySnapshot.forEach((doc) => {
-          const post = doc.data();
-          this.arrayComValoresDoFirebase.push(post);
+        .then((querySnapshot) => {
+          this.loadingFirebaseValue = false;
+          querySnapshot.forEach((doc) => {
+            const post = doc.data();
+            this.arrayComValoresDoFirebase.push(post);
+          });
+          return this.getDonwloadUrlAndSetblogImgUrl();
         });
-        return this.getDonwloadUrlAndSetblogImgUrl();
-      });
     },
     formatDate(date) {
       const options = { year: 'numeric', month: 'long', day: 'numeric' };
       return 'Postado em: ' + new Date(date).toLocaleDateString('pt-BR', options);
     },
 
-      editPost(post) {
-        // Aqui você pode abrir um diálogo/modal de edição do post com os campos preenchidos
-        // E depois atualizar o post no Firebase
-        // Por exemplo:
-        const updatedPost = { ...post, title: "Novo Título", content: "Novo conteúdo" };
+    editPost(post) {
+      // Aqui você pode abrir um diálogo/modal de edição do post com os campos preenchidos
+      // E depois atualizar o post no Firebase
+      // Por exemplo:
+      const updatedPost = { ...post, title: "Novo Título", content: "Novo conteúdo" };
 
-        // Atualizar o post no Firebase
-        firebaseDb.collection(this.$store.state.language === 'en' ? 'posts-en' : 'posts').doc(post.id).update(updatedPost)
-          .then(() => {
-            console.log('Post atualizado com sucesso');
-          })
-          .catch(error => {
-            console.error('Erro ao atualizar o post:', error);
-          });
-      },
+      // Atualizar o post no Firebase
+      firebaseDb.collection(this.$store.state.language === 'en' ? 'posts-en' : 'posts').doc(post.id).update(updatedPost)
+        .then(() => {
+          console.log('Post atualizado com sucesso');
+        })
+        .catch(error => {
+          console.error('Erro ao atualizar o post:', error);
+        });
+    },
 
-      deletePost(post) {
-        // Excluir o post do Firebase
-        firebaseDb.collection(this.$store.state.language === 'en' ? 'posts-en' : 'posts').doc(post.id).delete()
-          .then(() => {
-            console.log('Post excluído com sucesso');
-          })
-          .catch(error => {
-            console.error('Erro ao excluir o post:', error);
-          });
-      }
-    
+    deletePost(post) {
+      // Excluir o post do Firebase
+      firebaseDb.collection(this.$store.state.language === 'en' ? 'posts-en' : 'posts').doc(post.id).delete()
+        .then(() => {
+          console.log('Post excluído com sucesso');
+        })
+        .catch(error => {
+          console.error('Erro ao excluir o post:', error);
+        });
+    },
+    convertTimestampToDate(timestamp) {
+      const seconds = timestamp?.seconds;
+      const milliseconds = seconds * 1000;
+
+      // Criar uma instância de Date usando os milissegundos
+      const date = new Date(milliseconds);
+
+      return date;
+    }
+
   }
 }
 </script>
 <style scoped>
-
 ::v-deep.v-progress-circular>svg {
   width: auto !important;
   position: relative;
@@ -252,7 +268,7 @@ div p img {
 }
 
 .content-blog {
-  padding: 70px 20px;
+  padding: 120px 20px 70px 20px !important;
   background-color: #f1f1f1;
   display: flex;
   flex-direction: row-reverse;
@@ -322,13 +338,13 @@ div p img {
   }
 
   .content-blog {
-    padding: 20px !important;
+    padding: 120px 20px 20px 20px !important;
   }
 }
 
 @media screen and (max-width: 481px) {
   .content-blog {
-    padding-top: 50px !important;
+    padding-top: 120px !important;
   }
 }
 
@@ -364,4 +380,5 @@ div p img {
   transform: rotate(-1deg) scale(1.01);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, .1), 0 2px 4px -1px rgba(0, 0, 0, .06);
 
-}</style>
+}
+</style>
