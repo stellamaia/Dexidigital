@@ -26,7 +26,8 @@
                                         hint="MM/DD/YYYY format" persistent-hint @blur="date = parseDate(dateFormatted)"
                                         v-on="on"></v-text-field>
                                 </template>
-                                <v-date-picker v-model="date" no-title @input="menu1 = false"></v-date-picker>
+                                <v-date-picker :locale="ptBR" v-model="date" no-title
+                                    @input="menu1 = false"></v-date-picker>
                             </v-menu>
 
                         </v-col>
@@ -55,21 +56,21 @@
                                 outlined dense></v-file-input>
 
                             <!-- <router-link :to="{ path: '/outra-pagina', query: { blogImgUrl: blogImgUrl } }"
-                                >Ir para Outra Página</router-link>        -->
+                        >Ir para Outra Página</router-link>        -->
                         </v-col>
                     </v-row>
 
                     <!-- <v-row>
-                        <v-col cols="6" sm="6" md="6" lg="6" xl="6">
-                            <v-date-picker v-model="scheduledDate" label="Data de Agendamento"></v-date-picker>
-                        </v-col>
-                        <v-col cols="6" sm="6" md="6" lg="6" xl="6">
-                            <v-time-picker v-model="scheduledTime" format="24hr" label="Hora de Agendamento"></v-time-picker>
-                        </v-col>
-                    </v-row> -->
+                    <v-col cols="6" sm="6" md="6" lg="6" xl="6">
+                        <v-date-picker v-model="scheduledDate" label="Data de Agendamento"></v-date-picker>
+                    </v-col>
+                    <v-col cols="6" sm="6" md="6" lg="6" xl="6">
+                        <v-time-picker v-model="scheduledTime" format="24hr" label="Hora de Agendamento"></v-time-picker>
+                    </v-col>
+                </v-row> -->
                 </div>
                 <v-img v-if="imageControl !== 0" :src="blogImgUrl" :height="200" alt=" Imagem do
-                Blog"></v-img>
+            Blog"></v-img>
                 <v-progress-linear v-if="loadingImage && imageControl !== 0" indeterminate
                     color="primary"></v-progress-linear>
                 <vue-editor v-model="content"></vue-editor>
@@ -89,6 +90,7 @@
 import { VueEditor } from "vue2-editor";
 import { firebaseDb } from "../firebaseConfig";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import ptBR from 'date-fns/locale/pt-BR';
 
 export default {
     name: 'QuillEditor',
@@ -104,8 +106,8 @@ export default {
             blogTitle: '',
             blogImgUrl: '',
             blogLanguage: 'pt-BR',
-            err: null ,
-            itemsLanguage:[
+            err: null,
+            itemsLanguage: [
                 {
                     text: 'Português',
                     value: 'pt-BR'
@@ -116,14 +118,30 @@ export default {
                     value: 'en'
                 }
             ],
-            menu1: false,
+
             time: null,
+
+            date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+            dateFormatted: this.formatDate((new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10)),
+            ptBR: ptBR,
+            menu1: false,
             menu2: false,
-           
+            dateHourToPost: null
+
         };
 
     },
+    computed: {
+        computedDateFormatted() {
+            return this.formatDate(this.date)
+        },
+    },
 
+    watch: {
+        date() {
+            this.dateFormatted = this.formatDate(this.date)
+        },
+    },
     methods: {
         async sendToFirebase() {
             this.err = null; // Limpa o erro anterior antes de tentar novamente
@@ -136,6 +154,9 @@ export default {
                 const options = { year: "numeric", month: "long", day: "numeric" };
                 const date = this.$t("POSTS.posted") + ' ' + new Date().toLocaleDateString(this.$store.state.language === 'en' ? 'en-US' : 'pt-BR', options);
                 const timestampInSeconds = Math.floor(+new Date() / 1000).toString();
+
+                this.setDateHourToPost();
+
                 if (this.blogLanguage === "en") {
                     await firebaseDb.doc("posts-en/" + timestampInSeconds)
                         .set({
@@ -144,7 +165,8 @@ export default {
                             pathImgOnFirebase: this.pathImgOnFirebase,
                             date: date,
                             id: timestampInSeconds,
-                            language: this.blogLanguage
+                            language: this.blogLanguage,
+                            dateHourToPost: this.dateHourToPost
                         });
                 } else {
                     await firebaseDb.doc("posts/" + timestampInSeconds)
@@ -154,7 +176,8 @@ export default {
                             pathImgOnFirebase: this.pathImgOnFirebase,
                             date: date,
                             id: timestampInSeconds,
-                            language: this.blogLanguage
+                            language: this.blogLanguage,
+                            dateHourToPost: this.dateHourToPost
                         });
                 }
                 // Limpar o campo de conteúdo após o envio bem-sucedido
@@ -162,9 +185,11 @@ export default {
                 this.blogTitle = "";
                 this.blogImgUrl = "";
                 this.pathImgOnFirebase = "";
-                this.blogLanguage = ""
+                this.blogLanguage = "";
+                this.dateHourToPost = "";
 
                 this.$router.push("/editar-post");
+
             } catch (error) {
                 this.err = error;
             }
@@ -199,6 +224,23 @@ export default {
                 this.loadingImage = false;
             }
 
+        },
+        formatDate(date) {
+            if (!date) return null
+            const [year, month, day] = date.split('-')
+
+            return `${month}/${day}/${year}`
+
+        },
+        parseDate(date) {
+            if (!date) return null
+            const [month, day, year] = date.split('/')
+            return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
+        },
+        setDateHourToPost() {
+            this.dateHourToPost = new Date(this.dateFormatted);
+            this.dateHourToPost?.setHours(this.time.split(':')[0]);
+            this.dateHourToPost?.setMinutes(this.time.split(':')[1]);
         }
     },
 }
@@ -206,9 +248,9 @@ export default {
 
 <style >
 /* .blog-info {
-        display: flex;
-
-    } */
+    display: flex;
+    
+} */
 .v-image.v-responsive.theme--light {
     display: none;
 }
