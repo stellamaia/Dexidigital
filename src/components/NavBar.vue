@@ -32,18 +32,18 @@
 
           </ul>
 
-          <div class="dropdown">
+          <!-- <div class="dropdown">
             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-      data-bs-toggle="dropdown" aria-expanded="false">
-      Serviços
-    </a>
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Serviços
+            </a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <li><a class="dropdown-item" href="/it-outsourcing">it Outsourcing</a></li>
               <li><a class="dropdown-item" href="/aplicativos-mobile">Aplicativos Mobile</a></li>
               <li><a class="dropdown-item" href="/squad-de-desenvolvimento">squad-de-desenvolvimento</a></li>
               <li><a class="dropdown-item" href="/experiencia-digital">experiencia-digital</a></li>
             </ul>
-          </div>
+          </div> -->
 
 
           <div class="icon-language" v-if="openedArticle">
@@ -98,7 +98,7 @@ export default {
       }, 300);
 
     },
-   
+
     // setLanguageToPortuguese() {
     //   this.switchLanguage('pt-BR');
     // },
@@ -206,34 +206,40 @@ export default {
   align-items: center;
   padding: 0 25px;
 }
-a#dropdownMenuLink{
-color: #000000;
-background: none;
-    border: none;
-    padding: 0;
+
+a#dropdownMenuLink {
+  color: #000000;
+  background: none;
+  border: none;
+  padding: 0;
 
 }
+
 .dropdown {
-    padding-top: 8px;
+  padding-top: 8px;
 }
-ul.dropdown-menu.show{
+
+ul.dropdown-menu.show {
   background-color: rebeccapurple;
 
-display: none!important;  
+  display: none !important;
 }
+
 .dropdown-menu {
-  display: none; /* Inicia oculto por padrão */
-  
+  display: none;
+  /* Inicia oculto por padrão */
+
 }
 
 .dropdown:hover .dropdown-menu {
-  
-  display: block; /* Mostra apenas quando o dropdown está sendo hover */
+
+  display: block;
+  /* Mostra apenas quando o dropdown está sendo hover */
   padding-left: 0;
   border: none;
-  box-shadow:0 1px 5px 0px rgb(0 0 0 / 17%);
-  
-  
+  box-shadow: 0 1px 5px 0px rgb(0 0 0 / 17%);
+
+
 }
 
 @media screen and (min-width: 575px) {
@@ -257,5 +263,4 @@ display: none!important;
     padding: 0 50px 0 50px;
   }
 
-}
-</style>
+}</style>
