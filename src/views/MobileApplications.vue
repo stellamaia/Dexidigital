@@ -5,7 +5,7 @@
         <div class="it-outsourcing-container">
             <div class="it-outsourcing-title-container">
 
-                <p class="it-outsourcing-title">Outsourcing de TI</p>
+                <p class="it-outsourcing-title">Aplicativos Mobile</p>
             </div>
         </div>
 
@@ -31,7 +31,6 @@
                     suporte:</p>
             </div>
         </div>
-        <!-- <GradientWaveTop /> -->
 
         <div class="it-outsourcing-list">
             <div class="it-outsourcing-list-img-top"></div>
@@ -79,7 +78,6 @@
 
         </div>
         <div class="it-outsourcing-list-img-bottom"></div>
-        <!-- <GradientWaveBottom /> -->
         <div class="it-outsourcing-img-container">
             <img class="it-outsourcing-img" src="../assets/it-outsourcing.png" alt="">
         </div>
@@ -93,8 +91,7 @@
             <p class="advantages-of-outsourcing-subtitle">Há várias vantagens em escolher a Dexi Digital como seu parceiro
                 de Outsourcing de TI:</p>
         </div>
-        <!-- <GradientWaveTop /> -->
-        <!-- <img src="../assets/top.svg" alt="" class="it-outsourcing-list-img"> -->
+    
 
         <div class="it-outsourcing-list">
             <div class="it-outsourcing-list-img-top"></div>
@@ -139,7 +136,6 @@
         <div class="it-outsourcing-list-img-bottom"></div>
         <div class="it-outsourcing-list-ul">
         </div>
-        <!-- <GradientWaveBottom /> -->
 
         <p class="advantages-of-outsourcing-description">O Outsourcing de TI é uma estratégia inteligente para empresas
             que desejam manter sua vantagem competitiva e garantir a eficiência operacional. A Dexi Digital está aqui
@@ -162,16 +158,14 @@
 <script>
 import NavBar from '../components/NavBar.vue'
 import FooterComponent from '../components/FooterComponent.vue'
-// import GradientWaveTop from '@/components/GradientWaveTop.vue';
-// import GradientWaveBottom from '@/components/GradientWaveBottom.vue';
+
 import FormButton from '@/components/FormButton.vue';
 export default {
-    name: 'ItOutsourcing',
+    name: 'MobileApplications',
     components: {
         NavBar,
         FooterComponent,
-        // GradientWaveTop,
-        // GradientWaveBottom,
+      
         FormButton
     }
 

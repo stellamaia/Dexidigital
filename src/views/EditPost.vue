@@ -29,7 +29,7 @@
 
           </div>
 
-          <div class="content-blog flex-row-reverse">
+          <div class="content-blog ">
             <v-card v-for="(item, index) in arrayComValoresDoFirebase" :key="index" class="mx-auto content-card">
               <div class="icons">
                 <v-btn @click="editPost(item)" class="icon">
@@ -44,7 +44,8 @@
               <v-card-text>
                 <div class="infos">
                   <p class="title-blog" v-html="item.title"></p>
-                  <p class="title-data" v-html="item.date"></p>
+                  <p class="title-data" v-html="item.dateHourToPost ? formatDateHour(item.dateHourToPost) : item.date">
+                  </p>
                   <p v-html="truncateText(item.content, 150)"></p>
                   <div class="content-arrow">
                     <div class="links"> {{ $t("POSTS.read-more") }} » </div>
@@ -92,7 +93,10 @@ import { doc, deleteDoc } from "firebase/firestore";
 
 export default {
   name: 'EditPost',
+  return: {
+    languageParam: null,
 
+  },
   components: {
     NavBarPost
 
@@ -104,7 +108,9 @@ export default {
   // },
 
   created() {
-    this.getPostsFromFirebase();
+    // this.getPostsFromFirebase();
+    const language = this.$route.params.language || 'en';
+    this.getPostsFromFirebase(language);
   },
   mounted() {
     // Exemplo de rastreamento de uma visualização de página
@@ -181,23 +187,72 @@ export default {
         return text;
       }
     },
-    getPostsFromFirebase() {
-      this.loadingFirebaseValue = true;
-      this.arrayComValoresDoFirebase = []; // Limpa a array antes de adicionar novos posts
+    // getPostsFromFirebase() {
+    //   this.loadingFirebaseValue = true;
+    //   this.arrayComValoresDoFirebase = []; // Limpa a array antes de adicionar novos posts
 
-      firebaseDb.collection(this.$store.state.language === 'en' ? 'posts-en' : 'posts').get()
-        .then((querySnapshot) => {
-          this.loadingFirebaseValue = false;
-          querySnapshot.forEach((doc) => {
-            const post = doc.data();
-            this.arrayComValoresDoFirebase.push(post);
-          });
-          return this.getDonwloadUrlAndSetblogImgUrl();
-        });
+    //    firebaseDb.collection(this.$store.state.language === 'en' ? 'posts-en' : 'posts').get()
+    //      .then((querySnapshot) => {
+    //        this.loadingFirebaseValue = false;
+    //        querySnapshot.forEach((doc) => {
+    //          const post = doc.data();
+    //          this.arrayComValoresDoFirebase.push(post);
+    //        });
+    //        return this.getDonwloadUrlAndSetblogImgUrl();
+    //      });
+    //  },
+
+    getPostsFromFirebase() {
+   this.loadingFirebaseValue = true;
+   this.arrayComValoresDoFirebase = [];  // Limpa a array antes de adicionar novos posts
+
+   firebaseDb.collection(this.$store.state.language === 'en' ? 'posts-en' : 'posts').get()
+     .then((querySnapshot) => {
+       querySnapshot.forEach((doc) => {
+         const post = doc.data();
+         this.arrayComValoresDoFirebase.push(post);
+       });
+
+        //Filtra e ordena as datas
+         this.arrayComValoresDoFirebase = this.arrayComValoresDoFirebase
+           .filter(item => item.dateHourToPost)
+           .sort((a, b) => {
+             const dateA = new Date(a.dateHourToPost.seconds * 1000);
+             const dateB = new Date(b.dateHourToPost.seconds * 1000);
+             return dateA - dateB;
+           });
+
+         return this.getDonwloadUrlAndSetblogImgUrl();
+       })
+       .finally(() => {
+         this.loadingFirebaseValue = false;
+       });
+   },
+    formatDateHour(date) {
+      const hasPosted = this.verifyCanPost(date);
+
+      if (this.$store.state.language === 'pt-BR') {
+        return hasPosted ? 'Postado em: ' + new Date(date.seconds * 1000).toLocaleDateString('pt-BR') : 'Será postado em: ' + new Date(date.seconds * 1000).toLocaleDateString('pt-BR');
+      } else {
+        return hasPosted ? 'Posted in: ' + new Date(date.seconds * 1000).toLocaleDateString('en-US') : 'Will be posted in: ' + new Date(date.seconds * 1000).toLocaleDateString('en-US');
+      }
     },
     formatDate(date) {
       const options = { year: 'numeric', month: 'long', day: 'numeric' };
       return 'Postado em: ' + new Date(date).toLocaleDateString('pt-BR', options);
+    },
+    verifyCanPost(dateHourToPost) {
+      const today = new Date();
+      const postDate = this.convertTimestampToDate(dateHourToPost);
+      const canPost = today >= new Date(postDate);
+      return canPost;
+    },
+    convertTimestampToDate(timestamp) {
+      const seconds = timestamp?.seconds;
+      const milliseconds = seconds * 1000;
+      // Criar uma instância de Date usando os milissegundos
+      const date = new Date(milliseconds);
+      return date;
     },
     editPost(post) {
 
@@ -222,11 +277,14 @@ export default {
     switchLanguage(language) {
       this.$i18n.locale = language;
       this.$store.commit('setLanguage', language);
+      const newRoute = language === 'en' ? '/editar-post/en' : '/editar-post/pt-BR';
+      this.$router.push(newRoute);
       setTimeout(() => {
         location.reload();
       }, 300);
 
     },
+
   }
 }
 </script>
@@ -417,12 +475,12 @@ button.icon.v-btn.v-btn--is-elevated.v-btn--has-bg.theme--light.v-size--default 
 
 .content-blog {
 
-  flex-direction: row-reverse;
-
+ 
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
+
 
 .no-posts {
   text-align: center;

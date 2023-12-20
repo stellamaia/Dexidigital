@@ -16,7 +16,7 @@
         <v-card-text >
           <div class="infos">
             <p class="title-blog" v-html="item.title"></p>
-            <p class="title-data" v-html="item.date"></p>
+            <p class="title-data" v-html="item.dateHourToPost ? formatDateHour(item.dateHourToPost) : item.date"></p>
             <p v-html="truncateText(item.content, 150)"></p>
             <div class="content-arrow">
               <div class="links"> {{ $t("POSTS.read-more") }}» </div>
@@ -103,8 +103,6 @@ export default {
     verifyCanPost(dateHourToPost) {
       const today = new Date();
       const postDate = this.convertTimestampToDate(dateHourToPost);
-  
-
       const canPost = today >= new Date(postDate);
       return canPost;
     },
@@ -136,20 +134,55 @@ export default {
         return text;
       }
     },
+    // getPostsFromFirebase() {
+    //   this.loadingFirebaseValue = true;
+
+    //   this.arrayComValoresDoFirebase = []; // Limpa a array antes de adicionar novos posts
+
+    //   firebaseDb.collection(this.$store.state.language === 'en' ? 'posts-en' : 'posts').get()
+    //     .then((querySnapshot) => {
+    //       this.loadingFirebaseValue = false;
+    //       querySnapshot.forEach((doc) => {
+    //         const post = doc.data();
+    //         this.arrayComValoresDoFirebase.push(post);
+    //       });
+    //       return this.getDonwloadUrlAndSetblogImgUrl();
+    //     });
+    // },
     getPostsFromFirebase() {
-      this.loadingFirebaseValue = true;
+  this.loadingFirebaseValue = true;
 
-      this.arrayComValoresDoFirebase = []; // Limpa a array antes de adicionar novos posts
+  this.arrayComValoresDoFirebase = []; // Limpa a array antes de adicionar novos posts
 
-      firebaseDb.collection(this.$store.state.language === 'en' ? 'posts-en' : 'posts').get()
-        .then((querySnapshot) => {
-          this.loadingFirebaseValue = false;
-          querySnapshot.forEach((doc) => {
-            const post = doc.data();
-            this.arrayComValoresDoFirebase.push(post);
-          });
-          return this.getDonwloadUrlAndSetblogImgUrl();
-        });
+  firebaseDb.collection(this.$store.state.language === 'en' ? 'posts-en' : 'posts').get()
+    .then((querySnapshot) => {
+      this.loadingFirebaseValue = false;
+      querySnapshot.forEach((doc) => {
+        const post = doc.data();
+        this.arrayComValoresDoFirebase.push(post);
+      });
+
+      // Sorting the array based on dateHourToPost
+      this.arrayComValoresDoFirebase.sort((a, b) => {
+        if (a.dateHourToPost && b.dateHourToPost) {
+          return a.dateHourToPost.seconds - b.dateHourToPost.seconds;
+        } else {
+          return 0;
+        }
+      });
+
+      return this.getDonwloadUrlAndSetblogImgUrl();
+    });
+},
+    
+    formatDateHour(date) {
+      const hasPosted = this.verifyCanPost(date);
+
+      if (this.$store.state.language === 'pt-BR') {
+        return hasPosted ? 'Postado em: ' + new Date(date.seconds * 1000).toLocaleDateString('pt-BR') : 'Será postado em: ' + new Date(date.seconds * 1000).toLocaleDateString('pt-BR');
+      } else {
+        return hasPosted ? 'Posted in: ' + new Date(date.seconds * 1000).toLocaleDateString('en-US') : 'Will be posted in: ' + new Date(date.seconds * 1000).toLocaleDateString('en-US');
+      }
     },
     formatDate(date) {
       const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -271,10 +304,12 @@ div p img {
   padding: 120px 20px 70px 20px !important;
   background-color: #f1f1f1;
   display: flex;
-  flex-direction: row-reverse;
+  /* flex-direction: row-reverse; */
   flex-wrap: wrap;
   justify-content: center;
+  flex-direction: inherit;
 }
+
 
 .no-posts {
   text-align: center;

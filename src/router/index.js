@@ -12,6 +12,7 @@ import EditPost from '../views/EditPost.vue'
 import PostEditPage from '../views/PostEditPage.vue'
 import PrivacyPolicy from '../views/PrivacyPolicy.vue'
 import ItOutsourcing from '../views/ItOutsourcing.vue'
+import MobileApplications from '../views/MobileApplications.vue'
 
 Vue.use(VueRouter)
 
@@ -57,10 +58,20 @@ const routes = [
   //   component: SignView
   // },
   {
+    path: '/editar-post/:language',
+    name: 'edit-post',
+    component: EditPost
+  },
+  {
     path: '/editar-post',
     name: 'edit-post',
     component: EditPost
   },
+  // {
+  //   path: '/edit-post/en/:language',
+  //   name: 'edit-post-en',
+  //   component: EditPost,
+  // },
   {
     path: '/pagina-de-edicao/:postId',
     name: 'post-edit-page',
@@ -75,6 +86,11 @@ const routes = [
     path: '/it-outsourcing',
     name: 'it-outsourcing',
     component: ItOutsourcing
+  },
+  {
+    path: '/mobile-applications',
+    name: 'mobile-applications',
+    component: MobileApplications
   }
 ]
 
