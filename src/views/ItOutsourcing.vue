@@ -21,16 +21,22 @@
                 software.
             </p>
             <div class="it-outsourcing-services-title-container">
-                <p class="it-outsourcing-services-title">Nossos Serviços de Outsourcing de TI</p>
+                <h2 class="it-outsourcing-services-title-span   ">
+                    <span class="it-outsourcing-services-title">Nossos Serviços de</span>  
+                     Outsourcing de TI</h2>
+               
                 <p class="it-outsourcing-services-description">Nossos serviços de Outsourcing de TI são abrangentes e
                     adaptados
                     às necessidades específicas de cada cliente. Aqui estão algumas das principais áreas em que oferecemos
                     suporte:</p>
             </div>
         </div>
-        <GradientWaveTop />
+        <!-- <GradientWaveTop /> -->
+
         <div class="it-outsourcing-list">
-            <ul>
+            <div class="it-outsourcing-list-img-top"></div>
+
+            <ul style="margin-top: 0; margin-bottom: 0;">
                 <li class="it-outsourcing-list-item">
                     <span class="it-outsourcing-list-item-strong">
                         Suporte Técnico 24/7:
@@ -72,18 +78,27 @@
             </ul>
 
         </div>
-        <GradientWaveBottom />
+        <div class="it-outsourcing-list-img-bottom"></div>
+        <!-- <GradientWaveBottom /> -->
         <div class="it-outsourcing-img-container">
             <img class="it-outsourcing-img" src="../assets/it-outsourcing.png" alt="">
         </div>
         <div class="advantages-of-outsourcing-container">
-            <p class="advantages-of-outsourcing-title">Vantagens do Outsourcing de TI com a Dexi Digital</p>
+            <h2 class="advantages-of-outsourcing-title-span   ">
+                    <span class="advantages-of-outsourcing-title">Vantagens do Outsourcing de TI com a</span>  
+                    Dexi Digital</h2>
+
+
+
             <p class="advantages-of-outsourcing-subtitle">Há várias vantagens em escolher a Dexi Digital como seu parceiro
                 de Outsourcing de TI:</p>
         </div>
-        <GradientWaveTop />
+        <!-- <GradientWaveTop /> -->
+        <!-- <img src="../assets/top.svg" alt="" class="it-outsourcing-list-img"> -->
+
         <div class="it-outsourcing-list">
-            <ul>
+            <div class="it-outsourcing-list-img-top"></div>
+            <ul style="margin-top: 0; margin-bottom: 0;">
                 <li class="it-outsourcing-list-item">
                     <span class="it-outsourcing-list-item-strong">
                         Experiência e Expertise:
@@ -120,24 +135,26 @@
 
             </ul>
 
-
         </div>
-        <GradientWaveBottom />
+        <div class="it-outsourcing-list-img-bottom"></div>
+        <div class="it-outsourcing-list-ul">
+        </div>
+        <!-- <GradientWaveBottom /> -->
 
-            <p class="advantages-of-outsourcing-description">O Outsourcing de TI é uma estratégia inteligente para empresas
-                que desejam manter sua vantagem competitiva e garantir a eficiência operacional. A Dexi Digital está aqui
-                para ser seu parceiro de confiança no mundo da tecnologia.</p>
+        <p class="advantages-of-outsourcing-description">O Outsourcing de TI é uma estratégia inteligente para empresas
+            que desejam manter sua vantagem competitiva e garantir a eficiência operacional. A Dexi Digital está aqui
+            para ser seu parceiro de confiança no mundo da tecnologia.</p>
 
-               <div class="advantages-of-outsourcing-description-container">
-                <p class="advantages-of-outsourcing-description-background">
-                    Entre em contato conosco hoje mesmo para saber
+        <div class="advantages-of-outsourcing-description-container">
+            <p class="advantages-of-outsourcing-description-background">
+                Entre em contato conosco hoje mesmo para saber
                 mais sobre como nossos serviços de Outsourcing de TI podem beneficiar sua empresa.
-                </p>
+            </p>
 
-        <div class="form-button-container">
-        <FormButton/>
-     </div>
-               </div>
+            <div class="form-button-container">
+                <FormButton />
+            </div>
+        </div>
         <FooterComponent />
 
     </div>
@@ -145,16 +162,16 @@
 <script>
 import NavBar from '../components/NavBar.vue'
 import FooterComponent from '../components/FooterComponent.vue'
-import GradientWaveTop from '@/components/GradientWaveTop.vue';
-import GradientWaveBottom from '@/components/GradientWaveBottom.vue';
+// import GradientWaveTop from '@/components/GradientWaveTop.vue';
+// import GradientWaveBottom from '@/components/GradientWaveBottom.vue';
 import FormButton from '@/components/FormButton.vue';
 export default {
     name: 'ItOutsourcing',
     components: {
         NavBar,
         FooterComponent,
-        GradientWaveTop,
-        GradientWaveBottom,
+        // GradientWaveTop,
+        // GradientWaveBottom,
         FormButton
     }
 
@@ -168,7 +185,7 @@ export default {
 
 .it-outsourcing {
     padding: 50px;
-    /* background: linear-gradient(90deg,#f7fcff 0,#2a5affad)!important; */
+    font-size: left;
 }
 
 .it-outsourcing-title-container {
@@ -207,16 +224,23 @@ ul li:before {
     border-radius: 50%;
 }
 
-.it-outsourcing-services-title {
+.it-outsourcing-services-title,.advantages-of-outsourcing-title {
 
     padding: 0;
     font-size: 40px;
     font-weight: 700;
+
     background: linear-gradient(to right, #158BBF 0%, #4A00E0 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
+.it-outsourcing-services-title-span,.advantages-of-outsourcing-title-span{
+    padding: 0;
+    font-size: 40px;
+    font-weight: 700;
+   color: black;
+}
 
 .it-outsourcing-services-description {
     font-size: 20px;
@@ -227,10 +251,20 @@ ul li:before {
 
 }
 
+
+
 .it-outsourcing-list {
     background-color: #38b6ed;
-    /* border-radius: 30px; */
-    padding: 20px ;
+    /* background-image: url('../assets/top1.png'); */
+    background-image: url('../assets/top2.png');
+    padding-top: 70px;
+}
+
+
+.it-outsourcing-list-img-bottom {
+    background-image: url('../assets/bottom2.png');
+    height: 100px;
+    width: 100%;
 }
 
 .it-outsourcing-list-item {
@@ -263,40 +297,75 @@ ul li:before {
 
 }
 
-.advantages-of-outsourcing-title {
-    padding: 0;
-    font-size: 40px;
-    font-weight: 700;
-    background: linear-gradient(to right, #158BBF 0%, #4A00E0 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
 
-.advantages-of-outsourcing-subtitle {
-
+.advantages-of-outsourcing-description {
     font-size: 20px;
     color: #5c5c5c;
-}.advantages-of-outsourcing-description {
-    font-size: 20px;
-    color: #5c5c5c;
-    padding:  50px;
+    padding: 50px;
 }
-.advantages-of-outsourcing-description-container{
+
+.advantages-of-outsourcing-description-container {
     background-color: #38B6ED;
 }
-.advantages-of-outsourcing-description-background{
+
+.advantages-of-outsourcing-description-background {
     font-size: 30px;
     color: #FFFFFF;
-  
+
     font-weight: 300;
     line-height: 43px;
     padding: 50px 50px 20px 50px;
 }
 
-.form-button-container{
+.form-button-container {
     justify-content: center;
     display: flex;
-    padding-bottom:60px;
-   
+    padding-bottom: 60px;
+
 }
-</style>
+
+@media screen and (max-width: 480px) {
+    .it-outsourcing {
+        padding: 50px 20px;
+    }
+    .it-outsourcing-img {
+        height: auto;
+    width: 100%;
+    padding: 0 20px;
+    
+}
+.it-outsourcing-img-container{
+    padding: 20px 0;
+}
+.advantages-of-outsourcing-container{
+    padding: 0 20px;
+}
+.advantages-of-outsourcing-title-span{
+    padding: 20px 0;
+}
+p.advantages-of-outsourcing-subtitle{
+    margin: 0;
+    padding-bottom: 50px;
+}
+.advantages-of-outsourcing-description{
+    padding: 20px 20px 40px 20px;
+}
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .it-outsourcing-img {
+        height: auto;
+    width: 100%;
+    padding: 0 20px;
+    
+}
+}
+@media screen and (min-width:769px) and (max-width: 1024px) {
+    .it-outsourcing-img {
+        height: auto;
+    width: 100%;
+    padding: 0 20px;
+    
+}
+}
+ </style>
