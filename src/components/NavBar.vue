@@ -31,19 +31,19 @@
 
 
           </ul>
-
-          <!-- <div class="dropdown">
+<!-- 
+           <div class="dropdown">
             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
               data-bs-toggle="dropdown" aria-expanded="false">
               Serviços
             </a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <li><a class="dropdown-item" href="/it-outsourcing">it Outsourcing</a></li>
-              <li><a class="dropdown-item" href="/aplicativos-mobile">Aplicativos Mobile</a></li>
+              <li><a class="dropdown-item" href="/mobile-applications">Aplicativos Mobile</a></li>
               <li><a class="dropdown-item" href="/squad-de-desenvolvimento">squad-de-desenvolvimento</a></li>
               <li><a class="dropdown-item" href="/experiencia-digital">experiencia-digital</a></li>
             </ul>
-          </div> -->
+          </div>  -->
 
 
           <div class="icon-language" v-if="openedArticle">
@@ -217,6 +217,8 @@ a#dropdownMenuLink {
 
 .dropdown {
   padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 24px;
 }
 
 ul.dropdown-menu.show {
@@ -242,12 +244,22 @@ ul.dropdown-menu.show {
 
 }
 
-@media screen and (min-width: 575px) {
-  .nav-item {
-    display: flex;
+@media screen and (max-width: 575px) {
+
+  .dropdown{
+    padding-left: 24px;
   }
 
 }
+
+@media screen and (min-width: 576px) {
+
+  .dropdown{
+    padding-left: 0;
+  }
+
+}
+
 
 @media screen and (max-width: 576px) {
 
