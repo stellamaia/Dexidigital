@@ -26,8 +26,8 @@
                                         hint="MM/DD/YYYY format" persistent-hint @blur="date = parseDate(dateFormatted)"
                                         v-on="on"></v-text-field>
                                 </template>
-                                <v-date-picker :locale="ptBR" v-model="date" no-title
-                                    @input="menu1 = false"></v-date-picker>
+                                <v-date-picker :locale="ptBR" v-model="date" no-title @input="menu1 = false"
+                                    :format="customDateFormat"></v-date-picker>
                             </v-menu>
 
                         </v-col>
@@ -126,8 +126,8 @@ export default {
             ptBR: ptBR,
             menu1: false,
             menu2: false,
-            dateHourToPost: null
-
+            dateHourToPost: null,
+            customDateFormat: 'DD/MM/YYYY' // Adicione o formato desejado aqui
         };
 
     },
@@ -141,6 +141,12 @@ export default {
         date() {
             this.dateFormatted = this.formatDate(this.date)
         },
+        // $route(to) {
+        //     // Verifica a rota atual e ajusta a linguagem do seletor
+        //     if (to.name === 'edit-post' && to.params.language) {
+        //         this.blogLanguage = to.params.language;
+        //     }
+        // }
     },
     methods: {
         async sendToFirebase() {
@@ -152,7 +158,8 @@ export default {
             }
             try {
                 const options = { year: "numeric", month: "long", day: "numeric" };
-                const date = this.$t("POSTS.posted") + ' ' + new Date().toLocaleDateString(this.$store.state.language === 'en' ? 'en-US' : 'pt-BR', options);
+                const postedName = this.blogLanguage === 'en' ? "Posted in " : "Postado em ";
+                const date = postedName + new Date().toLocaleDateString(this.blogLanguage === "en" ? 'en-US' : 'pt-BR', options);
                 const timestampInSeconds = Math.floor(+new Date() / 1000).toString();
 
                 this.setDateHourToPost();
@@ -180,19 +187,30 @@ export default {
                             dateHourToPost: this.dateHourToPost
                         });
                 }
-                // Limpar o campo de conteúdo após o envio bem-sucedido
-                this.content = "";
-                this.blogTitle = "";
-                this.blogImgUrl = "";
-                this.pathImgOnFirebase = "";
-                this.blogLanguage = "";
-                this.dateHourToPost = "";
+ 
+                // this.$router.push("/editar-post");
 
-                this.$router.push("/editar-post");
+                const language = this.blogLanguage;
+                const routeName = 'edit-post';
+                // this.switchLanguage(language);
+
+                this.$i18n.locale = language;
+                this.$store.commit('setLanguage', language);
+                this.cleanForm();
+                this.$router.push({ name: routeName, params: { language: language } });
 
             } catch (error) {
                 this.err = error;
             }
+        },
+        
+        cleanForm() {
+            this.content = "";
+            this.blogTitle = "";
+            this.blogImgUrl = "";
+            this.pathImgOnFirebase = "";
+            this.blogLanguage = "";
+            this.dateHourToPost = "";
         },
         async getDonwloadUrlAndSetblogImgUrl() {
             const storage = getStorage();
@@ -225,24 +243,57 @@ export default {
             }
 
         },
+        // formatDate(date) {
+        //     if (!date) return null
+        //     const [year, month, day] = date.split('-')
+
+        //     return `${month}/${day}/${year}`
+
+        // },
         formatDate(date) {
-            if (!date) return null
+            if (!date) return null;
             const [year, month, day] = date.split('-')
+            // Ajuste para o formato DD/MM/YYYY
+            return `${day.padStart(2, '0')}/${month.padStart(2, '0')}/${year}`;
 
-            return `${month}/${day}/${year}`
-
-        },
-        parseDate(date) {
+        }, parseDate(date) {
             if (!date) return null
             const [month, day, year] = date.split('/')
             return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
         },
+
+        // setDateHourToPost() {
+        //     this.dateHourToPost = new Date(this.dateFormatted);
+        //     this.dateHourToPost?.setHours(this.time.split(':')[0]);
+        //     this.dateHourToPost?.setMinutes(this.time.split(':')[1]);
+        // },
         setDateHourToPost() {
-            this.dateHourToPost = new Date(this.dateFormatted);
-            this.dateHourToPost?.setHours(this.time.split(':')[0]);
-            this.dateHourToPost?.setMinutes(this.time.split(':')[1]);
-        }
+            //Certifique-se de que a data e a hora estão definidas antes de criar a nova data
+            if (this.dateFormatted && this.time) {
+                const [day, month, year] = this.dateFormatted.split('/');
+                const [hours, minutes] = this.time.split(':');
+
+                // Certifique-se de que todos os valores são numéricos
+                const numericValues = [day, month, year, hours, minutes].map(Number);
+
+                // Verifique se há algum NaN (Not a Number) nos valores
+                if (!numericValues.some(isNaN)) {
+                    //             // Crie a nova data com os valores extraídos
+                    this.dateHourToPost = new Date(numericValues[2], numericValues[1] - 1, numericValues[0], numericValues[3], numericValues[4]);
+                } else {
+                    console.error('Valores não numéricos encontrados ao criar a data.');
+                }
+            } else {
+                console.error('Data ou hora não definidas ao criar a data.');
+            }
+        },
     },
+    created() {
+        // Atualiza a linguagem com base na rota ao criar o componente
+        if (this.$route.name === 'edit-post' && this.$route.params.language) {
+            this.blogLanguage = this.$route.params.language;
+        }
+    }
 }
 </script> 
 
