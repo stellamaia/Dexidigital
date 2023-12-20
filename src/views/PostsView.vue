@@ -140,11 +140,11 @@ export default {
 }
 
 .title-login {
-  color: #158BBF;
+    color: #158BBF;
 }
 
 .login {
-  font-weight: 800;
+    font-weight: 800;
 }
 .no-card-height {
     height: calc(100vh - 300px);
@@ -185,7 +185,7 @@ export default {
 }
 
 .content-post {
-padding-top: 120px!important;
+    padding-top: 120px!important;
     font-family: 'Quicksand', sans-serif;
 }
 
