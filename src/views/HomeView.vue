@@ -29,9 +29,9 @@
       </div>
 
     </div>
-    <!-- <CarouselComponent /> -->
+    <CarouselComponent /> 
   
-    <div class="details-services">
+    <!-- <div class="details-services">
       <div class="services">
         <h1 class="custom-title-services">{{ $t("services-section.our-services") }}</h1>
         <div class="custom-subtitle-services-content">
@@ -98,7 +98,7 @@
           </v-card-text>
         </v-card>
       </div>
-    </div> 
+    </div>  -->
     <div class="process-details">
       <h1 class="process-details-title"> {{ $t("development-process-section.development-process") }}</h1>
       <div class="process-details-subtitle-content">
@@ -180,7 +180,7 @@ import NavBar from '../components/NavBar'
 import FooterComponent from '../components/FooterComponent'
 import Vue from 'vue'
 import WhatsappButton from '../components/WhatsappButton.vue';
-// import CarouselComponent from '../components/CarouselComponent.vue';
+import CarouselComponent from '../components/CarouselComponent.vue';
 
 import VueMeta from 'vue-meta'
 Vue.use(VueMeta);
@@ -191,7 +191,7 @@ export default {
     NavBar,
     FooterComponent,
     WhatsappButton,
-    // CarouselComponent
+     CarouselComponent
   },
 
   mounted() {
