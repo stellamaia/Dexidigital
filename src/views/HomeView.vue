@@ -29,9 +29,9 @@
       </div>
 
     </div>
-     <CarouselComponent />  
-<!--   
-     <div class="details-services">
+    <CarouselComponent /> 
+  
+    <!-- <div class="details-services">
       <div class="services">
         <h1 class="custom-title-services">{{ $t("services-section.our-services") }}</h1>
         <div class="custom-subtitle-services-content">
@@ -100,7 +100,7 @@
       </div>
     </div>  -->
     <div class="process-details">
-      <h1 class="process-details-title"  v-html="$t('development-process-section.development-process')"> </h1>
+      <h1 class="process-details-title"> {{ $t("development-process-section.development-process") }}</h1>
       <div class="process-details-subtitle-content">
         <p class="process-details-subtitle"> {{ $t("development-process-section.development-process-description") }}</p>
       </div>

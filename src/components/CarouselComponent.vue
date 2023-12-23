@@ -12,7 +12,7 @@
             <swiper :options="swiperOptions" ref="mySwiper" class="teste" style="margin-right: 0;">
 
                 <swiper-slide v-for="item in items" :key="item.id" >
-             <!-- <router-link :to="item.link">  -->
+                    <!-- <router-link :to="item.link"> -->
                     <div class=" teste-dois">
                         <v-card class="mx-auto content-card-home">
                             <v-card-text class="information-services-content">
@@ -25,7 +25,7 @@
                             </div>
                         </v-card>
                     </div>
-            <!-- </router-link>  -->
+                <!-- </router-link> -->
                 </swiper-slide>
             </swiper>
 
@@ -72,11 +72,11 @@ export default {
                 }, breakpoints: {
                     640: {
                         slidesPerView: 1,
-                        spaceBetween: 40,
+                        spaceBetween: 10,
                     },
                     768: {
                         slidesPerView: 2,
-                        spaceBetween:40,
+                        spaceBetween: 40,
                     },
                     1024: {
                         slidesPerView: 2,
@@ -93,9 +93,9 @@ export default {
                 },
             },
             items: [
-                { id: 1, title: "services-section.it-outsourcing", src: require('../assets/img-1.png'), alt: "Outsourcing de TI",  link: "/outsourcing-de-ti" },
+                { id: 1, title: "services-section.it-outsourcing", src: require('../assets/img-1.png'), alt: "Outsourcing de TI",  link: "/it-outsourcing" },
                 { id: 2, title: "services-section.mobile-applications", src: require('../assets/img-2.png'), alt: "Aplicativos Mobile",  link: "/aplicativos-mobile" },
-                { id: 3, title: "services-section.development-squads", src: require('../assets/img-3.png'), alt: "Squads de Desenvolvimento", link: "/squad de-desenvolvimento" },
+                { id: 3, title: "services-section.development-squads", src: require('../assets/img-3.png'), alt: "Squads de Desenvolvimento", link: "/squad-de-desenvolvimento" },
                 { id: 4, title: "services-section.digital-experience", src: require('../assets/img-4.png'), alt: "Experiência Digital", link: "/experiencia-digital" },
                 // Adicione mais itens conforme necessário
             ],
@@ -182,13 +182,6 @@ z-index: 1;
 }
 
 
-.title-services {
-    font-size: 14px;
-    text-align: center;
-    color: #2b2b2b;
-    font-weight: bold;
-
-}
 .custom-subtitle-services-content {
     display: flex;
     justify-content: center;
@@ -213,16 +206,15 @@ z-index: 1;
 }
 @media screen and  (min-width: 320px)  and (max-width: 640px) {
     .title-services{
-        font-size: 18px!important;
+        font-size: 24px!important;
+        background-color: red;
     
-    }
-    .content-card-home{
-        padding: 20px 10px 20px 10px;
     }
 }
 @media screen and (min-width: 640px) and (max-width: 768px) {
     .title-services{
         font-size: 12px!important;
+        background-color: rgb(120, 199, 98);
     
     }
     .content-card-home{
@@ -256,6 +248,7 @@ z-index: 1;
     }
     .title-services{
         font-size:15px!important;
+        background-color: rgb(98, 100, 199);
     
     }
     .content-card-home{
@@ -277,6 +270,7 @@ z-index: 1;
     }
     .title-services{
         font-size: 21px!important;
+        background-color: rgb(98, 172, 199);
     
     }
     .content-card-home{
@@ -292,6 +286,8 @@ z-index: 1;
 
     .title-services{
         font-size: 14px!important;
+        background-color: rgb(199, 167, 98);
+    
     }
     .custom-title-services {
         padding-top: 20px;
@@ -374,11 +370,18 @@ z-index: 1;
 .img-services {
     width: 150px;
     height: 150px;
+
     align-items: center;
 
 }
 
 
+.title-services {
+    font-size: 14px;
+    text-align: center;
+    color: #5a5757;
+
+}
 .v-application a{
     text-decoration: none!important;
 }
@@ -430,7 +433,6 @@ z-index: 1;
 .swiper-next:after {
     font-size: 13px;
     color: #158BBF !important;
-    font-weight: bold!important;
 }
 
 .swiper-prev:hover,

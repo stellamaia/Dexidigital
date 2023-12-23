@@ -31,19 +31,19 @@
 
 
           </ul>
-
-           <!-- <div class="dropdown">
+<!-- 
+           <div class="dropdown">
             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
               data-bs-toggle="dropdown" aria-expanded="false">
               Serviços
             </a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <li><a class="dropdown-item" href="/outsourcing-de-ti">it Outsourcing</a></li>
-              <li><a class="dropdown-item" href="/aplicativos-mobile">Aplicativos Mobile</a></li>
-              <li><a class="dropdown-item" href="/squad-de-desenvolvimento">Squad de Desenvolvimento</a></li>
-              <li><a class="dropdown-item" href="/experiencia-digital">Experiencia Digital</a></li>
+              <li><a class="dropdown-item" href="/it-outsourcing">it Outsourcing</a></li>
+              <li><a class="dropdown-item" href="/mobile-applications">Aplicativos Mobile</a></li>
+              <li><a class="dropdown-item" href="/squad-de-desenvolvimento">squad-de-desenvolvimento</a></li>
+              <li><a class="dropdown-item" href="/experiencia-digital">experiencia-digital</a></li>
             </ul>
-          </div>   -->
+          </div>  -->
 
 
           <div class="icon-language" v-if="openedArticle">
