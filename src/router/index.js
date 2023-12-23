@@ -13,6 +13,8 @@ import PostEditPage from '../views/PostEditPage.vue'
 import PrivacyPolicy from '../views/PrivacyPolicy.vue'
 import ItOutsourcing from '../views/ItOutsourcing.vue'
 import MobileApplications from '../views/MobileApplications.vue'
+import DevelopmentSquads from '../views/DevelopmentSquads.vue'
+import DigitalExperience from '../views/DigitalExperience.vue'
 
 Vue.use(VueRouter)
 
@@ -83,14 +85,25 @@ const routes = [
     component: PrivacyPolicy
   },
   {
-    path: '/it-outsourcing',
-    name: 'it-outsourcing',
+    path: '/outsourcing-de-ti',
+    name: 'ItOutsourcing',
     component: ItOutsourcing
   },
   {
-    path: '/mobile-applications',
+    path: '/aplicativos-mobile',
     name: 'mobile-applications',
     component: MobileApplications
+  },
+  {
+    path: '/squad-de-desenvolvimento',
+    name: 'development-squads',
+    component: DevelopmentSquads
+  },
+  {
+    path: '/experiencia-digital',
+    name: 'experiencia-digital',
+    component: DigitalExperience
+
   }
 ]
 
